@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <title>Relax</title>
 </head>
+
 <body>
   <header class="header">
     <div class="player">
@@ -23,6 +25,30 @@
       <button class="slide-prev slider-icon"></button>
       <button class="slide-next slider-icon"></button>
     </div>
+      <section class="main-timer">
+        <h1 id="timerH"></h1>
+        <span class="timer"></span>
+        <div class="controls">
+          <button id="launch">►</button>
+          <button id="stop">❙❙</button>
+          <button id="clear">◼</button>
+        </div>
+        <div class="timerline"></div>
+      </section>
+      <label id="hide-toggle" for="hidden">Настройки</label>
+      <input id="hidden" type="checkbox">
+      <section class="customize">
+        <div class="buttonset">
+          <h2 class="wr-heading" id="cust-w-head">Длина отдыха</h2>
+          <button id="wless">-</button>
+          <div id="workTime"></div>
+          <button id="wmore">+</button>
+        </div>
+      </section>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" />
+    </div>
   </main>
   <footer class="footer">
     <button class="change-quote"></button>
@@ -33,4 +59,5 @@
   </footer>
   <script src="js/script.js"></script>
 </body>
+
 </html>
