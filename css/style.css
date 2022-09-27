@@ -30,12 +30,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 120px;
+    width: 180px;
     margin-bottom: 28px;
 }
 
 .play-list {
     text-align: left;
+    margin-left: 30px;
+    list-style-type: none;
+}
+
+.play-list>* {
+    margin-bottom: 10px;
+
+}
+
+.play-list>*:before {
+    content: "♫ ";
+
 }
 
 .play-item {
@@ -100,14 +112,17 @@ body {
     height: 40px;
     background-size: 40px 40px;
     background-image: url("../assets/icons/play.svg");
+    margin-right: 10px;
 }
 
 .pause {
     background-image: url("../assets/icons/pause.svg");
+    margin-right: 10px;
 }
 
 .play-prev {
     background-image: url("../assets/icons/rewind.svg");
+    margin-right: 10px;
 }
 
 .play-next {
@@ -283,4 +298,10 @@ svg {
         font-size: 32px;
         padding: 5px;
     }
+
+
+}
+
+.active-song {
+    color: gray;
 }
