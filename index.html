@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link href="assets/icons/man.svg" rel="shortcut icon" />
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
   <link rel="stylesheet" href="css/style.css" />
   <title>Relax</title>
 </head>
+
 <body>
+<div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="./assets/img/bg.jpeg" alt="slide"></div>
+        <div class="swiper-slide"><img src="./assets/img/bg2.jpg" alt="slide"></div>
+        <div class="swiper-slide"><img src="./assets/img/bg3.jpg" alt="slide"></div>
+        ...
+    </div>
+</div>
   <header class="header">
     <div class="player">
       <div class="player-controls">
@@ -23,6 +40,30 @@
     <div class="slider-icons">
       <button class="slide-prev slider-icon"></button>
       <button class="slide-next slider-icon"></button>
+    </div>
+      <section class="main-timer">
+        <h1 id="timerH"></h1>
+        <span class="timer"></span>
+        <div class="controls">
+          <button id="launch">►</button>
+          <button id="stop">❙❙</button>
+          <button id="clear">◼</button>
+        </div>
+        <div class="timerline"></div>
+      </section>
+      <label id="hide-toggle" for="hidden">Настройки</label>
+      <input id="hidden" type="checkbox">
+      <section class="customize">
+        <div class="buttonset">
+          <h2 class="wr-heading" id="cust-w-head">Длина отдыха</h2>
+          <button id="wless">-</button>
+          <div id="workTime"></div>
+          <button id="wmore">+</button>
+        </div>
+      </section>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" />
     </div>
   </main>
   <footer class="footer">
@@ -44,9 +85,14 @@
       </div>
     </div>
   </footer>
+
   <script type="module" src="js/script.js"></script>
   <script src="js/quotes.js"></script>
   <script src="js/advice.js"></script>
   <script src="js/player.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
 </body>
+
 </html>
