@@ -1,3 +1,6 @@
+
+
+
 const time = document.querySelector('.time');
 const dates = document.querySelector('.date');
 
@@ -185,3 +188,4 @@ const swiper = new Swiper('.swiper', {
         prevEl: '.slide-prev',
     },
 });
+
