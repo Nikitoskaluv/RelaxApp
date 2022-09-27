@@ -5,11 +5,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="assets/icons/man.png" rel="shortcut icon" />
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
   <link rel="stylesheet" href="css/style.css" />
   <title>Relax</title>
 </head>
 
 <body>
+<div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="./assets/img/bg.jpeg" alt="slide"></div>
+        <div class="swiper-slide"><img src="./assets/img/bg2.jpg" alt="slide"></div>
+        <div class="swiper-slide"><img src="./assets/img/bg3.jpg" alt="slide"></div>
+        ...
+    </div>
+</div>
   <header class="header">
     <div class="player">
       <div class="player-controls">
@@ -57,7 +71,8 @@
       <div class="author"></div>
     </div>
   </footer>
-  <script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 
 </html>
