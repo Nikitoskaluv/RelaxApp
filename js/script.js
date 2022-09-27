@@ -112,7 +112,7 @@ function timerFunc() {
     if (remains === 0) {
       if (settings.soundOn) {
         settings.sound.play();
-      };
+      }
       settings.session = (settings.session === 'work') ? 'rest' : 'work'; 
       timerFunc(); 
     }
@@ -168,8 +168,20 @@ function clear() {
 function formatTime(arg) {
   let minutes = Math.floor(arg / 60), seconds = Math.floor(arg % 60);
     return `${minutes.toString().length < 2 ? '0' + minutes : minutes}:${seconds.toString().length < 2 ? '0' + seconds : seconds}`
-};
+}
 
 function setBg(arg, colors) {
   timerline.style.background = `linear-gradient(to right, ${colors[0]} 0%, ${colors[0]} ${(remains / arg) * 100}%, ${colors[1]} ${(remains / arg) * 100}%, ${colors[1]} 100%)`;
 }
+
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    lazy: true,
+    loop: true,
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.slide-next',
+        prevEl: '.slide-prev',
+    },
+});
