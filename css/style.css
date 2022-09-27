@@ -78,7 +78,8 @@ body {
 
 .player-icon,
 .slider-icon,
-.change-quote {
+.change-quote,
+.change-advice {
     width: 32px;
     height: 32px;
     background-size: 32px 32px;
@@ -95,13 +96,15 @@ body {
 
 .player-icon:hover,
 .slider-icon:hover,
-.change-quote:hover {
+.change-quote:hover,
+.change-advice:hover{
     opacity: 1;
 }
 
 .player-icon:active,
 .slider-icon:active,
-.change-quote:active {
+.change-quote:active,
+.change-advice:active{
     border: 0;
     outline: 0;
     transform: scale(1.1);
@@ -266,6 +269,20 @@ svg {
     padding: 20px;
 }
 
+.quote-advice-toggle-btn {
+    margin-bottom: 15px;
+}
+
+.quote-toggle-btn,
+.advice-toggle-btn {
+    min-width: 90px;
+
+}
+
+.quote-toggle-btn {
+    margin-right: 10px;
+}
+
 .change-quote {
     margin-bottom: 30px;
     background-image: url("../assets/icons/reload.svg");
@@ -277,6 +294,20 @@ svg {
 
 .author {
     min-height: 20px;
+}
+
+.change-advice {
+    margin-bottom: 30px;
+    background-image: url("../assets/icons/reload.svg");
+}
+
+.advice {
+    min-height: 32px;
+    margin-bottom: 15px;
+}
+
+.hide-element {
+    display: none;
 }
 
 @media (max-width: 768px) {

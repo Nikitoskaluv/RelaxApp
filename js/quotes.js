@@ -10,6 +10,8 @@ const quotes = [
 ];
 const quoteHTML = document.querySelector('.quote');
 const changeQuoteBtn = document.querySelector('.change-quote');
+const toggleQuotes = document.querySelector('.quote-toggle');
+const toggleQuotesBtn = document.querySelector('.quote-toggle-btn');
 
 const getQuote = () => {
     if (quotes.length > 0) {
@@ -17,9 +19,18 @@ const getQuote = () => {
         quoteHTML.innerHTML = quotes[index];
     }
 }
+const getToggleQuotes = () => {
+    toggleQuotes.classList.toggle('hide-element');
+    toggleAdvices.classList.toggle('hide-element');
+}
+
 getQuote();
+
 changeQuoteBtn.addEventListener('click', () => {
     getQuote();
+})
+toggleQuotesBtn.addEventListener('click', () => {
+    getToggleQuotes();
 })
 
 
