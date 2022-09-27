@@ -26,8 +26,6 @@ const playList = [
     }
 ]
 
-
-
 const prevBtn = document.querySelector('.play-prev'),
     playBtn = document.querySelector('.play'),
     nextBtn = document.querySelector('.play-next'),
@@ -43,8 +41,6 @@ const prevMusicListen = prevBtn.addEventListener('click', prevSong);
 let audio = new Audio(playList[0].src);
 
 const playtMusicListen = playBtn.addEventListener('click', () => audio.play());
-
-
 
 playList.forEach((sound) => {
     audioList.innerHTML += `<li onclick="onSongClick(event)" id="${sound.id}">${sound.title}</li>`;
