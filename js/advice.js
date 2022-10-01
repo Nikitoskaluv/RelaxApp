@@ -14,31 +14,43 @@ const advices = [
     'потом уберите ладони от лица и откройте глаза. Повторите все 3-5 раз'
 ];
 
-const adviceHTML = document.querySelector('.advice');
-const changeAdviceBtn = document.querySelector('.change-advice');
-const toggleAdvices = document.querySelector('.advice-toggle');
-const toggleAdvicesBtn = document.querySelector('.advice-toggle-btn');
+const quotes = [
+    'Все, что я ищу, я нахожу',
+    'У меня много блестящих идей',
+    'Я достигаю целей, поставленных мне на работе',
+    'Я получаю удовольствие от рабочего процесса',
+    'Каждый день передо мной открываются новые возможности',
+    'Мой опыт дает огромные преимущества',
+    'Я всегда остаюсь уравновешенным во время стрессовых ситуаций'
+];
 
-let i = 0;
+const quoteBlock = document.querySelector('.quote');
 
-const getAdvice = () => {
-    if (i < advices.length) {
-        adviceHTML.innerHTML = advices[i++];
-    }else {
-        i = 0;
-        adviceHTML.innerHTML = advices[i++];
+const changeQuoteBtn = document.querySelector('.change-quote');
+
+const advicesBtn = document.querySelector('.advice-toggle-btn');
+const quotesBtn = document.querySelector('.quote-toggle-btn');
+
+let quoteIndex = 0;
+let adviceIndex = 0;
+
+quoteBlock.innerHTML = advices[0];
+
+advicesBtn.addEventListener('click', () => {
+    adviceIndex++;
+    if (adviceIndex >= advices.length) {
+        adviceIndex = 0;
     }
-}
-const getToggleAdvices = () => {
-    toggleQuotes.classList.toggle('hide-element');
-    toggleAdvices.classList.toggle('hide-element');
-}
 
-getAdvice();
+    quoteBlock.innerHTML = advices[adviceIndex];
+});
 
-changeAdviceBtn.addEventListener('click', () => {
-    getAdvice();
-})
-toggleAdvicesBtn.addEventListener('click', () => {
-    getToggleAdvices();
-})
+quotesBtn.addEventListener('click', () => {
+    quoteIndex++;
+    if (quoteIndex >= quotes.length) {
+        quoteIndex = 0;
+    }
+
+    quoteBlock.innerHTML = quotes[quoteIndex];
+});
+
