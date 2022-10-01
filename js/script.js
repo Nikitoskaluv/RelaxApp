@@ -1,4 +1,3 @@
-
 const time = document.querySelector('.time');
 const dates = document.querySelector('.date');
 let colors
@@ -55,7 +54,7 @@ const timerDiv = document.querySelector(".timer"),
     clearButton = document.querySelector("#clear");
 
 const settings = {
-    work: 10,
+    work: 30,
     rest: 10,
     maxTime: 120,
     session: 'отдых',
