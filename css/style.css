@@ -14,6 +14,7 @@ body {
     position: relative;
 }
 
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -490,5 +491,42 @@ button:active {
 
 .quote-advice {
     max-width: 200px;
+
+}
+
+.mute {
+    position: relative;
+    background-image: url("../assets/icons/no-sound.svg");
+
+}
+
+.volume-controls {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.range {
+    opacity: .8;
+
+
+}
+
+.range::-webkit-slider-runnable-track {
+    background: #B6B6B6;
+    border-radius: 1px;
+    height: 3px;
+    cursor: pointer;
+
+
+}
+
+.range::-webkit-slider-thumb {
+    cursor: pointer;
+    background: #DADADA;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    -webkit-appearance: none;
+    margin-top: -6px;
 
 }

@@ -30,7 +30,10 @@ const prevBtn = document.querySelector('.play-prev'),
     playBtn = document.querySelector('.play'),
     nextBtn = document.querySelector('.play-next'),
     pauseBtn = document.querySelector('.pause'),
-    audioList = document.querySelector('.play-list');
+    audioList = document.querySelector('.play-list'),
+    pleerDiv = document.querySelector('.player'),
+    muteButton = document.querySelector('.mute'),
+    volumeSlider = document.querySelector('.range');
 
 
 const pauseMusicListen = pauseBtn.addEventListener('click', pauseMusic);
@@ -112,6 +115,33 @@ function prevSong() {
 
 
 
+muteButton.addEventListener("click", muter);
+function muter() {
+    if (audio.volume == 0) {
+        audio.volume = 1;
+        muteButton.style.backgroundImage = 'url(../assets/icons/volume.svg)'
+    } else {
+        audio.volume = 0;
+        muteButton.style.backgroundImage = 'url(../assets/icons/no-sound.svg)'
+    }
+}
+
+function setAttributes(el, attrs) {
+    for (var key in attrs) {
+        el.setAttribute(key, attrs[key]);
+    }
+}
+
+setAttributes(volumeSlider, { "type": "range", "min": "0", "max": "1", "step": "any", "value": "1" });
+volumeSlider.addEventListener("input", function () { audio.volume = volumeSlider.value; });
+
+audio.addEventListener('volumechange', volumizer);
+function volumizer() {
+    if (audio.volume == 0) {
+        muteButton.style.backgroundImage = 'url(../assets/icons/no-sound.svg)'
+    }
+    else { muteButton.style.backgroundImage = 'url(../assets/icons/volume.svg)' }
+}
 
 
 
