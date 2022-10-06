@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 30vh;
+  min-height: 220px;
+  padding: 50px;
+}
+
+// .world {
+//   @include svg-size($width: 30px, $height: 30px, $display: inline-block);
+//   background-image: url(../assets/images/icons/world-icon.svg);
+// }

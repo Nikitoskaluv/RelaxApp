@@ -1,0 +1,15 @@
+.container {
+  max-width: $container-primary;
+  margin: 0 auto;
+}
+
+.container-content {
+  max-width: $container-content;
+  margin: 0 auto;
+}
+
+.container-media {
+  @media (max-width: 1200px) {
+    max-width: calc(100% - 30px);
+  }
+}
