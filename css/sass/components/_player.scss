@@ -1,0 +1,116 @@
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
+  margin-bottom: 28px;
+}
+
+.play-list {
+  text-align: left;
+  margin-left: 30px;
+  list-style-type: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.play-list > * {
+  margin-bottom: 10px;
+  opacity: 0.4;
+  transition: 0.8s;
+}
+
+.play-list > *:hover {
+  opacity: 1;
+}
+
+.play-list > *:before {
+  content: "♫ ";
+}
+
+.player-icon,
+.slider-icon,
+.change-quote,
+.change-advice {
+  width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: 0.4;
+  transition: 1.3s;
+}
+
+.player-icon:hover,
+.slider-icon:hover,
+.change-quote:hover,
+.change-advice:hover {
+  opacity: 0.99999;
+}
+
+.player-icon:active,
+.slider-icon:active,
+.change-quote:active,
+.change-advice:active {
+  border: 0;
+  outline: 0;
+}
+
+.play {
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+  background-image: url("../assets/icons/play.svg");
+  margin-right: 10px;
+}
+
+.pause {
+  background-image: url("../assets/icons/pause.svg");
+  margin-right: 10px;
+}
+
+.play-prev {
+  background-image: url("../assets/icons/rewind.svg");
+  margin-right: 10px;
+}
+
+.play-next {
+  background-image: url("../assets/icons/remote.svg");
+}
+
+.mute {
+    position: relative;
+    background-image: url("../assets/icons/no-sound.svg");
+  }
+  
+  .volume-controls {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .range {
+    opacity: 0.8;
+  }
+  
+  .range::-webkit-slider-runnable-track {
+    background: #b6b6b6;
+    border-radius: 1px;
+    height: 3px;
+    cursor: pointer;
+  }
+  
+  .range::-webkit-slider-thumb {
+    cursor: pointer;
+    background: #dadada;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    -webkit-appearance: none;
+    margin-top: -6px;
+  }
+  .active-song {
+    color: rgb(20, 19, 19);
+  }

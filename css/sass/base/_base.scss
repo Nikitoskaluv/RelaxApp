@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 1.6rem;
+  @extend %font-heebo, %font-merienda;
+}
+
+h1 {
+  @extend %font-merienda;
+  @include font($weight: 400, $size: 82px, $height: 130%, $color: $color-title);
+}
+
+h2 {
+  @extend %font-heebo;
+  @include font($weight: 400, $size: 54px, $height: 130%, $color: $color-title);
+}
+
+h3 {
+  @extend %font-heebo;
+  @include font(
+    $weight: 400,
+    $size: 42px,
+    $height: 52px,
+    $color: $color-subtitle
+  );
+}

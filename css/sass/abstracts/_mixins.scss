@@ -1,0 +1,24 @@
+@mixin font(
+  $weight,
+  $size,
+  $height: $size,
+  $color: $color-text,
+  $style: normal,
+  $transform: none
+) {
+  font-style: $style;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+  text-transform: $transform;
+}
+
+// @mixin images($width, $height, $bg-size, $bg-img) {
+//   width: $width;
+//   height: $height;
+//   background-size: $bg-size;
+//   background-image: $bg-img;
+// }
+
+

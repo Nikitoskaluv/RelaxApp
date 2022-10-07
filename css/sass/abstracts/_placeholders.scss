@@ -1,0 +1,17 @@
+%display {
+  @media (max-width: $container-mobile) {
+    display: none;
+  }
+}
+
+%font-heebo {
+  font-family: "Heebo", Verdana, serif;
+}
+
+%font-merienda {
+  font-family: "Merienda One", Verdana, sans-serif;
+}
+
+%button-padding {
+  padding: 19px 95px;
+}
