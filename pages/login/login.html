@@ -4,30 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300&display=swap" rel="stylesheet">
     <link href="assets/icons/man.svg" rel="shortcut icon" />
     <link rel="stylesheet" href="css/stylesRegistrationAndLogIn.css" />
     <title>Relax</title>
 </head>
 <body>
-    <div class="wraper">
+    <div class="wrapper">
     <div class="login_form" id="login_form">
     <form>
-        <h1>Войти</h1>
-        <div><label for="email">Электронная почта</label>
-            <input id="email" required type="text"/></div>
+        <h1 class="h1">Вход</h1>
         <div>
-            <label for="password">Пароль</label>
-            <input id="password" required type="password"/>
+<!--            <label for="email" class="email">Электронная почта</label>-->
+            <input id="email" class="input" required type="text" placeholder="E-Mail"/></div>
+        <div>
+<!--            <label for="password">Пароль</label>-->
+            <input id="password" class="input" required type="password" placeholder="Password"/>
         </div>
-    
-        <button type="submit">Войти</button>
+        <div class="button">
+            <button type="submit" class="loginButton">Войти</button>
+        </div>
+
     </form>
     <div class="change_to_register_block">
-        <h3>Еще не зарегистрированы? <br>Перейдите по ссылке</h3>
-        <a href="#">Регистрация</a>
+        <h3>Еще не зарегистрированы?</h3>
+<!--            <br>Перейдите по ссылке</h3>-->
+        <a href="#" class="registerLink">Регистрация</a>
     </div>
 </div>
 </div>
-    
+
 </body>
 </html>
