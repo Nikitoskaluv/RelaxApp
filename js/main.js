@@ -1,0 +1,6 @@
+import './advice.js'
+import './greeting.js'
+import './player.js'
+import './swiper.js'
+import './timer.js'
+import '../css/style.css'

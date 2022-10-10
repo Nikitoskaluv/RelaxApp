@@ -1,10 +1,11 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Forum");
-body, h2, h3 {
+@import url("https://fonts.googleapis.com/css2?family=Heebo&family=Lato:wght@300;400&display=swap");
+h3, h2, body {
   font-family: "Heebo", Verdana, serif;
 }
 
-body, h1 {
+h1, body {
   font-family: "Merienda One", Verdana, sans-serif;
 }
 
@@ -45,7 +46,6 @@ main {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   /* 1 */
   height: 0;
@@ -190,9 +190,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -200,9 +200,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -211,9 +211,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -231,7 +231,6 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   color: inherit;
@@ -264,9 +263,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type="checkbox"],
-[type="radio"] {
-  -webkit-box-sizing: border-box;
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -276,8 +274,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -285,7 +283,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type="search"] {
+[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -295,7 +293,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type="search"]::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -341,11 +339,12 @@ template {
 [hidden] {
   display: none;
 }
+
+/*# sourceMappingURL=normalize.css.map */
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -394,7 +393,7 @@ html {
   /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(135deg, #27c4c4 0%, #3896d1 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#27c4c4', endColorstr='#3896d1', GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#27c4c4", endColorstr="#3896d1", GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
   font-family: "Forum", sans-serif;
 }
@@ -404,16 +403,14 @@ button {
 }
 
 button:active {
-  -webkit-transform: translateY(1px);
-          transform: translateY(1px);
+  transform: translateY(1px);
 }
 
 .main-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   min-width: 320px;
   max-width: 900px;
   width: 30%;
@@ -424,17 +421,10 @@ button:active {
 }
 
 .main-timer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #timerH {
@@ -449,7 +439,6 @@ button:active {
 .timerline {
   width: 100%;
   height: 5px;
-  -webkit-box-shadow: 0px 0px 2px 0px grey;
   box-shadow: 0px 0px 2px 0px grey;
 }
 
@@ -476,13 +465,11 @@ button:active {
   /* Old browsers */
   /* FF3.6-15 */
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), color-stop(50%, #ffffff), to(#e2e2e2));
   background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #e2e2e2 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e2e2e2', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#e2e2e2", GradientType=0);
   /* IE6-9 */
-  -webkit-box-shadow: 0px 2px 1px 0px #bababa;
-  box-shadow: 0px 2px 1px 0px #bababa;
+  box-shadow: 0px 2px 1px 0px rgb(186, 186, 186);
 }
 
 .controls > button::before {
@@ -500,10 +487,9 @@ button:active {
   /* Old browsers */
   /* FF3.6-15 */
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(#dddddd), to(#ffffff));
   background: linear-gradient(to bottom, #dddddd 0%, #ffffff 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ffffff', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dddddd", endColorstr="#ffffff", GradientType=0);
   /* IE6-9 */
 }
 
@@ -524,13 +510,9 @@ button:active {
 }
 
 #hidden:checked + .customize {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .buttonset {
@@ -538,14 +520,9 @@ button:active {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 2em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #restTime,
@@ -589,15 +566,9 @@ button:active {
 }
 
 .player-controls {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   width: 180px;
   margin-bottom: 28px;
 }
@@ -613,7 +584,6 @@ button:active {
 .play-list > * {
   margin-bottom: 10px;
   opacity: 0.4;
-  -webkit-transition: 0.8s;
   transition: 0.8s;
 }
 
@@ -638,7 +608,6 @@ button:active {
   border: 0;
   outline: 0;
   opacity: 0.4;
-  -webkit-transition: 1.3s;
   transition: 1.3s;
 }
 
@@ -711,38 +680,27 @@ button:active {
 }
 
 .active-song {
-  color: #141313;
+  color: rgb(20, 19, 19);
 }
 
 .greeting-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-items: center;
   min-height: 48px;
   width: 100%;
   font-size: 40px;
 }
 
 .greeting {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   padding: 10px;
   text-align: right;
 }
 
 .name {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   max-width: 50%;
   padding: 10px;
   font-size: 40px;
@@ -753,17 +711,12 @@ button:active {
   outline: 0;
 }
 
-.name::-webkit-input-placeholder {
+.name::-moz-placeholder {
   color: #fff;
   opacity: 0.6;
 }
 
 .name:-ms-input-placeholder {
-  color: #fff;
-  opacity: 0.6;
-}
-
-.name::-ms-input-placeholder {
   color: #fff;
   opacity: 0.6;
 }
@@ -775,8 +728,6 @@ button:active {
 
 .quote-advice-toggle-btn {
   margin-bottom: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -838,7 +789,6 @@ button:active {
     padding: 5px;
   }
 }
-
 .quote-advice {
   max-width: 200px;
   position: relative;
@@ -861,15 +811,9 @@ button:active {
 }
 
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
   height: 30vh;
   min-height: 220px;
@@ -916,36 +860,20 @@ form > * {
 }
 
 .description-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 12px;
-          column-gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
 }
 
 .main {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 40vh;
   min-height: 260px;
@@ -974,22 +902,103 @@ svg {
 }
 
 .footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   width: 100%;
   height: 30vh;
   min-height: 160px;
   padding: 20px;
 }
-/*# sourceMappingURL=style.css.map */
+
+.container {
+  width: 1200px;
+  margin: auto;
+}
+
+body {
+  font-family: "Heebo", sans-serif;
+  background-image: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%), linear-gradient(90deg, #1A7F72 0%, rgba(26, 127, 114, 0) 96.77%);
+}
+
+.header {
+  height: 130px;
+}
+
+.profile-block {
+  margin-bottom: 50px;
+}
+.profile-block .profile-block-nav {
+  margin-bottom: 50px;
+}
+.profile-block .profile-block-nav ul {
+  list-style-type: none;
+  display: flex;
+}
+.profile-block .profile-block-nav ul li:first-child {
+  margin-right: 20px;
+}
+.profile-block .profile-block-nav ul a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+.profile-block .profile-block-nav ul a:hover {
+  cursor: pointer;
+  color: #1A7F72;
+}
+
+.profile-block-container {
+  padding: 0 20px;
+}
+.profile-block-container .profile-block-form {
+  padding: 40px;
+  border-radius: 15px;
+}
+.profile-block-container .profile-block-form .profile-block-form-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.profile-block-container .profile-block-form .profile-block-form-inputs .input {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100px;
+}
+.profile-block-container .profile-block-form .profile-block-form-inputs .input label {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.profile-block-container .profile-block-form .profile-block-form-inputs .input input {
+  height: 35px;
+  width: 80%;
+  border: none;
+  border-radius: 15px;
+  padding: 0 20px;
+}
+.profile-block-container .profile-block-form .profile-block-form-inputs .input input::-moz-placeholder {
+  color: #1A7F72;
+}
+.profile-block-container .profile-block-form .profile-block-form-inputs .input input:-ms-input-placeholder {
+  color: #1A7F72;
+}
+.profile-block-container .profile-block-form .profile-block-form-inputs .input input::placeholder {
+  color: #1A7F72;
+}
+.profile-block-container .profile-block-form .profile-block-form-inputs .input .date {
+  height: 100%;
+}
+.profile-block-container .profile-block-form .save-changes-button {
+  border: none;
+  color: #fff;
+  height: 40px;
+  width: 200px;
+  border-radius: 5px;
+  background: #0d606f;
+}
+.profile-block-container .profile-block-form .save-changes-button:hover {
+  cursor: pointer;
+  background: #1A7F72;
+}/*# sourceMappingURL=style.css.map */
