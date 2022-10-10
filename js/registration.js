@@ -4,7 +4,7 @@ import { ADDRESS } from "./constants.js";
 const regForm = document.querySelector('#regform');
 const loginInput = document.querySelector('#login');
 const passwordInput = document.querySelector('#password');
-
+const messageBlock = document.querySelector('.message');
 
 
 
@@ -23,10 +23,10 @@ function handleFormSubmit(event) {
         },
         body: JSON.stringify(data)
     }).then((res) => {
-        console.log("res", res);
-        return res.json()
+        const result = res.json()
+        return result
     })
-        .then(data => console.log(`Статус ${data}`))
+        .then(data => messageBlock.innerHTML = data.message)
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })

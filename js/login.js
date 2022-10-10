@@ -3,6 +3,7 @@ import { ADDRESS } from "./constants.js";
 const logInForm = document.querySelector('#loginform');
 const logInEmail = document.querySelector('#email');
 const logInPassword = document.querySelector('#password');
+const messageBlock = document.querySelector('.message');
 
 
 logInForm.addEventListener('submit', handleFormSubmit);
@@ -24,7 +25,7 @@ function handleFormSubmit(event) {
         console.log("res", d);
         return d
     })
-        .then(data => console.log(`Статус ${data.message}`))
+        .then(data => messageBlock.innerHTML = data.message)
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })
