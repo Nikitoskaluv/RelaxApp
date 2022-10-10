@@ -20,10 +20,11 @@ function handleFormSubmit(event) {
         },
         body: JSON.stringify(data)
     }).then((res) => {
-        console.log("res", res);
-        return res.json()
+        const d = res.json();
+        console.log("res", d);
+        return d
     })
-        .then(data => console.log(`Статус ${data}`))
+        .then(data => console.log(`Статус ${data.message}`))
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })
