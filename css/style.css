@@ -1001,4 +1001,46 @@ body {
 .profile-block-container .profile-block-form .save-changes-button:hover {
   cursor: pointer;
   background: #1A7F72;
+}
+
+#burger {
+  display: none;
+}
+
+#burger:checked ~ .burger__nav {
+  display: block;
+}
+
+#burger:not(checked) ~ .burger__nav {
+  display: none;
+}
+
+.burger__nav {
+  width: 498px;
+  height: 760px;
+  background: #fff;
+  padding: 51px 0 0 51px;
+  border-radius: 4px;
+  opacity: rgba(0, 0, 0, 0.25);
+  offset: 0px, 4px;
+}
+.burger__nav__item {
+  margin-top: 19px;
+}
+.burger__nav__item__title {
+  color: #3EB29D;
+}
+.burger__nav__item a {
+  color: #000;
+  text-decoration: none;
+  font-size: 28px;
+}
+.burger__nav__img {
+  margin-top: 200px;
+  width: 139px;
+  height: 110px;
+}
+
+.active {
+  color: #3EB29D;
 }/*# sourceMappingURL=style.css.map */
