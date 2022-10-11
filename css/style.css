@@ -810,7 +810,7 @@ button:active {
   }
 }
 
-.header {
+.panel {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -818,6 +818,41 @@ button:active {
   height: 30vh;
   min-height: 220px;
   padding: 50px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 130px;
+  padding: 50px;
+  background: white;
+}
+.header__left {
+  margin-left: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header__left__title {
+  color: #3EB29D;
+  font-size: 85px;
+  margin-left: 40px;
+}
+.header__right {
+  margin-left: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__right svg {
+  fill: #3EB29D;
+  margin-right: 40px;
+}
+.header__right svg:hover {
+  fill: #0d606f;
 }
 
 .login_form {
@@ -1018,6 +1053,10 @@ body {
 .burger__nav {
   width: 498px;
   height: 760px;
+  position: absolute;
+  right: 0;
+  top: 140px;
+  z-index: 1;
   background: #fff;
   padding: 51px 0 0 51px;
   border-radius: 4px;
