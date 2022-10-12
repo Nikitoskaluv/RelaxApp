@@ -1,0 +1,50 @@
+#burger{
+    display: none;
+}
+
+#burger:checked~.burger__nav{
+    display: block;
+}
+
+#burger:not(checked)~.burger__nav {
+    display: none;
+  }
+
+.burger__nav {
+        width: 498px;
+        height: 760px;
+        position: absolute;
+        right:0;
+        top:140px;
+        z-index: 1;
+        background: #fff;
+        padding: 51px 0 0 51px;
+        border-radius: 4px;
+        opacity: rgba(0, 0, 0, 0.25);
+        offset: 0px, 4px;
+    
+        &__item {
+            margin-top:19px;
+
+            &__title{
+                color: $color-title;
+            }
+            & a{
+                color: #000;
+                text-decoration: none;
+                font-size: 28px;
+            } 
+        }
+
+        &__img{
+            margin-top: 200px;
+            width:139px;
+            height: 110px;
+        }
+
+}
+.active{
+    color: $color-title;
+}
+
+@import "../abstracts/constants";

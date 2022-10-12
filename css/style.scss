@@ -1,0 +1,34 @@
+//abstracts
+
+@import "sass/abstracts/mixins";
+@import "sass/abstracts/constants";
+@import "sass/abstracts/placeholders";
+
+//base
+
+@import "sass/base/normalize";
+@import "sass/base/base";
+
+//components
+
+@import "sass/components/menu";
+@import "sass/components/navigation";
+@import "sass/components/timer";
+@import "sass/components/player";
+@import "sass/components/advice";
+@import "sass/components/greeting";
+
+//layout
+
+@import "sass/layout/wrapper";
+@import "sass/layout/header";
+@import "sass/layout/login";
+@import "sass/layout/meditation";
+@import "sass/layout/registration";
+@import "sass/layout/statistics";
+@import "sass/layout/eyes";
+@import "sass/layout/main";
+@import "sass/layout/warm-up";
+@import "sass/layout/footer";
+@import "sass/layout/user-profile";
+@import "sass/layout/burger";

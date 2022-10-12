@@ -1,0 +1,13 @@
+.login_form {
+  margin: 50px auto;
+  width: 400px;
+  border: 1px solid black;
+}
+
+.login_form > * {
+  padding: 15px;
+}
+
+form > * {
+    margin-bottom: 15px;
+  }
