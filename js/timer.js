@@ -48,7 +48,6 @@ clearButton.addEventListener('click', clear);
 function timerFunc() {
     clearInterval(timer);
     let bgarg
-
     if (settings.session === 'work') {
         bgarg = fullW;
         colors = settings.mainColors;
