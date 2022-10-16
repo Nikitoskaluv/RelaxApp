@@ -6,7 +6,9 @@ const logInPassword = document.querySelector('#password');
 const messageBlock = document.querySelector('.message');
 
 
+
 logInForm.addEventListener('submit', handleFormSubmit);
+logInEmail.addEventListener('input', checkEmailInput(logInEmail));
 
 function handleFormSubmit(event) {
     event.preventDefault()
@@ -25,7 +27,10 @@ function handleFormSubmit(event) {
         console.log("res", d);
         return d
     })
-        .then(data => messageBlock.innerHTML = data.message)
+        .then(data => {
+            messageBlock.innerHTML = data.message;
+            localStorage.setItem('userToken', data.token);
+        })
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })
