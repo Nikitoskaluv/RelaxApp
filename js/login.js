@@ -1,5 +1,4 @@
 import { ADDRESS } from "./constants.js";
-import { checkEmailInput } from "./InputValidation.js";
 
 const logInForm = document.querySelector('#loginform');
 const logInEmail = document.querySelector('#email');
