@@ -49,6 +49,13 @@ input:focus {
     outline: none;
 }
 
+.valid {
+    border-color: green;
+}
+
+.invalid {
+    border-color: red;
+}
 
 .loginButton {
     width: 210px;
