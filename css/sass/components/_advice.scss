@@ -6,44 +6,51 @@
   min-height: 48px;
   width: 100%;
   font-size: 40px;
+  margin-top:15px;
+  font-family: 'Heebo';
 }
 
 .greeting {
   flex: 1;
   padding: 10px;
   text-align: right;
+  color:#1A7F72;
 }
 
 .name {
   flex: 1;
   max-width: 50%;
-  padding: 10px;
   font-size: 40px;
   text-align: left;
-  color: #fff;
+  color: #1A7F72;
   background-color: transparent;
   border: 0;
   outline: 0;
+  
 }
 
 .name::placeholder {
-  color: #fff;
+  color: #ffffff;
   opacity: 0.6;
 }
 
 .quote-advice-toggle-btn {
-  margin-bottom: 15px;
   display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .quote-toggle-btn,
 .advice-toggle-btn {
-  padding: 5px;
-  border: 1px solid;
-  border-radius: 5px;
-  background-color: transparent;
-  font-size: 20px;
-  color: white;
+  padding: 20px 50px;
+  background: linear-gradient(180deg, #259385 0%, #159685 100%);
+  box-shadow: 0px 20px 40px rgba(21, 113, 101, 0.2);
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 130%;
+  color: #ffffff;
+  border: none;
 }
 
 .quote-toggle-btn {
@@ -57,6 +64,12 @@
 
 .quote {
   min-height: 32px;
+  margin-top: 50px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
 }
 
 .author {
@@ -99,6 +112,6 @@
 }
 
 .quote-advice {
-  max-width: 200px;
-  position: relative;
+  max-width: 400px;
+  margin-bottom: 80px;
 }
