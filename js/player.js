@@ -42,8 +42,9 @@ const prevMusicListen = prevBtn.addEventListener('click', prevSong);
 
 
 let audio = new Audio(playList[0].src);
-
-const playtMusicListen = playBtn.addEventListener('click', () => audio.play());
+audio.defaultMuted = true;
+audio.volume = 0;
+const playMusicListen = playBtn.addEventListener('click', () => audio.play());
 
 playList.forEach((sound) => {
     audioList.innerHTML += `<li onclick="onSongClick(event)" id="${sound.id}">${sound.title}</li>`;
@@ -70,6 +71,7 @@ function nextSong() {
     audio.pause();
     if (!currentSongElement) {
         audio = new Audio(playList[0].src);
+        audio.volume = volumeSlider.value;
         childrenArray[0].classList.add('active-song');
     } else {
         childrenArray.forEach((li) => li.classList.remove('active-song'));
@@ -83,6 +85,7 @@ function nextSong() {
             songIndex++;
         }
         audio = new Audio(playList[songIndex].src);
+        audio.volume = volumeSlider.value;
         childrenArray[songIndex].classList.add('active-song');
     }
     audio.play();
@@ -95,6 +98,7 @@ function prevSong() {
     audio.pause();
     if (!currentSongElement) {
         audio = new Audio(playList[playList.length - 1].src);
+        audio.volume = volumeSlider.value;
         childrenArray[playList.length - 1].classList.add('active-song');
     } else {
         childrenArray.forEach((li) => li.classList.remove('active-song'));
@@ -108,6 +112,7 @@ function prevSong() {
             songIndex--;
         }
         audio = new Audio(playList[songIndex].src);
+        audio.volume = volumeSlider.value;
         childrenArray[songIndex].classList.add('active-song');
     }
     audio.play();
@@ -118,7 +123,7 @@ function prevSong() {
 muteButton.addEventListener("click", muter);
 function muter() {
     if (audio.volume == 0) {
-        audio.volume = 1;
+        audio.volume = volumeSlider.value;
         muteButton.style.backgroundImage = 'url(../assets/icons/volume.svg)'
     } else {
         audio.volume = 0;
