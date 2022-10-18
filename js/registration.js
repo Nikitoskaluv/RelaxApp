@@ -1,50 +1,52 @@
 import { ADDRESS } from "./constants.js";
-import {validation, patternEmail, patternPassword, patternName} from './validation.js';
+import { validation, patternEmail, patternPassword, patternName } from './validation.js';
 
 const regForm = document.querySelector('#regform');
 const loginInput = document.querySelector('#login');
 const passwordInput = document.querySelector('#password');
 const messageBlock = document.querySelector('.message');
 const name = document.querySelector('#name');
-const pas=document.querySelector('#password');
-const pas_repeat=document.querySelector('#password_repeat');
+const pas = document.querySelector('#password');
+const pas_repeat = document.querySelector('#password_repeat');
 let flag = 0;
 
-name.addEventListener ('input', () => {
-    if (validation(name, patternName))
-    {
+name.addEventListener('input', () => {
+    if (validation(name, patternName)) {
         flag++;
         messageBlock.innerText = '';
+        console.log('name', flag);
     }
-    else 
+    else
         messageBlock.innerText = name.title;
-});
+}
+);
 
-loginInput.addEventListener ('input', () => {
-    if (validation(loginInput, patternEmail))
-    {
+loginInput.addEventListener('input', () => {
+    if (validation(loginInput, patternEmail)) {
         flag++;
         messageBlock.innerText = '';
+        console.log('login', flag);
     }
-    else 
+    else
         messageBlock.innerText = loginInput.title;
 });
 
-pas.addEventListener ('input', () => {
-   if ( validation(pas, patternPassword))
-   {
+pas.addEventListener('input', () => {
+    if (validation(pas, patternPassword)) {
         flag++;
         messageBlock.innerText = '';
+        console.log('pass1', flag);
     }
-   else 
+    else
         messageBlock.innerText = pas.title;
 });
 
-pas_repeat.addEventListener ('input', () => {
+pas_repeat.addEventListener('input', () => {
     if (pas_repeat.value == pas.value) {
         pas_repeat.classList.add('valid');
         pas_repeat.classList.remove('invalid');
         flag++;
+        console.log('pass2', flag);
     }
     else {
         pas_repeat.classList.add('invalid');
@@ -57,10 +59,11 @@ regForm.addEventListener('submit', handleFormSubmit);
 
 function handleFormSubmit(event) {
     event.preventDefault();
-    if (flag == 4){
+    if (flag == 4) {
         const data = {};
         data.login = loginInput.value;
         data.password = passwordInput.value;
+        data.name = name.value;
         fetch(`${ADDRESS}/registration`, {
             method: 'POST',
             headers: {
@@ -75,11 +78,11 @@ function handleFormSubmit(event) {
             .catch((error) => {
                 console.log(`ошибка ${error}`)
             })
-        }
-        else {
-            messageBlock.innerHTML = "Заполните корректно все поля";
+    }
+    else {
+        messageBlock.innerHTML = "Заполните корректно все поля";
 
-        }
+    }
 }
 
 
