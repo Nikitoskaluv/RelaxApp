@@ -6,83 +6,77 @@ const loginInput = document.querySelector('#login');
 const passwordInput = document.querySelector('#password');
 const messageBlock = document.querySelector('.message');
 const name = document.querySelector('#name');
+
 const pas = document.querySelector('#password');
 const pas_repeat = document.querySelector('#password_repeat');
-let flag = 0;
+const submit_btn = document.querySelector('.regButton');
+
+// проверка корректности ввода и заполнения полей
+const checkField = (elem, value) => {
+    if (value) {
+        elem.classList.add('valid');
+        elem.classList.remove('invalid');
+        messageBlock.innerText = '';
+    }
+    else {
+        elem.classList.add('invalid');
+        elem.classList.remove('valid');
+        messageBlock.innerText = elem.title;
+    }
+    check();
+}
 
 name.addEventListener('input', () => {
-    if (validation(name, patternName)) {
-        flag++;
-        messageBlock.innerText = '';
-        console.log('name', flag);
-    }
-    else
-        messageBlock.innerText = name.title;
-}
-);
+    checkField(name, validation(name, patternName));
+});
 
 loginInput.addEventListener('input', () => {
-    if (validation(loginInput, patternEmail)) {
-        flag++;
-        messageBlock.innerText = '';
-        console.log('login', flag);
-    }
-    else
-        messageBlock.innerText = loginInput.title;
+    checkField(loginInput, validation(loginInput, patternEmail));
 });
 
 pas.addEventListener('input', () => {
-    if (validation(pas, patternPassword)) {
-        flag++;
-        messageBlock.innerText = '';
-        console.log('pass1', flag);
-    }
-    else
-        messageBlock.innerText = pas.title;
+    checkField(pas, validation(pas, patternPassword));
 });
 
+
 pas_repeat.addEventListener('input', () => {
-    if (pas_repeat.value == pas.value) {
-        pas_repeat.classList.add('valid');
-        pas_repeat.classList.remove('invalid');
-        flag++;
-        console.log('pass2', flag);
-    }
-    else {
-        pas_repeat.classList.add('invalid');
-        pas_repeat.classList.remove('valid');
-        messageBlock.innerText = 'Пароли не совпадают';
-    }
+    checkField(pas_repeat, pas_repeat.value == pas.value);
 })
 
+// проверка заполнения всех полей ввода
+const check = () => {
+    if (validation(name, patternName) && validation(loginInput, patternEmail) && validation(pas, patternPassword) &&
+        pas_repeat.value == pas.value) {
+        submit_btn.removeAttribute('disabled');
+    }
+    else {
+        submit_btn.setAttribute('disabled', 'disabled');
+    }
+}
+
+// отправка данных на бэк
 regForm.addEventListener('submit', handleFormSubmit);
 
 function handleFormSubmit(event) {
     event.preventDefault();
-    if (flag == 4) {
-        const data = {};
-        data.login = loginInput.value;
-        data.password = passwordInput.value;
-        data.name = name.value;
-        fetch(`${ADDRESS}/registration`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-            body: JSON.stringify(data)
-        }).then((res) => {
-            const result = res.json()
-            return result
+    const data = {};
+    data.login = loginInput.value;
+    data.password = passwordInput.value;
+    fetch(`${ADDRESS}/registration`, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify(data)
+    }).then((res) => {
+        const result = res.json()
+        return result
+    })
+        .then(data => messageBlock.innerHTML = data.message)
+        .catch((error) => {
+            console.log(`ошибка ${error}`)
         })
-            .then(data => messageBlock.innerHTML = data.message)
-            .catch((error) => {
-                console.log(`ошибка ${error}`)
-            })
-    }
-    else {
-        messageBlock.innerHTML = "Заполните корректно все поля";
 
-    }
 }
 
 
