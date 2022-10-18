@@ -43,6 +43,7 @@
 
                     <!-- <p class="burger__nav__item">
                         <a href="index.html">
+
                             <span class="burger__nav__item__title">Relax</span>
                             <span class="burger__nav__item__text"> Таймер </span></a>
                     </p>
@@ -56,75 +57,53 @@
                             <span class="burger__nav__item__text"> Медитация </span> </a>
                     </p>
                     <p class="burger__nav__item">
-                        <a href="eyes.html"><span class="burger__nav__item__title">Relax</span>
+
+                        <a href="razminka.html"><span class="burger__nav__item__title">Relax</span>
                             <span class="burger__nav__item__text"> Глаза </span> </a>
                     </p>
                     <p class="burger__nav__item">
-                        <a href="warm_up.html"><span class="burger__nav__item__title">Relax</span>
+                        <a href="razminka.html"><span class="burger__nav__item__title">Relax</span>
                             <span class="burger__nav__item__text"> Разминка </span> </a>
                     </p>
-                    <img src="../assets/img/burger_lotos.png" class="burger__nav__img">
+                    <img src="../../assets/img/burger_lotos.png" class="burger__nav__img">
 
                 </nav>
             </div>
-
         </div>
     </header>
-
-    <div class="swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="../assets/img/bg.jpeg" alt="slide"></div>
-            <div class="swiper-slide"><img src="../assets/img/bg2.jpg" alt="slide"></div>
-            <div class="swiper-slide"><img src="../assets/img/bg3.jpg" alt="slide"></div>
-        </div>
-    </div>
-    <div class="panel">
-        <div class="player">
-            <div class="volume-controls">
-                <button class="mute player-icon"></button>
-                <input class="range" />
-            </div>
-            <div class="player-controls">
-                <button class="play-prev player-icon"></button>
-                <button class="play player-icon"></button>
-                <button class="pause player-icon"></button>
-                <button class="play-next player-icon"></button>
-            </div>
-            <ul class="play-list"></ul>
-        </div>
-        <div class="quote-advice">
-            <div class="quote-advice-toggle-btn">
-                <button class="quote-toggle-btn">Аффирмация</button>
-                <button class="advice-toggle-btn">Совет</button>
-            </div>
-            <div class="quote-toggle">
-                <!-- <button class="change-quote"></button> -->
-                <div>
-                    <div class="quote"></div>
+    <main class="main">
+        <div class="main-bg">
+            <div class="quote-advice">
+                <div class="quote-toggle">
+                    <!-- <button class="change-quote"></button> -->
+                    <div>
+                        <div class="quote"></div>
+                    </div>
+                </div>
+                <div class="quote-advice-toggle-btn">
+                    <button class="quote-toggle-btn">Аффирмация</button>
+                    <button class="advice-toggle-btn">Совет</button>
                 </div>
             </div>
-        </div>
-    </div>
-    <main class="main">
-        <div class="slider-icons">
-            <button class="slide-prev slider-icon"></button>
-            <button class="slide-next slider-icon"></button>
+            <img src="../assets/img/girl-meditation.svg" alt="girl" width="450" height="400">
         </div>
         <section class="main-timer">
             <h1 id="timerH"></h1>
-            <span class="timer"></span>
-            <div class="controls">
-                <button id="launch">►</button>
-                <button id="stop">❙❙</button>
-                <button id="clear">◼</button>
+            <div class="timer-bg">
+                <span class="timer"></span>
             </div>
-            <div class="timerline"></div>
+            <div class="controls">
+                <button id="launch"><img src="../assets/icons/play.svg" alt="play" width="22px" height="22px"></button>
+                <button id="stop"><img src="../assets/icons/pause.svg" alt="stop" width="22px" height="22px"></button>
+                <button id="clear"><img src="../assets/icons/stop.svg" alt="clear" width="22px" height="22px"></button>
+            </div>
         </section>
+        <div class="timerline"></div>
         <label id="hide-toggle" for="hidden">Настройки времени</label>
         <input id="hidden" type="checkbox">
         <section class="customize">
             <div class="buttonset">
-                <h2 class="wr-heading" id="cust-w-head">Длина отдыха</h2>
+                <h3 class="wr-heading" id="cust-w-head">Длина отдыха</h3>
                 <button id="wless">-</button>
                 <div id="workTime"></div>
                 <button id="wmore">+</button>
@@ -133,6 +112,38 @@
         <div class="greeting-container">
             <span class="greeting"></span>
             <input type="text" class="name" />
+        </div>
+        <div class="panel">
+            <div class="player">
+                <div class="volume-controls">
+                    <button class="play player-icon"></button>
+                    <input class="range" />
+                    <button class="mute player-icon"></button>
+                </div>
+                <div class="player-controls">
+                    <button class="play-prev player-icon"></button>
+                    <button class="pause player-icon"></button>
+                    <button class="play-next player-icon"></button>
+                </div>
+                <ul class="play-list"></ul>
+            </div>
+        </div>
+        <div class="buttons_navigation">
+            <div class="btn pic2">
+                <p class="btn_img"><img src="../assets/img/ic_meditation.png" alt="Для глаз"></p>
+                <p class="p_btn">Медитации</p>
+                <a href="#" class="asd">Релакс</a>
+            </div>
+            <div class="btn pic1">
+                <p class="btn_img"><img src="../assets/img/ic_yoga.png" alt="Разминка"></p>
+                <p class="p_btn">Разминка</p>
+                <a href="./razminka.html" class="asd">Заниматься</a>
+            </div>
+            <div class="btn pic2">
+                <p class="btn_img"><img src="../assets/img/twemoji_eye.png" alt="Для глаз"></p>
+                <p class="p_btn">Глаза</p>
+                <a href="#" class="asd">Расслабить</a>
+            </div>
         </div>
     </main>
     <!-- <footer class="footer">

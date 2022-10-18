@@ -75,25 +75,28 @@
                 <h1 class="title-registration">Зарегистрируйтесь</h1>
                 <div>
                     <!--                <label for="username">Ваше имя</label>-->
-                    <input id="name" name="name" required type="text" class="input" placeholder="Username" />
+                    <input id="name" name="name" required type="text" class="input" placeholder="Username"
+                        title="Введите не менее 3 символов" />
                 </div>
                 <div>
                     <!--              <label for="email_reg">Ваша электронная почта</label>-->
-                    <input id="login" name="login" required type="text" class="input" placeholder="E-Mail" />
+                    <input id="login" name="login" required type="text" class="input" placeholder="E-Mail"
+                        title="Введите корректный email" />
                 </div>
                 <div>
                     <!--                <label for="password_reg">Придумайте пароль</label>-->
-                    <input id="password" name="password" required type="password" class="input"
-                        placeholder="Password" />
+                    <input id="password" name="password" required type="password" class="input" placeholder="Password"
+                        title="Пароль должен содержать не менее 4 символов разного регистра и цифр" />
                 </div>
                 <div>
                     <!--        <label for="password_repeat">Повторите пароль</label>-->
-                    <input id="password_repeat" required type="password" class="input" placeholder="Repeat password" />
+                    <input id="password_repeat" required type="password" class="input" placeholder="Repeat password"
+                        title="Пароли должны совпадать" />
                 </div>
-                <!-- <div class="message"></div> -->
-                <div class="change_to_register_block">
-                    <button type="submit" class="regButton">Зарегистрироваться</button>
-                </div>
+
+                <div class="message"></div>
+                <button type="submit" class="regButton" disabled="disabled">Зарегистрироваться</button>
+
             </form>
         </div>
     </div>
