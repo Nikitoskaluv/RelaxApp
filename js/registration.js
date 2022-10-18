@@ -62,6 +62,8 @@ function handleFormSubmit(event) {
     const data = {};
     data.login = loginInput.value;
     data.password = passwordInput.value;
+    data.name = name.value;
+
     fetch(`${ADDRESS}/registration`, {
         method: 'POST',
         headers: {
