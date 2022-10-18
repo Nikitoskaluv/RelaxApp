@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Forum");
-@import url("https://fonts.googleapis.com/css2?family=Heebo&family=Lato:wght@300;400&display=swap");
 h3, h2, body {
   font-family: "Heebo", Verdana, serif;
 }
@@ -385,15 +384,12 @@ h3 {
 }
 
 html {
-  height: 100%;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#27c4c4+0,3896d1+100 */
   background: #27c4c4;
   /* Old browsers */
   /* FF3.6-15 */
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #27c4c4 0%, #3896d1 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#27c4c4", endColorstr="#3896d1", GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
   font-family: "Forum", sans-serif;
 }
@@ -852,11 +848,10 @@ button:active {
   align-items: center;
   width: 100%;
   height: 130px;
-  padding: 50px;
+  padding: 50px 100px;
   background: white;
 }
 .header__left {
-  margin-left: 150px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -868,37 +863,292 @@ button:active {
   margin-left: 40px;
 }
 .header__right {
-  margin-left: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .header__right svg {
   fill: #3EB29D;
+}
+.header__right a {
   margin-right: 40px;
 }
 .header__right svg:hover {
   fill: #0d606f;
 }
+.header_margin-bottom {
+  margin-bottom: 40px;
+}
 
 .login_form {
   margin: 50px auto;
   width: 400px;
-  border: 1px solid black;
+  height: 440px;
+  border: 4px solid black;
+  border-radius: 15px;
+  border: double 4px transparent;
+  background-image: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%), linear-gradient(90deg, #1A7F72 0%, rgba(26, 127, 114, 0) 96.77%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.login_form * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.login_form .title-form {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: -16px;
+  font-size: 35px;
+}
+.login_form .input {
+  width: 360px;
+  height: 60px;
+  border: 2px solid #59D0C0;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+.login_form input:focus {
+  outline: none;
+}
+.login_form .loginButton {
+  width: 210px;
+  height: 55px;
+  background: linear-gradient(180deg, #259385 0%, #159685 100%);
+  box-shadow: 0px 13px 28px rgba(26, 127, 114, 0.2);
+  border-radius: 30px;
+  font-size: 28px;
+  font-weight: bold;
+}
+.login_form form > * {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.login_form .change_to_register_block {
+  margin-top: -4px;
 }
 
 .login_form > * {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 15px;
 }
 
-form > * {
-  margin-bottom: 15px;
+.wrapperPage {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.wrapperPage .buttons_navigation {
+  display: flex;
+  justify-content: space-around;
+}
+.wrapperPage .link_navi {
+  text-decoration: none;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 47px;
+  text-align: center;
+  color: #000000;
+}
+.wrapperPage .text_page {
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: justify;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+.wrapperPage .soderganie {
+  display: flex;
+  justify-content: center;
+  font-family: "Heebo";
+}
+.wrapperPage .contents {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  /* text-align: justify; */
+  color: rgba(0, 0, 0, 0.5);
+}
+.wrapperPage .span_soderganie {
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 47px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.wrapperPage .rovno {
+  width: 810px;
+  height: 270px;
+}
+.wrapperPage .text_decoration {
+  text-decoration: none;
+}
+.wrapperPage .h3_text {
+  font-family: "Merienda One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 130%;
+  text-align: center;
+  color: #000000;
+  margin-top: 50px;
+  margin-bottom: 22px;
+}
+.wrapperPage .h4_text {
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 47px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.wrapperPage .ul_text {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.wrapperPage .p_img {
+  text-align: center;
+}
+.wrapperPage .ast-oembed-container {
+  text-align: center;
+}
+.wrapperPage .text_center {
+  text-align: center;
+}
+.wrapperPage .btn {
+  width: 420px;
+  height: 455px;
+  /* display: flex;
+  flex-direction: column; */
+  text-align: center;
+}
+.wrapperPage .pic1 {
+  background-image: url(../assets/img/Meditation.png);
+  background-position: center;
+}
+.wrapperPage .pic2 {
+  background-image: url(../assets/img/Glaza_img.png);
+  background-position: center;
+}
+.wrapperPage .asd {
+  margin-top: 51px;
+  padding: 12px 54px;
+  background: linear-gradient(180deg, #259385 0%, #159685 100%);
+  box-shadow: 0px 13px 28px rgba(26, 127, 114, 0.2);
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  color: #FFFFFF;
+}
+.wrapperPage .asd:hover {
+  background: linear-gradient(180deg, #2db8a6 0%, #078a78 100%);
+  box-shadow: 0px 13px 28px rgba(19, 88, 79, 0.2);
+}
+.wrapperPage .asd:active {
+  background: linear-gradient(180deg, #45f2db 0%, #0adbbf 100%);
+  box-shadow: 0px 13px 28px rgba(24, 47, 44, 0.2);
+}
+.wrapperPage .btn_img {
+  margin-top: 50px;
+}
+.wrapperPage .p_btn {
+  margin-top: 20px;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 47px;
+  /* identical to box height */
+  text-align: center;
+  color: #000000;
+}
+.wrapperPage .video_item {
+  width: 720px;
+}
+.wrapperPage .wrap_video {
+  text-align: center;
+}
+
+.change-body-color {
+  background: #e0fffa;
 }
 
 .registartion_form {
   margin: 50px auto;
   width: 400px;
-  border: 1px solid black;
+  height: 465px;
+  border: 4px solid black;
+  border-radius: 15px;
+  border: double 4px transparent;
+  background-image: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%), linear-gradient(90deg, #1A7F72 0%, rgba(26, 127, 114, 0) 96.77%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.registartion_form .title-registration {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: -16px;
+  font-size: 35px;
+}
+.registartion_form .input {
+  width: 360px;
+  height: 60px;
+  border: 2px solid #59D0C0;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+.registartion_form input:focus {
+  outline: none;
+}
+.registartion_form .regButton {
+  width: 304px;
+  height: 55px;
+  background: linear-gradient(180deg, #259385 0%, #159685 100%);
+  box-shadow: 0px 13px 28px rgba(26, 127, 114, 0.2);
+  border-radius: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  padding-top: 8px;
+  text-align: center;
+}
+.registartion_form .change_to_register_block {
+  margin-top: -4px;
+}
+.registartion_form .registartion_form > * {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+.registartion_form form > * {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .registartion_form > * {
@@ -1022,23 +1272,10 @@ svg {
   padding: 20px;
 }
 
-.container {
-  width: 1200px;
-  margin: auto;
+.user-profile-page {
+  background: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%), linear-gradient(90deg, #1A7F72 0%, rgba(26, 127, 114, 0) 96.77%);
 }
 
-body {
-  font-family: "Heebo", sans-serif;
-  background-image: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%), linear-gradient(90deg, #1A7F72 0%, rgba(26, 127, 114, 0) 96.77%);
-}
-
-.header {
-  height: 130px;
-}
-
-.profile-block {
-  margin-bottom: 50px;
-}
 .profile-block .profile-block-nav {
   margin-bottom: 50px;
 }
@@ -1112,6 +1349,10 @@ body {
   cursor: pointer;
   background: #1A7F72;
 }
+.profile-block-container_contain {
+  width: 1200px;
+  margin: auto;
+}
 
 #burger {
   display: none;
@@ -1126,17 +1367,17 @@ body {
 }
 
 .burger__nav {
-  width: 498px;
-  height: 760px;
+  width: 400px;
+  height: 550px;
   position: absolute;
   right: 0;
-  top: 140px;
+  top: 130px;
   z-index: 1;
   background: #fff;
   padding: 51px 0 0 51px;
-  border-radius: 4px;
-  opacity: rgba(0, 0, 0, 0.25);
-  offset: 0px, 4px;
+  border-bottom-left-radius: 10px;
+  border: 2px solid #3BD1BB;
+  box-shadow: -3px 3px 10px #3BD1BB;
 }
 .burger__nav__item {
   margin-top: 19px;
@@ -1150,7 +1391,7 @@ body {
   font-size: 28px;
 }
 .burger__nav__img {
-  margin-top: 200px;
+  margin-top: 100px;
   width: 139px;
   height: 110px;
 }
