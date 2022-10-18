@@ -34,6 +34,7 @@
             <div class="burger__menu">
                 <input type="checkbox" id="burger">
                 <label class="" for="burger">
+
                     <svg width="54" height="47" viewBox="0 0 54 47" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M4.8214 11.1904H49.1784C51.8411 11.1904 54 8.6853 54 5.59521C54 2.50513 51.8413 0 49.1784 0H4.8214C2.15867 0.000250088 0 2.50513 0 5.59546C0 8.68555 2.15867 11.1904 4.8214 11.1904ZM49.1784 17.9048H4.8214C2.15867 17.9048 0 20.4099 0 23.5C0 26.5903 2.15867 29.0952 4.8214 29.0952H49.1784C51.8411 29.0952 54 26.5903 54 23.5C54 20.4099 51.8411 17.9048 49.1784 17.9048ZM49.1784 35.8096H4.8214C2.15867 35.8096 0 38.3144 0 41.4048C0 44.4949 2.15867 47 4.8214 47H49.1784C51.8411 47 54 44.4949 54 41.4048C54 38.3144 51.8411 35.8096 49.1784 35.8096Z" />
@@ -43,6 +44,7 @@
 
                     <!-- <p class="burger__nav__item">
                         <a href="index.html">
+
 
                             <span class="burger__nav__item__title">Relax</span>
                             <span class="burger__nav__item__text"> Таймер </span></a>
@@ -69,6 +71,8 @@
 
                 </nav>
             </div>
+
+
         </div>
     </header>
     <main class="main">
@@ -88,6 +92,14 @@
             <img src="../assets/img/girl-meditation.svg" alt="girl" width="450" height="400">
         </div>
         <section class="main-timer">
+                    <span class="radioButtons">
+          <label> <input type="radio" name="r1" id="radioWork"  value="work" checked>Работа<br></label>
+          <label> <input type="radio" name="r1" id="radioRest" value="rest">Отдых<br></label>
+          <label> <input type="radio" name="r1" id="radioMeditation" value="meditation">Медитация<br></label>
+          <br>
+          <p id="selectedRadio">Work</p>
+
+        </span>
             <h1 id="timerH"></h1>
             <div class="timer-bg">
                 <span class="timer"></span>
