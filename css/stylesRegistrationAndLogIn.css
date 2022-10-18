@@ -45,6 +45,18 @@
     font-size: 24px;
 }
 
+input:focus {
+    outline: none;
+}
+
+.valid {
+    border-color: green;
+}
+
+.invalid {
+    border-color: red;
+}
+
 .loginButton {
     width: 210px;
     height: 55px;
@@ -67,7 +79,7 @@
 }
 
 .change_to_register_block {
-    margin-top: -4px;
+    margin-top: 15px;
 }
 
 .registartion_form>*,
@@ -85,4 +97,9 @@ form>* {
     flex-direction: column;
     align-items: center;
     margin-bottom: 15px;
+}
+
+.message {
+    height: 20px;
+    text-align: center;
 }

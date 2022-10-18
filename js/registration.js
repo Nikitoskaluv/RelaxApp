@@ -1,18 +1,66 @@
 import { ADDRESS } from "./constants.js";
-
+import {validation, patternEmail, patternPassword, patternName} from './validation.js';
 
 const regForm = document.querySelector('#regform');
 const loginInput = document.querySelector('#login');
 const passwordInput = document.querySelector('#password');
 const messageBlock = document.querySelector('.message');
+const name = document.querySelector('#name');
+const pas=document.querySelector('#password');
+const pas_repeat=document.querySelector('#password_repeat');
+const submit_btn = document.querySelector('.regButton');
+
+// проверка корректности ввода и заполнения полей
+const checkField = (elem , value) => {
+    if (value)
+    {
+        elem.classList.add('valid');
+        elem.classList.remove('invalid');
+        messageBlock.innerText = '';
+    }
+    else 
+    {
+        elem.classList.add('invalid');
+        elem.classList.remove('valid');
+        messageBlock.innerText = elem.title;
+    }
+    check();
+}
+
+name.addEventListener ('input', () => { 
+    checkField(name, validation(name, patternName));
+});
+
+loginInput.addEventListener ('input', () => {
+    checkField(loginInput, validation(loginInput, patternEmail));
+});
+
+pas.addEventListener ('input', () => {
+    checkField(pas, validation(pas, patternPassword));
+});
 
 
+pas_repeat.addEventListener ('input', () => {
+    checkField(pas_repeat, pas_repeat.value == pas.value);
+})
 
+// проверка заполнения всех полей ввода
+const check = () =>{
+    if ( validation(name, patternName) &&  validation(loginInput, patternEmail) && validation(pas, patternPassword)  && 
+         pas_repeat.value == pas.value)
+    {
+        submit_btn.removeAttribute('disabled');
+    }
+    else {
+        submit_btn.setAttribute('disabled', 'disabled');
+    }
+}
+
+// отправка данных на бэк
 regForm.addEventListener('submit', handleFormSubmit);
 
-
 function handleFormSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     const data = {};
     data.login = loginInput.value;
     data.password = passwordInput.value;
@@ -30,6 +78,7 @@ function handleFormSubmit(event) {
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })
+       
 }
 
 
