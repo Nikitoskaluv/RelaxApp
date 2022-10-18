@@ -1,22 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Lato:wght@300;400&display=swap');
-
-.container {
-    width: $container-content;
-    margin: auto;
-}
-
-body {
-    font-family: 'Heebo', sans-serif;
-    background-image: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%), linear-gradient(90deg, #1A7F72 0%, rgba(26, 127, 114, 0) 96.77%);
-}
-
-.header {
-    height: 130px;
+.user-profile-page {
+    background: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%), linear-gradient(90deg, #1A7F72 0%, rgba(26, 127, 114, 0) 96.77%);
 }
 
 .profile-block {
     // width: $container-primary;
-    margin-bottom: 50px;
+    // margin-bottom: 50px;
 
     .profile-block-nav {
         margin-bottom: 50px;
@@ -100,5 +88,10 @@ body {
                 background: $color-subtitle;
             }
         }
+    }
+
+    &_contain {
+        width: $container-content;
+        margin: auto;
     }
 }
