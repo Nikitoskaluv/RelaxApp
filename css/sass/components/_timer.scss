@@ -39,6 +39,7 @@ button:active {
 }
 
 .main-timer {
+  margin-top: -35px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -49,80 +50,60 @@ button:active {
   width: 100%;
   text-align: center;
   line-height: 1;
-  margin-top: 0;
-  margin-bottom: 30px;
+  margin-top: 25px;
+  margin-right: 5px;
+  margin-bottom: 20px;
   font-size: 3em;
+  color: #ffffff;
 }
 
 .timerline {
-  width: 100%;
-  height: 5px;
-  -webkit-box-shadow: 0px 0px 2px 0px grey;
-  -moz-box-shadow: 0px 0px 2px 0px grey;
-  box-shadow: 0px 0px 2px 0px grey;
+  width: 260px;
+  height: 20px;
+  margin-top: 10px;
+  padding: 20px 0;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 2px 0px #3eb29d;
+  -moz-box-shadow: 0px 0px 2px 0px #3eb29d;
+  box-shadow: 0px 0px 2px 0px #3eb29d;
+  border: 2px solid #59d0c0;
 }
 
 .timer {
   padding: 10px;
   padding-left: 0;
   font-size: 3em;
+  color: #ffffff;
+}
+
+.timer-bg {
+  padding: 20px 50px;
+  background: linear-gradient(
+    180deg,
+    rgba(182, 255, 245, 0.72) 0%,
+    rgba(28, 189, 168, 0.85) 94.12%
+  );
+  box-shadow: 0px 20px 40px rgba(21, 113, 101, 0.2);
+  border-radius: 50px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
 }
 
 .controls > button {
   position: relative;
-  height: 2em;
-  width: 2em;
+  height: 22px;
+  width: 26px;
   font-size: 1.2em;
+  color: $color-title;
 }
 
 .controls > button,
 .buttonset > button {
   outline: none;
   border: none;
-  border-radius: 50%;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+50,e2e2e2+100 */
-  background: #ffffff;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 50%, #e2e2e2 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    #ffffff 0%,
-    #ffffff 50%,
-    #e2e2e2 100%
-  );
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #e2e2e2 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e2e2e2', GradientType=0);
-  /* IE6-9 */
-
-  -webkit-box-shadow: 0px 2px 1px 0px rgba(186, 186, 186, 1);
-  -moz-box-shadow: 0px 2px 1px 0px rgba(186, 186, 186, 1);
-  box-shadow: 0px 2px 1px 0px rgba(186, 186, 186, 1);
-}
-
-.controls > button::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -0.4em;
-  left: -0.4em;
-  border-radius: 50%;
-  height: 2.8em;
-  width: 2.8em;
-  z-index: -1;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dddddd+0,ffffff+100 */
-  background: #dddddd;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #dddddd 0%, #ffffff 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ffffff', GradientType=0);
-  /* IE6-9 */
 }
 
 .customize,
@@ -131,14 +112,17 @@ button:active {
 }
 
 #hide-toggle {
-  margin-top: 30px;
-  border: 1px solid;
-  border-radius: 5px;
-  height: 30px;
-  padding: 0 15px;
+  margin-top: 15px;
+  background: linear-gradient(180deg, #259385 0%, #159685 100%);
+  box-shadow: 0px 20px 40px rgba(21, 113, 101, 0.2);
+  border-radius: 50px;
+  padding: 25px 35px;
   display: block;
   text-align: center;
   font-size: 1.5em;
+  color: #ffffff;
+  font-family: "Forum", sans-serif;
+  font-weight: 700;
 }
 
 #hidden:checked + .customize {
@@ -151,15 +135,29 @@ button:active {
   width: 50%;
   text-align: center;
   margin-top: 15px;
-  margin-bottom: 2em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+#launch,
+#stop,
+#clear {
+  background: none;
+}
+
+#stop {
+  margin: 5px 0;
+}
+
 #restTime,
 #workTime {
   font-size: 1.5em;
+}
+
+#workTime {
+  font-family: "Heebo";
+  color: #1A7F72;
 }
 
 .customize > button {
@@ -169,7 +167,9 @@ button:active {
 
 .wr-heading {
   width: 100%;
-  height: 3em;
+  color: #1A7F72;
+  margin-bottom: 10px;
+  font-family: "Heebo";
 }
 
 .buttonset > button {
@@ -186,7 +186,6 @@ button:active {
 .time {
   min-height: 124px;
   margin-bottom: 10px;
-  font-family: "Arial-MT", sans-serif;
   font-size: 100px;
   letter-spacing: -4px;
 }
