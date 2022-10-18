@@ -6,14 +6,5 @@ export const patternPassword = '(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{4,}
 export const validation = (elem, elem_pattern)=>{
     let str = elem.value;
     let regExp = new RegExp(elem_pattern);
-    if (regExp.test(str)) {
-        elem.classList.add('valid');
-        elem.classList.remove('invalid');
-        return 1;
-     }
-    else {
-        elem.classList.add('invalid');
-        elem.classList.remove('valid');
-        return 0;
-    }   
+    return regExp.test(str);   
 }

@@ -79,7 +79,7 @@ input:focus {
 }
 
 .change_to_register_block {
-    margin-top: -4px;
+    margin-top: 15px;
 }
 
 .registartion_form>*,
@@ -97,4 +97,9 @@ form>* {
     flex-direction: column;
     align-items: center;
     margin-bottom: 15px;
+}
+
+.message {
+    height: 20px;
+    text-align: center;
 }
