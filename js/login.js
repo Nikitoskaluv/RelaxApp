@@ -36,7 +36,7 @@ logInPassword.addEventListener('input', () =>{
         logInPassword.classList.remove('valid');
         messageBlock.innerText = logInPassword.title;  
     }
-        
+        check();
 });
 
 const check = () =>{
