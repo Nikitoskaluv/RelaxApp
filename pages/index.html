@@ -91,15 +91,20 @@
             </div>
             <img src="../assets/img/girl-meditation.svg" alt="girl" width="450" height="400">
         </div>
-        <section class="main-timer">
-                    <span class="radioButtons">
-          <label> <input type="radio" name="r1" id="radioWork"  value="work" checked>Работа<br></label>
-          <label> <input type="radio" name="r1" id="radioRest" value="rest">Отдых<br></label>
-          <label> <input type="radio" name="r1" id="radioMeditation" value="meditation">Медитация<br></label>
-          <br>
-          <p id="selectedRadio">Work</p>
+        <span class="radioButtons">
+                        <div class="timer-modes"><label><input type="radio"  name="r1" id="radioWork"  value="work" checked>Работа<br></label></div>
+                        <div class="timer-modes"><label><input type="radio"  name="r1" id="radioRest" value="rest">Отдых<br></label></div>
 
         </span>
+        <label for="radioMeditation">
+            <div class="timer-meditation">
+                <input type="checkbox" name="r1" id="radioMeditation" value="meditation">
+                <label for="radioMeditation">Медитация</label>
+            </div>
+        </label>
+
+        <section class="main-timer">
+
             <h1 id="timerH"></h1>
             <div class="timer-bg">
                 <span class="timer"></span>

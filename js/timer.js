@@ -16,38 +16,49 @@ const timerDiv = document.querySelector(".timer"),
     clearButton = document.querySelector("#clear");
 
 
-    let radioBtns = document.querySelectorAll("input[name='r1']")
-    let selectedRadio = document.getElementById("selectedRadio")
-    let findSelected = () => {
-        let selected = document.querySelector("input[name='r1']:checked").value
-        selectedRadio.textContent = `${selected}`
-        settings.session = selected
-        if (settings.session === 'work'){
-            // document.getElementById("radioMeditation").checked = false заготовки для чекбокса
-            // document.getElementById("radioMeditation").disabled = true
-            remains = fullW = settings.work * 60;
-            timerDiv.innerHTML = formatTime(remains);
+let radioBtns = document.querySelectorAll("input[name='r1']")
+// let selectedRadio = document.getElementById("selectedRadio")
+let findSelected = () => {
+    let selected = document.querySelector("input[name='r1']:checked").value
+    // selectedRadio.textContent = `${selected}`
+    settings.session = selected
+    if (settings.session === 'work'){
+        document.getElementById("radioMeditation").checked = false //заготовки для чекбокса
+        document.getElementById("radioMeditation").disabled = true
+        remains = fullW = settings.work * 60;
+        timerDiv.innerHTML = formatTime(remains);
 
-        }
-        else if (settings.session === 'rest'){
-            // document.getElementById("radioMeditation").disabled = false
+    }
+    else if (settings.session === 'rest'){
+        if (document.getElementById("radioMeditation").checked){
+            settings.session = 'meditation'
             remains = fullR = settings.rest * 60;
-            timerDiv.innerHTML = formatTime(remains);
+            timerDiv.innerHTML = formatTime(remains)
         }
-        else if (settings.session === 'meditation'){
-            remains = fullR = settings.rest * 60;
-            timerDiv.innerHTML = formatTime(remains);
-        }
-        console.log('set to -', settings.session)
-        // console.log(selected)
+        document.getElementById("radioMeditation").disabled = false
+        remains = fullR = settings.rest * 60;
+        timerDiv.innerHTML = formatTime(remains);
     }
 
-    radioBtns.forEach(radioBtn => {
-            radioBtn.addEventListener("change", findSelected)
-        })
+
+    console.log('set to -', settings.session)
+
+}
+
+radioBtns.forEach(radioBtn => {
+    radioBtn.addEventListener("change", findSelected)
+})
+
+function lockRadio(arg) {
+    radioBtns.forEach(function (cb){
+        cb.disabled = arg
+    })
+}
 
 
 document.addEventListener("DOMContentUnloaded", ()=>{})
+
+
 
 function handleTimerSubmit(status) {
     // event.preventDefault()
@@ -123,15 +134,12 @@ function unPause(){
 }
 
 function timerFunc() {
+    lockRadio(true)
     // debugger
     if (settings.newID ==='') {
         settings.newID = uuidv4()
     }
-    if (settings.paused === true){
-        settings.paused = false
-        handleTimerSubmit("resume")
-        console.log('снято с паузы -', settings.paused)
-    }
+    unPause()
     // settings.newID = uuidv4
 
     console.log(settings.newID, '- создалось при старте')
@@ -262,8 +270,11 @@ function clear() {
     timerHead.innerHTML = '';
     colors = settings.mainColors;
     // remains = fullW;
+    lockRadio(false)
+    findSelected()
 
 }
+
 
 
 function formatTime(arg) {
@@ -274,3 +285,6 @@ function formatTime(arg) {
 function setBg(arg, colors) {
     timerline.style.background = `linear-gradient(to right, ${colors[0]} 0%, ${colors[0]} ${(remains / arg) * 100}%, ${colors[1]} ${(remains / arg) * 100}%, ${colors[1]} 100%)`;
 }
+
+// document.onbeforeunload = clear()a
+
