@@ -417,11 +417,79 @@ button:active {
 }
 
 .main-timer {
-  margin-top: -35px;
+  margin-top: 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+
+.timer-modes{
+  display: inline-block;
+  margin-right: 10px;
+}
+.timer-modes input[type="radio"]{
+  display: none;
+}
+
+.timer-modes label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 75px;
+  cursor: pointer;
+  padding: 0px 15px;
+  background: linear-gradient(180deg, #259385 0%, #159685 100%);
+  border-radius: 50px;
+  user-select: none;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 130%;
+  color: #ffffff;
+}
+
+/*.timer-modes input[type=checkbox] + label{*/
+/*  background: black;*/
+/*}*/
+
+.timer-modes input[type=radio]:checked + label{
+  background: #ffe0a6;
+}
+
+.timer-modes label:hover{
+  color: #666;
+}
+.timer-modes input[type=radio]:disabled + label{
+  background-color: darkkhaki;
+}
+
+.timer-meditation{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 284px;
+  height: 47px;
+  cursor: pointer;
+  padding: 0px 15px;
+    background: none;
+  border-radius: 50px;
+  user-select: none;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 130%;
+  color: #ffffff;
+
+}
+
+.timer-meditation input[type = checkbox]{
+  width: 43px;
+  height: 40px;
+}
+.timer-meditation label {
+  font-size: 36px;
 }
 
 #timerH {
