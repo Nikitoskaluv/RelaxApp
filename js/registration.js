@@ -1,4 +1,4 @@
-import { ADDRESS } from "./constants.js";
+import { ADDRESS } from "./constants.js"
 import { validation, patternEmail, patternPassword, patternName } from './validation.js';
 
 const regForm = document.querySelector('#regform');
@@ -57,8 +57,9 @@ const check = () => {
 // отправка данных на бэк
 regForm.addEventListener('submit', handleFormSubmit);
 
+
 function handleFormSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
     const data = {};
     data.login = loginInput.value;
     data.password = passwordInput.value;
@@ -78,7 +79,6 @@ function handleFormSubmit(event) {
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })
-
 }
 
 
