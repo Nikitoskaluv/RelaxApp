@@ -145,6 +145,7 @@ function timerFunc() {
     console.log(settings.newID, '- создалось при старте')
     clearInterval(timer);
     let bgarg
+
     if (settings.session === 'work') {
         bgarg = fullW;
         colors = settings.mainColors;
