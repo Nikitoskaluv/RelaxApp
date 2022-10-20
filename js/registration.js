@@ -1,4 +1,4 @@
-import { ADDRESS } from "./constants.js"
+import { ADDRESS } from "./constants.js";
 import { validation, patternEmail, patternPassword, patternName } from './validation.js';
 
 const regForm = document.querySelector('#regform');
@@ -6,7 +6,6 @@ const loginInput = document.querySelector('#login');
 const passwordInput = document.querySelector('#password');
 const messageBlock = document.querySelector('.message');
 const name = document.querySelector('#name');
-
 const pas = document.querySelector('#password');
 const pas_repeat = document.querySelector('#password_repeat');
 const submit_btn = document.querySelector('.regButton');
@@ -57,14 +56,11 @@ const check = () => {
 // отправка данных на бэк
 regForm.addEventListener('submit', handleFormSubmit);
 
-
 function handleFormSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     const data = {};
     data.login = loginInput.value;
     data.password = passwordInput.value;
-    data.name = name.value;
-
     fetch(`${ADDRESS}/registration`, {
         method: 'POST',
         headers: {
@@ -79,7 +75,6 @@ function handleFormSubmit(event) {
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })
+
 }
-
-
 
