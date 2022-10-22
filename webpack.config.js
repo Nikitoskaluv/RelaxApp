@@ -31,7 +31,7 @@ module.exports = {
     output: {
         filename: 'js/[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'dist'
+
     },
     plugins: [
         new HTMLWebpackPlugin({
@@ -115,7 +115,7 @@ module.exports = {
                 use: [{
                     loader: MiniCssExtractPlugin.loader,
 
-                }, 'css-loader', sass - loader]
+                }, 'css-loader', 'sass-loader']
             },
         ]
     }
