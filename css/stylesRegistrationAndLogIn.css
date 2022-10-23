@@ -4,6 +4,18 @@
     padding: 0;
 }
 
+input:focus {
+    outline: none;
+}
+
+.valid {
+    border-color: green !important;
+}
+
+.invalid {
+    border-color: red !important;
+}
+
 .registartion_form {
     margin: 50px auto;
     width: 400px;
@@ -16,6 +28,17 @@
     background-clip: content-box, border-box;
     font-family: 'heebo', sans-serif;
 }
+
+
+.change_to_register_block {
+    margin-top: 15px;
+}
+
+.message {
+    height: 20px;
+    text-align: center;
+}
+
 
 .login_form {
     margin: 50px auto;

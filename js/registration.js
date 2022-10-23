@@ -24,23 +24,31 @@ const checkField = (elem, value) => {
     }
     check();
 }
+if (name) {
+    name.addEventListener('input', () => {
+        checkField(name, validation(name, patternName));
+    });
+}
 
-name.addEventListener('input', () => {
-    checkField(name, validation(name, patternName));
-});
+if (loginInput) {
+    loginInput.addEventListener('input', () => {
+        checkField(loginInput, validation(loginInput, patternEmail));
+    });
+}
 
-loginInput.addEventListener('input', () => {
-    checkField(loginInput, validation(loginInput, patternEmail));
-});
-
-pas.addEventListener('input', () => {
-    checkField(pas, validation(pas, patternPassword));
-});
+if (pas) {
+    pas.addEventListener('input', () => {
+        checkField(pas, validation(pas, patternPassword));
+    });
+}
 
 
-pas_repeat.addEventListener('input', () => {
-    checkField(pas_repeat, pas_repeat.value == pas.value);
-})
+if (pas_repeat) {
+    pas_repeat.addEventListener('input', () => {
+        checkField(pas_repeat, pas_repeat.value == pas.value);
+    })
+}
+
 
 // проверка заполнения всех полей ввода
 const check = () => {
@@ -54,7 +62,10 @@ const check = () => {
 }
 
 // отправка данных на бэк
-regForm.addEventListener('submit', handleFormSubmit);
+if (regForm) {
+    regForm.addEventListener('submit', handleFormSubmit);
+}
+
 
 function handleFormSubmit(event) {
     event.preventDefault();
