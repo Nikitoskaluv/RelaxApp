@@ -12,11 +12,6 @@ module.exports = {
     mode: 'development',
     entry: {
         main: './js/main.js',
-        // registration: './js/registration.js',
-        // login: './js/login.js',
-        // greeting: './js/greeting.js',
-        // player: './js/player.js',
-        // timer: './js/timer.js',
     },
 
     output: {
