@@ -12,57 +12,49 @@ module.exports = {
     mode: 'development',
     entry: {
         main: './js/main.js',
-        registration: './js/registration.js',
-        login: './js/login.js',
-        greeting: './js/greeting.js',
-        player: './js/player.js',
-        timer: './js/timer.js',
+        // registration: './js/registration.js',
+        // login: './js/login.js',
+        // greeting: './js/greeting.js',
+        // player: './js/player.js',
+        // timer: './js/timer.js',
     },
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist/pages'),
-        },
-        historyApiFallback: {
-            index: "pages/index.html"
-        },
-        port: 4200,
-        hot: isDev,
-    },
+
     output: {
         filename: 'js/[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
-
+        clean: true,
     },
     plugins: [
         new HTMLWebpackPlugin({
-            filename: 'pages/index.html',
+            filename: 'index.html',
             template: './pages/index.html',
+            inject: true,
             minify: {
                 collapseWhitespace: !isDev
             }
         }),
         new HTMLWebpackPlugin({
-            filename: 'pages/login.html',
+            filename: 'login.html',
             template: './pages/login.html',
         }),
         new HTMLWebpackPlugin({
-            filename: 'pages/meditation.html',
+            filename: 'meditation.html',
             template: './pages/meditation.html',
         }),
         new HTMLWebpackPlugin({
-            filename: 'pages/registration.html',
+            filename: 'registration.html',
             template: './pages/registration.html',
         }),
         new HTMLWebpackPlugin({
-            filename: 'pages/user_profile.html',
+            filename: 'user_profile.html',
             template: './pages/user_profile.html',
         }),
         new HTMLWebpackPlugin({
-            filename: 'pages/warm_up.html',
+            filename: 'warm_up.html',
             template: './pages/warm_up.html',
         }),
         new HTMLWebpackPlugin({
-            filename: 'pages/eyes.html',
+            filename: 'eyes.html',
             template: './pages/eyes.html',
         }),
         new CleanWebpackPlugin(),
@@ -112,10 +104,11 @@ module.exports = {
                 },
             }, {
                 test: /\.s[ac]ss$/i,
-                use: [{
-                    loader: MiniCssExtractPlugin.loader,
+                use: [
+                    (isDev) ? { loader: 'style-loader' } : {
+                        loader: MiniCssExtractPlugin.loader,
 
-                }, 'css-loader', 'sass-loader']
+                    }, 'css-loader', 'sass-loader']
             },
         ]
     }

@@ -17,7 +17,7 @@
         "build": "webpack --mode=production",
         "serve": "webpack serve",
         "watch": "webpack --mode development --watch",
-        "start": "webpack-dev-server --config webpack.dev.js --mode development"
+        "start": "webpack-dev-server --config webpack.config.js --mode development"
     },
     "dependencies": {
         "uuid": "^9.0.0"
