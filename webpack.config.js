@@ -1,5 +1,5 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,52 +7,68 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
+const pages = [
+    {
+        "name": "login",
+        "js": ["login", "validation", "main"],
+        "html": "login"
+    },
+    {
+        "name": "registration",
+        "js": ["registration", "validation", "main"],
+        "html": "registration"
+    },
+    {
+        "name": "index",
+        "js": ["advice", "player", "timer", "main"],
+        "html": "index"
+    },
+    {
+        "name": "user_profile",
+        "js": ["main"],
+        "html": "user_profile"
+    },
+    {
+        "name": "warm_up",
+        "js": ["main"],
+        "html": "warm_up"
+    },
+    {
+        "name": "eyes",
+        "js": ["main"],
+        "html": "eyes"
+    },
+    {
+        "name": "meditation",
+        "js": ["main"],
+        "html": "meditation"
+    }];
+// const pagesWithoutJs = [
+
+// ];
 
 module.exports = {
     mode: 'development',
-    entry: {
-        main: './js/main.js',
-    },
+    entry: pages.reduce((config, page) => {
+        config[page.name] = page.js.map(p => `./js/${p}.js`);
+        return config;
+    }, {}),
 
     output: {
-        filename: 'js/[name].[contenthash].js',
+        filename: 'js/[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
+    devtool: 'source-map',
+    optimization: {
+        splitChunks: {
+            chunks: "all",
+        },
+    },
     plugins: [
-        new HTMLWebpackPlugin({
-            filename: 'index.html',
-            template: './pages/index.html',
-            inject: true,
-            minify: {
-                collapseWhitespace: !isDev
-            }
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
         }),
-        new HTMLWebpackPlugin({
-            filename: 'login.html',
-            template: './pages/login.html',
-        }),
-        new HTMLWebpackPlugin({
-            filename: 'meditation.html',
-            template: './pages/meditation.html',
-        }),
-        new HTMLWebpackPlugin({
-            filename: 'registration.html',
-            template: './pages/registration.html',
-        }),
-        new HTMLWebpackPlugin({
-            filename: 'user_profile.html',
-            template: './pages/user_profile.html',
-        }),
-        new HTMLWebpackPlugin({
-            filename: 'warm_up.html',
-            template: './pages/warm_up.html',
-        }),
-        new HTMLWebpackPlugin({
-            filename: 'eyes.html',
-            template: './pages/eyes.html',
-        }),
-        new CleanWebpackPlugin(),
         new CopyWebpackPlugin(
             {
                 patterns: [
@@ -76,12 +92,18 @@ module.exports = {
                 ]
             }
         ),
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css'
-        })
-
-    ],
-
+        new CleanWebpackPlugin(),
+    ].concat(pages.map(
+        (page) =>
+            new HtmlWebpackPlugin({
+                inject: true,
+                template: `./pages/${page.html}.html`,
+                filename: `${page.html}.html`,
+                chunks: [page.name],
+                minify: {
+                    collapseWhitespace: !isDev
+                }
+            }))),
     module: {
         rules: [
             {

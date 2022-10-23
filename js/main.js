@@ -1,7 +1,3 @@
-import './advice.js'
-import './greeting.js'
-import './player.js'
-import './timer.js'
+
 import '../css/style.css'
-import './login.js'
-import './registration.js'
+import '../css/stylesRegistrationAndLogIn.css'

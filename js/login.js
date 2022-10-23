@@ -7,6 +7,7 @@ const logInPassword = document.querySelector('#password');
 const messageBlock = document.querySelector('.message');
 const submit_btn = document.querySelector('.loginButton');
 
+
 logInEmail.addEventListener('input', () => {
     if (validation(logInEmail, patternEmail)) {
         logInEmail.classList.add('valid');
@@ -16,24 +17,28 @@ logInEmail.addEventListener('input', () => {
     else {
         logInEmail.classList.add('invalid');
         logInEmail.classList.remove('valid');
-        messageBlock.innerText = logInEmail.title;
+        messageBlock.innerText = 'не верный email';
     }
     check();
 });
 
-logInPassword.addEventListener('input', () => {
-    if (validation(logInPassword, patternPassword)) {
-        logInPassword.classList.add('valid');
-        logInPassword.classList.remove('invalid');
-        messageBlock.innerText = '';
-    }
-    else {
-        logInPassword.classList.add('invalid');
-        logInPassword.classList.remove('valid');
-        messageBlock.innerText = logInPassword.title;
-    }
-    check();
-});
+
+if (logInPassword) {
+    logInPassword.addEventListener('input', () => {
+        if (validation(logInPassword, patternPassword)) {
+            logInPassword.classList.add('valid');
+            logInPassword.classList.remove('invalid');
+            messageBlock.innerText = '';
+        }
+        else {
+            logInPassword.classList.add('invalid');
+            logInPassword.classList.remove('valid');
+            messageBlock.innerText = 'не верный пароль';
+        }
+        check();
+    });
+}
+
 
 const check = () => {
     if (validation(logInEmail, patternEmail) && validation(logInPassword, patternPassword)) {
@@ -45,8 +50,10 @@ const check = () => {
 }
 
 // checkEmailInput(logInEmail));
+if (logInForm) {
+    logInForm.addEventListener('submit', handleFormSubmit);
 
-logInForm.addEventListener('submit', handleFormSubmit);
+}
 
 function handleFormSubmit(event) {
     event.preventDefault();
