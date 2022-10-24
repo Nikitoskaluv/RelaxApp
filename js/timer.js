@@ -68,11 +68,13 @@ function handleTimerSubmit(status) {
     data.status = status;
     data.id = settings.newID;
     console.log(data)
+    console.log(`token ${localStorage.getItem('userToken')}`);
 
     fetch(`${ADDRESS}/timer`, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
+            'authorization': localStorage.getItem('userToken')
         },
         body: JSON.stringify(data)
     }).then((res) => {
@@ -82,7 +84,7 @@ function handleTimerSubmit(status) {
     })
         .then(data => {
             messageBlock.innerHTML = data.message;
-            localStorage.setItem('userToken', data.token);
+            // localStorage.setItem('userToken', data.token);
         })
         .catch((error) => {
             console.log(`ошибка ${error}`)
