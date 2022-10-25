@@ -77,40 +77,46 @@
             </ul>
         </nav> -->
         <div class="profile-block-container profile-block-container_contain">
-            <form class="profile-block-form">
+            <form class="profile-block-form" id="profileForm">
                 <div class="profile-block-form-inputs">
                     <div class="input">
                         <label for="username">Имя</label>
-                        <input id="username" type="text" class="" placeholder="Имя" />
+                        <input id="username" type="text" class="" placeholder="Имя" disabled/>
                     </div>
-                    <div class="input">
-                        <label for="surname">Фамилия</label>
-                        <input id="surname" type="text" class="" placeholder="Фамилия" />
-                    </div>
-                    <div class="input">
-                        <label for="middlename">Отчество</label>
-                        <input id="middlename" type="text" class="" placeholder="Отчество" />
-                    </div>
+<!--                    <div class="input">-->
+<!--                        <label for="surname">Фамилия</label>-->
+<!--                        <input id="surname" type="text" class="" placeholder="Фамилия" />-->
+<!--                    </div>-->
+<!--                    <div class="input">-->
+<!--                        <label for="middlename">Отчество</label>-->
+<!--                        <input id="middlename" type="text" class="" placeholder="Отчество" />-->
+<!--                    </div>-->
 
                     <div class="input">
                         <label for="email">E-Mail</label>
-                        <input id="email" type="text" class="" placeholder="E-Mail" />
+                        <input id="email" type="text" class="" placeholder="E-Mail" disabled/>
                     </div>
                     <div class="input">
                         <label for="password-new">Придумайте новый пароль</label>
-                        <input id="password-new" type="password" class="" placeholder="Придумайте новый пароль" />
+                        <input id="password-new" type="password" class="" placeholder="Придумайте новый пароль" disabled/>
                     </div>
-                    <div class="input">
-                        <label for="birthday">Дата рождения</label>
-                        <input class="date" id="birthday" type="date" />
-                    </div>
+<!--                    <div class="input">-->
+<!--                        <label for="birthday">Дата рождения</label>-->
+<!--                        <input class="date" id="birthday" type="date" />-->
+<!--                    </div>-->
                     <div class="input">
                         <label for="password-new-repeat">Повторите пароль</label>
-                        <input id="password-new-repeat" type="password" class="" placeholder="Повторите пароль" />
+                        <input id="password-new-repeat" type="password" class="" placeholder="Повторите пароль" disabled/>
                     </div>
                 </div>
-                <button type="submit" class="save-changes-button">Сохранить</button>
+                <div class="profile-buttons">
+                    <button type="button" class="save-changes-button" id="save-button" >Сохранить</button>
+                    <button type="button" class="changes-button" id="change-button">Изменить</button>
+                </div>
+                <div class="message"></div>
+
             </form>
+            <div class="profile-block-container profile-block-container_contain statistics">stats here</div>
         </div>
     </div>
 </body>

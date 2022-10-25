@@ -25,7 +25,7 @@ const pages = [
     },
     {
         "name": "user_profile",
-        "js": ["main"],
+        "js": ["main", "user_profile"],
         "html": "user_profile"
     },
     {
