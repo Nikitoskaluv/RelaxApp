@@ -424,7 +424,7 @@ button:active {
     margin-top: 0px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -432,6 +432,8 @@ button:active {
 .timer-modes {
     display: inline-block;
     margin-right: 10px;
+    font-family: "Forum", sans-serif;
+    font-weight: 700;
 }
 
 .timer-modes input[type="radio"] {
@@ -465,6 +467,13 @@ button:active {
 
 .timer-modes label:hover {
     color: #666;
+    background: linear-gradient(180deg, #2db8a6 0%, #078a78 100%);
+    box-shadow: 0px 13px 28px rgba(19, 88, 79, 0.2);
+}
+.timer-modes label:active {
+    color: #666;
+    background: linear-gradient(180deg, #45f2db 0%, #0adbbf 100%);
+    box-shadow: 0px 13px 28px rgba(24, 47, 44, 0.2);
 }
 
 .timer-modes input[type=radio]:disabled+label {
@@ -487,6 +496,7 @@ button:active {
     font-size: 30px;
     line-height: 130%;
     color: #ffffff;
+    font-family: "Forum", sans-serif;
 
 }
 
@@ -512,9 +522,9 @@ button:active {
 
 .timerline {
     width: 260px;
-    height: 20px;
+    height: 10px;
     margin-top: 10px;
-    padding: 20px 0;
+    padding: 2px 0;
     border-radius: 15px;
     box-shadow: 0px 0px 2px 0px #3eb29d;
     border: 2px solid #59d0c0;
@@ -1440,6 +1450,7 @@ svg {
     flex-direction: column;
     width: 50%;
     height: 100px;
+    align-items: center;
 }
 
 .profile-block-container .profile-block-form .profile-block-form-inputs .input label {
@@ -1480,6 +1491,15 @@ svg {
     border-radius: 5px;
     background: #0d606f;
 }
+.profile-block-container .profile-block-form .changes-button {
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    background: #0d606f;
+    margin-left: 140px;
+}
 
 .profile-block-container .profile-block-form .save-changes-button:hover {
     cursor: pointer;
@@ -1489,6 +1509,26 @@ svg {
 .profile-block-container_contain {
     width: 1200px;
     margin: auto;
+}
+
+.profile-block-container .profile-block-form .profile-buttons{
+    display: flex;
+    flex-direction: row;
+    margin-left: 25%;
+}
+
+.invalid {
+    border-color: red !important;
+    border: 1px;
+}
+
+
+.statistics{
+    width: 540px;
+    height: 100px;
+    border: 2px solid #59D0C0;
+    border-radius: 15px;
+
 }
 
 #burger {

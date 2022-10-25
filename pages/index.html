@@ -74,22 +74,16 @@
         </div>
     </header>
     <main class="main">
-        <div class="main-bg">
-            <img src="../assets/img/girl-meditation.svg" alt="girl" width="450" height="400">
-        </div>
-        <span class="radioButtons">
+            <span class="radioButtons">
             <div class="timer-modes"><label><input type="radio" name="r1" id="radioWork" value="work"
-                        checked>Работа<br></label></div>
+                                                   checked>Работа<br></label></div>
             <div class="timer-modes"><label><input type="radio" name="r1" id="radioRest" value="rest">Отдых<br></label>
             </div>
 
         </span>
-        <label for="radioMeditation">
-            <div class="timer-meditation">
-                <input type="checkbox" name="r1" id="radioMeditation" value="meditation">
-                <label for="radioMeditation">Медитация</label>
-            </div>
-        </label>
+        <div class="main-bg">
+            <img src="../assets/img/girl-meditation.svg" alt="girl" width="450" height="400">
+        </div>
 
         <section class="main-timer">
 
@@ -104,6 +98,12 @@
             </div>
         </section>
         <div class="timerline"></div>
+        <label for="radioMeditation">
+            <div class="timer-meditation">
+                <input type="checkbox" name="r1" id="radioMeditation" value="meditation">
+                <label for="radioMeditation">Медитация</label>
+            </div>
+        </label>
         <label id="hide-toggle" for="hidden">Настройки времени</label>
         <input id="hidden" type="checkbox">
         <section class="customize">
