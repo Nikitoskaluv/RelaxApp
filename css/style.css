@@ -1450,6 +1450,7 @@ svg {
     flex-direction: column;
     width: 50%;
     height: 100px;
+    align-items: center;
 }
 
 .profile-block-container .profile-block-form .profile-block-form-inputs .input label {
@@ -1490,6 +1491,15 @@ svg {
     border-radius: 5px;
     background: #0d606f;
 }
+.profile-block-container .profile-block-form .changes-button {
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    background: #0d606f;
+    margin-left: 140px;
+}
 
 .profile-block-container .profile-block-form .save-changes-button:hover {
     cursor: pointer;
@@ -1499,6 +1509,26 @@ svg {
 .profile-block-container_contain {
     width: 1200px;
     margin: auto;
+}
+
+.profile-block-container .profile-block-form .profile-buttons{
+    display: flex;
+    flex-direction: row;
+    margin-left: 25%;
+}
+
+.invalid {
+    border-color: red !important;
+    border: 1px;
+}
+
+
+.statistics{
+    width: 540px;
+    height: 100px;
+    border: 2px solid #59D0C0;
+    border-radius: 15px;
+
 }
 
 #burger {
