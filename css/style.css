@@ -1462,7 +1462,8 @@ svg {
 .profile-block-container .profile-block-form .profile-block-form-inputs .input input {
     height: 35px;
     width: 80%;
-    border: none;
+    /* border: none; */
+    border: 2px solid #59D0C0;
     border-radius: 15px;
     padding: 0 20px;
 }
@@ -1477,6 +1478,9 @@ svg {
 
 .profile-block-container .profile-block-form .profile-block-form-inputs .input input::placeholder {
     color: #1A7F72;
+}
+.profile-block-container .profile-block-form .profile-block-form-inputs .input input:focus {
+    outline: none;
 }
 
 .profile-block-container .profile-block-form .profile-block-form-inputs .input .date {
@@ -1501,10 +1505,10 @@ svg {
     margin-left: 140px;
 }
 
-.profile-block-container .profile-block-form .save-changes-button:hover {
+/* .profile-block-container .profile-block-form .save-changes-button:hover {
     cursor: pointer;
     background: #1A7F72;
-}
+} */
 
 .profile-block-container_contain {
     width: 1200px;
@@ -1519,9 +1523,13 @@ svg {
 
 .invalid {
     border-color: red !important;
-    border: 1px;
+    /* border: 1px; */
 }
 
+.valid {
+    border-color: green !important;
+    /* border: 1px; */
+}
 
 .statistics{
     width: 540px;
