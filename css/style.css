@@ -470,6 +470,7 @@ button:active {
     background: linear-gradient(180deg, #2db8a6 0%, #078a78 100%);
     box-shadow: 0px 13px 28px rgba(19, 88, 79, 0.2);
 }
+
 .timer-modes label:active {
     color: #666;
     background: linear-gradient(180deg, #45f2db 0%, #0adbbf 100%);
@@ -1491,6 +1492,7 @@ svg {
     border-radius: 5px;
     background: #0d606f;
 }
+
 .profile-block-container .profile-block-form .changes-button {
     border: none;
     color: #fff;
@@ -1511,7 +1513,7 @@ svg {
     margin: auto;
 }
 
-.profile-block-container .profile-block-form .profile-buttons{
+.profile-block-container .profile-block-form .profile-buttons {
     display: flex;
     flex-direction: row;
     margin-left: 25%;
@@ -1523,7 +1525,7 @@ svg {
 }
 
 
-.statistics{
+.statistics {
     width: 540px;
     height: 100px;
     border: 2px solid #59D0C0;
@@ -1600,12 +1602,11 @@ svg {
 }
 
 .isDisabled {
-    color: currentColor;
+    display: none;
+    /* color: currentColor;
     cursor: not-allowed;
     opacity: 0.2;
-    text-decoration: none;
+    text-decoration: none; */
 }
 
 /*# sourceMappingURL=style.css.map */
-
-

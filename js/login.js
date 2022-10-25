@@ -71,18 +71,14 @@ function handleFormSubmit(event) {
             'Content-type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify(data)
-    }).then((res) => {
-        const d = res.json();
-        console.log("res", d);
-        return d
-    })
+    }).then(r => r.json().then(data => ({ status: r.status, body: data })))
         .then(data => {
-            messageBlock.innerHTML = data.message;
-            console.log('token sqsqdq', data);
-            localStorage.setItem('userToken', data.token);
-        })
-        .then(() => {
-            document.location.href = "/";
+            if (data.status !== 200) {
+                messageBlock.innerHTML = data.body.message;
+            } else {
+                localStorage.setItem('userToken', data.body.token);
+                document.location.href = "/";
+            }
         })
         .catch((error) => {
             console.log(`ошибка ${error}`)

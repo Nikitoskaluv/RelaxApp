@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
-const {ADDRESS} = require("./constants");
+const { ADDRESS } = require("./constants");
 
 const timerDiv = document.querySelector(".timer"),
     timerHead = document.querySelector("#timerH"),
@@ -25,15 +25,15 @@ let findSelected = () => {
     let selected = document.querySelector("input[name='r1']:checked").value
     // selectedRadio.textContent = `${selected}`
     settings.session = selected
-    if (settings.session === 'work'){
+    if (settings.session === 'work') {
         document.getElementById("radioMeditation").checked = false //заготовки для чекбокса
         document.getElementById("radioMeditation").disabled = true
         remains = fullW = settings.work * 60;
         timerDiv.innerHTML = formatTime(remains);
 
     }
-    else if (settings.session === 'rest'){
-        if (document.getElementById("radioMeditation").checked){
+    else if (settings.session === 'rest') {
+        if (document.getElementById("radioMeditation").checked) {
             settings.session = 'meditation'
             remains = fullR = settings.rest * 60;
             timerDiv.innerHTML = formatTime(remains)
@@ -54,18 +54,18 @@ radioBtns.forEach(radioBtn => {
 })
 
 function lockRadio(arg) {
-    radioBtns.forEach(function (cb){
+    radioBtns.forEach(function (cb) {
         cb.disabled = arg
     })
 }
 
-function lockControls(btn, disabled){
+function lockControls(btn, disabled) {
     btn.disabled = disabled
 }
 
 
 
-document.addEventListener("DOMContentUnloaded", ()=>{})
+document.addEventListener("DOMContentUnloaded", () => { })
 
 
 
@@ -138,9 +138,9 @@ clearButton.addEventListener('click', clear);
     assignSessionButtons(button);
 });
 
-function unPause(){
+function unPause() {
     // debugger
-    if (settings.paused === true){
+    if (settings.paused === true) {
         settings.paused = false
         handleTimerSubmit('resume')
         console.log('снято с паузы -', settings.paused)
@@ -152,7 +152,7 @@ function timerFunc() {
     clearInterval(timer);
     let bgarg
 
-    if (settings.newID ==='') {
+    if (settings.newID === '') {
         settings.newID = uuidv4()
     }
 
@@ -261,7 +261,7 @@ function stop() {
 }
 
 function clear() {
-    if (settings.session === 'work'){
+    if (settings.session === 'work') {
         console.log(fullW - remains, 'diff work')
         console.log(settings.session, settings.newID, '- остановленно, проверка ид, work')
         console.log(settings.newID, '- должно быть пусто')
@@ -271,7 +271,7 @@ function clear() {
         handleTimerSubmit("stop")
         settings.newID = ''
     }
-    else if (settings.session === 'rest'){
+    else if (settings.session === 'rest') {
         console.log(fullR - remains, 'diff rest')
         console.log(settings.session, settings.newID, '- остановленно, проверка ид, rest')
         console.log(settings.newID, '- должно быть пусто')
@@ -281,7 +281,7 @@ function clear() {
         handleTimerSubmit("stop")
         settings.newID = ''
     }
-    else if (settings.session === 'meditation'){
+    else if (settings.session === 'meditation') {
         console.log(fullR - remains, 'diff meditation')
         console.log(settings.session, settings.newID, '- остановленно, проверка ид, meditation')
         console.log(settings.newID, '- должно быть пусто')
@@ -320,9 +320,9 @@ lockControls(controllStop, true)
 //     clear()
 // })
 
-window.onbeforeunload = function(){
-    debugger
-    if (settings.newID !== ''){
+window.onbeforeunload = function () {
+    // debugger
+    if (settings.newID !== '') {
         clear()
     }
 }
