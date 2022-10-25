@@ -321,7 +321,8 @@ lockControls(controllStop, true)
 // })
 
 window.onbeforeunload = function(){
-    // debugger
-    clear()
-    // debugger
+    debugger
+    if (settings.newID !== ''){
+        clear()
+    }
 }
