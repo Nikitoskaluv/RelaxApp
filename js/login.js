@@ -6,7 +6,10 @@ const logInEmail = document.querySelector('#email');
 const logInPassword = document.querySelector('#password');
 const messageBlock = document.querySelector('.message');
 const submit_btn = document.querySelector('.loginButton');
+const logoutButton = document.querySelector('.logout');
+const loginButton = document.querySelector('.login');
 
+checkAlreadyAuthed();
 
 logInEmail.addEventListener('input', () => {
     if (validation(logInEmail, patternEmail)) {
@@ -75,12 +78,30 @@ function handleFormSubmit(event) {
     })
         .then(data => {
             messageBlock.innerHTML = data.message;
+            console.log('token sqsqdq', data);
             localStorage.setItem('userToken', data.token);
+        })
+        .then(() => {
+            document.location.href = "/";
         })
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })
 
+}
+
+export function checkAlreadyAuthed() {
+    const token = localStorage.getItem('userToken');
+    if (token) {
+        messageBlock.innerHTML = "Пользователь уже авторизован"
+        submit_btn.setAttribute('disabled', 'disabled');
+        loginButton.classList.add('isDisabled');
+    } else {
+        messageBlock.innerHTML = ""
+        submit_btn.removeAttribute('disabled');
+        loginButton.classList.remove('isDisabled');
+
+    }
 }
 
 

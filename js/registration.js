@@ -72,6 +72,7 @@ function handleFormSubmit(event) {
     const data = {};
     data.login = loginInput.value;
     data.password = passwordInput.value;
+    data.name = name.value;
     fetch(`${ADDRESS}/registration`, {
         method: 'POST',
         headers: {
@@ -83,6 +84,7 @@ function handleFormSubmit(event) {
         return result
     })
         .then(data => messageBlock.innerHTML = data.message)
+        .then(document.location.href = "/login.html")
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })

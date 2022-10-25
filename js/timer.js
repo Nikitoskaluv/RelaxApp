@@ -77,6 +77,7 @@ function handleTimerSubmit(status) {
     data.status = status;
     data.id = settings.newID;
     console.log(data)
+    console.log(`token ${localStorage.getItem('userToken')}`);
 
     fetch(`${ADDRESS}/timer`, {
         method: 'POST',
@@ -92,7 +93,6 @@ function handleTimerSubmit(status) {
     })
         .then(data => {
             messageBlock.innerHTML = data.message;
-            localStorage.setItem('userToken', data.token);
         })
         .catch((error) => {
             console.log(`ошибка ${error}`)
