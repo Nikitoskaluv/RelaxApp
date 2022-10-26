@@ -83,7 +83,6 @@ function handleFormSubmit(event) {
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })
-
 }
 
 export function checkAlreadyAuthed() {

@@ -14,21 +14,13 @@ const change_btn = document.querySelector('#change-button');
 
 let user_info = {
     'login': 'user@mail.ru',
-    'password':'12345',
     'name': 'username'
 }
-window.addEventListener('load', ()=>{
-    emailInput.value = user_info.login;
-    name.value = user_info.name;
-    pas.value = user_info.password;
-    pas_repeat.value = user_info.password;
-})
-
-
+window.addEventListener('load', getUserData());
 
 change_btn.addEventListener('click', change);
 
-function change(){
+function change() {
     name.disabled = false
     emailInput.disabled = false
     pas.disabled = false
@@ -38,7 +30,7 @@ function change(){
 
 //валидации
 const checkField = (elem, value) => {
-    
+
     if (value) {
         elem.classList.add('valid');
         elem.classList.remove('invalid');
@@ -54,10 +46,10 @@ const checkField = (elem, value) => {
     check();
 }
 
-if (name){
+if (name) {
     name.addEventListener('input', () => {
-    checkField(name, validation(name, patternName));
-});
+        checkField(name, validation(name, patternName));
+    });
 }
 
 if (emailInput) {
@@ -82,10 +74,9 @@ if (pas_repeat) {
 // проверка заполнения всех полей ввода
 const check = () => {
     if (validation(name, patternName) && validation(emailInput, patternEmail) && validation(pas, patternPassword) &&
-        pas_repeat.value == pas.value  && (name.value!=user_info.name || emailInput.value!=user_info.login || pas.value!=user_info.password))
-        {
+        pas_repeat.value == pas.value && (name.value != user_info.name || emailInput.value != user_info.login || pas.value != user_info.password)) {
         save_btn.removeAttribute('disabled');
-       
+
     }
     else {
         save_btn.setAttribute('disabled', 'disabled');
@@ -96,6 +87,7 @@ const check = () => {
 if (profileForm) {
     profileForm.addEventListener('submit', handleFormSubmit);
 }
+
 
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -118,4 +110,25 @@ function handleFormSubmit(event) {
     //         console.log(`ошибка ${error}`)
     //     })
 
+}
+
+window.onload(getUserData());
+
+function getUserData() {
+    fetch(`${ADDRESS}/user`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'authorization': localStorage.getItem('userToken'),
+        },
+    }).then((res) => {
+        return res.json();
+    }).then((data) => {
+        console.log(data);
+        emailInput.value = data.login;
+        name.value = data.name;
+        return data;
+    }).catch((error) => {
+        console.log(`ошибка ${error}`)
+    })
 }
