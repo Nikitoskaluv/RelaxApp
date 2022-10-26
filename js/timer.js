@@ -13,11 +13,11 @@ const timerDiv = document.querySelector(".timer"),
     restTimeDiv = document.querySelector("#restTime"),
     launchButton = document.querySelector("#launch"),
     stopButton = document.querySelector("#stop"),
-    clearButton = document.querySelector("#clear");
+    clearButton = document.querySelector("#clear"),
+    minutes = document.querySelector("#minutes");
 controllPlay = document.getElementById("launch");
 controllPause = document.getElementById("stop");
 controllStop = document.getElementById("clear");
-
 
 let radioBtns = document.querySelectorAll("input[name='r1']")
 // let selectedRadio = document.getElementById("selectedRadio")
@@ -201,6 +201,7 @@ function timerFunc() {
     timer = setInterval(() => {
         remains--;
         timerDiv.innerHTML = formatTime(remains);
+        var minutes = document.getElementById("minutes").value;
         setBg(bgarg, colors);
         // sound
         if (remains === 0) {
@@ -326,3 +327,52 @@ window.onbeforeunload = function () {
         clear()
     }
 }
+
+let secondsRemaining;
+let intervalHandle;
+
+function tick() {
+    var timeDisplay = document.querySelector(".timer");
+
+    var min = Math.floor(secondsRemaining / 60);
+    var sec = secondsRemaining - (min * 60);
+
+    if (min < 10) {
+        min = "0" + min;
+    }
+
+    if (sec < 10) {
+        sec = "0" + sec;
+    }
+
+    var message = min + ":" + sec;
+    timeDisplay.innerHTML = message;
+    secondsRemaining--;
+}
+
+function startCountdown() {
+    var minutes = document.getElementById("minutes").value;
+    clearInterval(timer);
+    secondsRemaining = minutes * 60;
+    intervalHandle = setInterval(tick, 1000);
+    document.getElementById("inputArea").style.display = "none";
+}
+
+function stopCountdown() {
+    clearInterval(timer);
+    var minutes = document.getElementById("minutes").value;
+    document.getElementById("inputArea").style.display = "block";
+}
+
+window.onload = function () {
+    var startButton = document.getElementById("breakBtn");
+    startButton.onclick = function () {
+        startCountdown();
+    };
+    var stopButton = document.getElementById("clear");
+    stopButton.onclick = function () {
+        stopCountdown();
+    };
+
+    document.getElementById("inputArea").appendChild(startButton);
+};
