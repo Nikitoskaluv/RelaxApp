@@ -10,7 +10,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const pages = [
     {
         "name": "login",
-        "js": ["login", "validation", "main", "logout"],
+        "js": ["login", "validation", "main"],
         "html": "login"
     },
     {
@@ -20,7 +20,7 @@ const pages = [
     },
     {
         "name": "index",
-        "js": ["advice", "player", "timer", "main", "logout"],
+        "js": ["advice", "player", "timer", "main"],
         "html": "index"
     },
     {

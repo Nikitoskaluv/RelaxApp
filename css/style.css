@@ -1480,6 +1480,7 @@ svg {
 .profile-block-container .profile-block-form .profile-block-form-inputs .input input::placeholder {
     color: #1A7F72;
 }
+
 .profile-block-container .profile-block-form .profile-block-form-inputs .input input:focus {
     outline: none;
 }
@@ -1615,6 +1616,16 @@ svg {
     cursor: not-allowed;
     opacity: 0.2;
     text-decoration: none; */
+}
+
+.home_link {
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
