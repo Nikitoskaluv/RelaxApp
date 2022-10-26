@@ -24,6 +24,7 @@ const checkField = (elem, value) => {
     }
     check();
 }
+
 if (name) {
     name.addEventListener('input', () => {
         checkField(name, validation(name, patternName));

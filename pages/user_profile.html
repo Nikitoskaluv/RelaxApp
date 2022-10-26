@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../assets/icons/man.svg" rel="shortcut icon" />
-    <!-- <link rel="stylesheet" href="../css/style.css" /> -->
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Profile</title>
 </head>
 
@@ -81,7 +81,7 @@
                 <div class="profile-block-form-inputs">
                     <div class="input">
                         <label for="username">Имя</label>
-                        <input id="username" type="text" class="" placeholder="Имя" disabled/>
+                        <input id="username" type="text" class="input" placeholder="Имя" title="Введите не менее 3 символов" disabled/>
                     </div>
 <!--                    <div class="input">-->
 <!--                        <label for="surname">Фамилия</label>-->
@@ -94,11 +94,11 @@
 
                     <div class="input">
                         <label for="email">E-Mail</label>
-                        <input id="email" type="text" class="" placeholder="E-Mail" disabled/>
+                        <input id="email" type="text" class="input" placeholder="E-Mail" title="Введите корректный email" disabled/>
                     </div>
                     <div class="input">
                         <label for="password-new">Придумайте новый пароль</label>
-                        <input id="password-new" type="password" class="" placeholder="Придумайте новый пароль" disabled/>
+                        <input id="password-new" type="password" class="input" placeholder="Придумайте новый пароль" title="Пароль должен содержать не менее 4 символов разного регистра и цифр" disabled/>
                     </div>
 <!--                    <div class="input">-->
 <!--                        <label for="birthday">Дата рождения</label>-->
@@ -106,11 +106,11 @@
 <!--                    </div>-->
                     <div class="input">
                         <label for="password-new-repeat">Повторите пароль</label>
-                        <input id="password-new-repeat" type="password" class="" placeholder="Повторите пароль" disabled/>
+                        <input id="password-new-repeat" type="password" class="input" placeholder="Повторите пароль" title="Пароли должны совпадать"   disabled/>
                     </div>
                 </div>
                 <div class="profile-buttons">
-                    <button type="button" class="save-changes-button" id="save-button" >Сохранить</button>
+                    <button type="submit" class="save-changes-button" id="save-button" >Сохранить</button>
                     <button type="button" class="changes-button" id="change-button">Изменить</button>
                 </div>
                 <div class="message"></div>
@@ -120,5 +120,5 @@
         </div>
     </div>
 </body>
-
+<script type="module" src="../js/user_profile.js"></script>
 </html>

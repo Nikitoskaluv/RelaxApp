@@ -4,10 +4,7 @@ import { validation, patternEmail, patternPassword, patternName } from './valida
 //inputs
 const profileForm = document.querySelector('#profileForm');
 const messageBlock = document.querySelector('.message');
-const usernameInput = document.querySelector('#username');
 const emailInput = document.querySelector('#email');
-const newPasswordInput = document.querySelector('#password-new');
-const repeatNewPasswordInput = document.querySelector('#password-new-repeat');
 const name = document.querySelector('#username');
 const pas = document.querySelector('#password-new');
 const pas_repeat = document.querySelector('#password-new-repeat');
@@ -15,55 +12,57 @@ const pas_repeat = document.querySelector('#password-new-repeat');
 const save_btn = document.querySelector('#save-button');
 const change_btn = document.querySelector('#change-button');
 
-
-//clicks on buttons
-save_btn.addEventListener('click', submit);
-change_btn.addEventListener('click', change);
-//
-
-function submit(){
-    usernameInput.disabled = true
-    emailInput.disabled = true
-    newPasswordInput.disabled = true
-    repeatNewPasswordInput.disabled = true
-    console.log(usernameInput.value, '-username')
-    console.log(emailInput.value, '-email')
-    console.log(newPasswordInput.value, '-new password')
-    console.log(repeatNewPasswordInput.value, '-new password repeated')
-    debugger
+let user_info = {
+    'login': 'user@mail.ru',
+    'password':'12345',
+    'name': 'username'
 }
+window.addEventListener('load', ()=>{
+    emailInput.value = user_info.login;
+    name.value = user_info.name;
+    pas.value = user_info.password;
+    pas_repeat.value = user_info.password;
+})
+
+
+
+change_btn.addEventListener('click', change);
 
 function change(){
-    debugger
-    usernameInput.disabled = false
+    name.disabled = false
     emailInput.disabled = false
-    newPasswordInput.disabled = false
-    repeatNewPasswordInput.disabled = false
+    pas.disabled = false
+    pas_repeat.disabled = false
+    check();
 }
 
 //валидации
 const checkField = (elem, value) => {
+    
     if (value) {
         elem.classList.add('valid');
         elem.classList.remove('invalid');
         messageBlock.innerText = '';
+        // console.log('valid');
     }
     else {
         elem.classList.add('invalid');
         elem.classList.remove('valid');
         messageBlock.innerText = elem.title;
+        // console.log('invalid');
     }
     check();
 }
-if (name) {
+
+if (name){
     name.addEventListener('input', () => {
-        checkField(name, validation(name, patternName));
-    });
+    checkField(name, validation(name, patternName));
+});
 }
 
-if (usernameInput) {
-    usernameInput.addEventListener('input', () => {
-        checkField(usernameInput, validation(usernameInput, patternEmail));
+if (emailInput) {
+    emailInput.addEventListener('input', () => {
+        checkField(emailInput, validation(emailInput, patternEmail));
     });
 }
 
@@ -72,7 +71,6 @@ if (pas) {
         checkField(pas, validation(pas, patternPassword));
     });
 }
-
 
 if (pas_repeat) {
     pas_repeat.addEventListener('input', () => {
@@ -83,9 +81,11 @@ if (pas_repeat) {
 
 // проверка заполнения всех полей ввода
 const check = () => {
-    if (validation(name, patternName) && validation(usernameInput, patternEmail) && validation(pas, patternPassword) &&
-        pas_repeat.value == pas.value) {
+    if (validation(name, patternName) && validation(emailInput, patternEmail) && validation(pas, patternPassword) &&
+        pas_repeat.value == pas.value  && (name.value!=user_info.name || emailInput.value!=user_info.login || pas.value!=user_info.password))
+        {
         save_btn.removeAttribute('disabled');
+       
     }
     else {
         save_btn.setAttribute('disabled', 'disabled');
@@ -99,11 +99,10 @@ if (profileForm) {
 
 function handleFormSubmit(event) {
     event.preventDefault();
-    const data = {};
-    data.login = usernameInput.value;
-    data.password = newPasswordInput.value;
-    console.log(data.login, 'login')
-    console.log(data.password, 'password')
+    user_info.name = name.value;
+    user_info.password = pas.value;
+    user_info.login = emailInput.value;
+    // console.log(user_info);
     // fetch(`${ADDRESS}/registration`, {
     //     method: 'POST',
     //     headers: {
