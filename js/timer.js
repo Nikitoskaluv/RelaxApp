@@ -14,8 +14,7 @@ const timerDiv = document.querySelector(".timer"),
     launchButton = document.querySelector("#launch"),
     stopButton = document.querySelector("#stop"),
     clearButton = document.querySelector("#clear"),
-    minutes = document.querySelector("#minutes");
-controllPlay = document.getElementById("launch");
+    controllPlay = document.getElementById("launch");
 controllPause = document.getElementById("stop");
 controllStop = document.getElementById("clear");
 
@@ -125,7 +124,7 @@ let timer, fullW = settings.work * 60, remains = fullW, fullR = settings.rest * 
 // clear();
 // show all initial numbers
 // debugger
-// workTimeDiv.innerHTML = settings.work;
+workTimeDiv.innerHTML = settings.work;
 findSelected()
 
 
@@ -328,51 +327,3 @@ window.onbeforeunload = function () {
     }
 }
 
-let secondsRemaining;
-let intervalHandle;
-
-function tick() {
-    var timeDisplay = document.querySelector(".timer");
-
-    var min = Math.floor(secondsRemaining / 60);
-    var sec = secondsRemaining - (min * 60);
-
-    if (min < 10) {
-        min = "0" + min;
-    }
-
-    if (sec < 10) {
-        sec = "0" + sec;
-    }
-
-    var message = min + ":" + sec;
-    timeDisplay.innerHTML = message;
-    secondsRemaining--;
-}
-
-function startCountdown() {
-    var minutes = document.getElementById("minutes").value;
-    clearInterval(timer);
-    secondsRemaining = minutes * 60;
-    intervalHandle = setInterval(tick, 1000);
-    document.getElementById("inputArea").style.display = "none";
-}
-
-function stopCountdown() {
-    clearInterval(timer);
-    var minutes = document.getElementById("minutes").value;
-    document.getElementById("inputArea").style.display = "block";
-}
-
-window.onload = function () {
-    var startButton = document.getElementById("breakBtn");
-    startButton.onclick = function () {
-        startCountdown();
-    };
-    var stopButton = document.getElementById("clear");
-    stopButton.onclick = function () {
-        stopCountdown();
-    };
-
-    document.getElementById("inputArea").appendChild(startButton);
-};
