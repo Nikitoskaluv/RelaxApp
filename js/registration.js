@@ -25,22 +25,31 @@ const checkField = (elem, value) => {
     check();
 }
 
-name.addEventListener('input', () => {
-    checkField(name, validation(name, patternName));
-});
+if (name) {
+    name.addEventListener('input', () => {
+        checkField(name, validation(name, patternName));
+    });
+}
 
-loginInput.addEventListener('input', () => {
-    checkField(loginInput, validation(loginInput, patternEmail));
-});
+if (loginInput) {
+    loginInput.addEventListener('input', () => {
+        checkField(loginInput, validation(loginInput, patternEmail));
+    });
+}
 
-pas.addEventListener('input', () => {
-    checkField(pas, validation(pas, patternPassword));
-});
+if (pas) {
+    pas.addEventListener('input', () => {
+        checkField(pas, validation(pas, patternPassword));
+    });
+}
 
 
-pas_repeat.addEventListener('input', () => {
-    checkField(pas_repeat, pas_repeat.value == pas.value);
-})
+if (pas_repeat) {
+    pas_repeat.addEventListener('input', () => {
+        checkField(pas_repeat, pas_repeat.value == pas.value);
+    })
+}
+
 
 // проверка заполнения всех полей ввода
 const check = () => {
@@ -54,13 +63,17 @@ const check = () => {
 }
 
 // отправка данных на бэк
-regForm.addEventListener('submit', handleFormSubmit);
+if (regForm) {
+    regForm.addEventListener('submit', handleFormSubmit);
+}
+
 
 function handleFormSubmit(event) {
     event.preventDefault();
     const data = {};
     data.login = loginInput.value;
     data.password = passwordInput.value;
+    data.name = name.value;
     fetch(`${ADDRESS}/registration`, {
         method: 'POST',
         headers: {
@@ -72,6 +85,7 @@ function handleFormSubmit(event) {
         return result
     })
         .then(data => messageBlock.innerHTML = data.message)
+        .then(document.location.href = "/login.html")
         .catch((error) => {
             console.log(`ошибка ${error}`)
         })

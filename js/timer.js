@@ -13,8 +13,10 @@ const timerDiv = document.querySelector(".timer"),
     restTimeDiv = document.querySelector("#restTime"),
     launchButton = document.querySelector("#launch"),
     stopButton = document.querySelector("#stop"),
-    clearButton = document.querySelector("#clear");
-
+    clearButton = document.querySelector("#clear"),
+    controllPlay = document.getElementById("launch");
+controllPause = document.getElementById("stop");
+controllStop = document.getElementById("clear");
 
 let radioBtns = document.querySelectorAll("input[name='r1']")
 // let selectedRadio = document.getElementById("selectedRadio")
@@ -45,6 +47,7 @@ let findSelected = () => {
 
 }
 
+
 radioBtns.forEach(radioBtn => {
     radioBtn.addEventListener("change", findSelected)
 })
@@ -54,6 +57,11 @@ function lockRadio(arg) {
         cb.disabled = arg
     })
 }
+
+function lockControls(btn, disabled) {
+    btn.disabled = disabled
+}
+
 
 
 document.addEventListener("DOMContentUnloaded", () => { })
@@ -68,11 +76,13 @@ function handleTimerSubmit(status) {
     data.status = status;
     data.id = settings.newID;
     console.log(data)
+    console.log(`token ${localStorage.getItem('userToken')}`);
 
     fetch(`${ADDRESS}/timer`, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
+            'authorization': localStorage.getItem('userToken')
         },
         body: JSON.stringify(data)
     }).then((res) => {
@@ -82,7 +92,6 @@ function handleTimerSubmit(status) {
     })
         .then(data => {
             messageBlock.innerHTML = data.message;
-            localStorage.setItem('userToken', data.token);
         })
         .catch((error) => {
             console.log(`ошибка ${error}`)
@@ -101,8 +110,9 @@ const settings = {
     lang: 'ru',
     langcontent: {
         ru: {
-            'timer-w-head': 'Отдохни!',
+            'timer-w-head': 'Работаем!',
             'timer-r-head': 'Перерыв!',
+            'timer-m-head': 'Медитируем',
             'customize': 'Настройка таймера',
             'cust-w-head': 'Длина рабочей сессии',
             'cust-r-head': 'Длина перерыва',
@@ -111,10 +121,12 @@ const settings = {
 };
 
 let timer, fullW = settings.work * 60, remains = fullW, fullR = settings.rest * 60;
-
+// clear();
 // show all initial numbers
+// debugger
 workTimeDiv.innerHTML = settings.work;
-clear();
+findSelected()
+
 
 // assign onclick functions to all buttons
 launchButton.addEventListener('click', timerFunc);
@@ -126,50 +138,61 @@ clearButton.addEventListener('click', clear);
 });
 
 function unPause() {
+    // debugger
     if (settings.paused === true) {
-        settings.session = false
+        settings.paused = false
         handleTimerSubmit('resume')
         console.log('снято с паузы -', settings.paused)
+        // return
     }
 }
 
 function timerFunc() {
-    lockRadio(true)
-    // debugger
+    clearInterval(timer);
+    let bgarg
+
     if (settings.newID === '') {
         settings.newID = uuidv4()
     }
-    unPause()
-    // settings.newID = uuidv4
+
 
     console.log(settings.newID, '- создалось при старте')
-    clearInterval(timer);
-    let bgarg
+
+
     if (settings.session === 'work') {
         bgarg = fullW;
         colors = settings.mainColors;
         remains = (remains <= 0) ? fullW : remains;
-        // console.log(fullW - remains) // вывод оставшегося времени таймера после завершения
         timerHead.innerHTML = settings.langcontent[settings.lang]['timer-w-head'];
         document.getElementById("radioWork").checked = true
-        handleTimerSubmit("start")
+        if (settings.paused === true) {
+            unPause()
+        }
+        else
+            handleTimerSubmit("start")
     } else if (settings.session === 'rest') {
         bgarg = fullR;
         colors = settings.mainColors.slice().reverse();
         remains = (remains <= 0) ? fullR : remains;
-        // console.log(fullR - remains, 'fullR - remains') // вывод оставшегося времени таймера после завершения
         timerHead.innerHTML = settings.langcontent[settings.lang]['timer-r-head'];
         document.getElementById("radioRest").checked = true
-        handleTimerSubmit("start")
+        if (settings.paused === true) {
+            unPause()
+        }
+        else
+            handleTimerSubmit("start")
     }
     else if (settings.session === 'meditation') {
         bgarg = fullR;
         colors = settings.mainColors.slice().reverse();
         remains = (remains <= 0) ? fullR : remains;
-        // console.log(fullR - remains, 'fullR - remains') // вывод оставшегося времени таймера после завершения
-        timerHead.innerHTML = settings.langcontent[settings.lang]['timer-r-head'];
+        timerHead.innerHTML = settings.langcontent[settings.lang]['timer-m-head'];
         document.getElementById("radioMeditation").checked = true
-        handleTimerSubmit("start")
+        if (settings.paused === true) {
+            unPause()
+        }
+        else
+            handleTimerSubmit("start")
     }
 
     timerDiv.innerHTML = formatTime(remains);
@@ -177,17 +200,21 @@ function timerFunc() {
     timer = setInterval(() => {
         remains--;
         timerDiv.innerHTML = formatTime(remains);
+        var minutes = document.getElementById("minutes").value;
         setBg(bgarg, colors);
-        // toggle work/rest sessions as one ends. Play sound if enabled
+        // sound
         if (remains === 0) {
             if (settings.soundOn) {
                 settings.sound.play();
             }
             clear()
-            // settings.session = (settings.session === 'work') ? 'rest' : 'work';
-            // timerFunc();
+
         }
     }, 1000);
+    lockRadio(true)
+    lockControls(controllPlay, true)
+    lockControls(controllPause, false)
+    lockControls(controllStop, false)
 }
 
 function assignSessionButtons(button) {
@@ -228,11 +255,12 @@ function stop() {
     handleTimerSubmit("pause")
     console.log(settings.newID, '- ид на паузе')
     clearInterval(timer);
+    lockControls(controllPlay, false)
+    lockControls(controllPause, true)
+    lockControls(controllStop, false)
 }
 
 function clear() {
-    unPause();
-    clearInterval(timer);
     if (settings.session === 'work') {
         console.log(fullW - remains, 'diff work')
         console.log(settings.session, settings.newID, '- остановленно, проверка ид, work')
@@ -263,15 +291,14 @@ function clear() {
         handleTimerSubmit("stop")
         settings.newID = ''
     }
-    // console.log(fullW - remains, 'diff')
-    // console.log(fullW, 'fullW')
-    // console.log(remains, 'remains')
-    // settings.session = 'work';
     timerHead.innerHTML = '';
     colors = settings.mainColors;
-    // remains = fullW;
     lockRadio(false)
+    lockControls(controllPlay, false)
+    lockControls(controllPause, true)
+    lockControls(controllStop, true)
     findSelected()
+    clearInterval(timer);
 
 }
 
@@ -285,5 +312,18 @@ function formatTime(arg) {
 function setBg(arg, colors) {
     timerline.style.background = `linear-gradient(to right, ${colors[0]} 0%, ${colors[0]} ${(remains / arg) * 100}%, ${colors[1]} ${(remains / arg) * 100}%, ${colors[1]} 100%)`;
 }
+lockControls(controllPause, true)
+lockControls(controllStop, true)
+// document.onunload = clear()
+// window.addEventListener("unload", (event)=>{
+//     // debugger
+//     clear()
+// })
 
-// document.onbeforeunload = clear()a
+window.onbeforeunload = function () {
+    // debugger
+    if (settings.newID !== '') {
+        clear()
+    }
+}
+

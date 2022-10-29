@@ -21,10 +21,10 @@
                 text-decoration: none;
                 color: rgba(0, 0, 0, 0.5);
 
-                &:hover {
-                    cursor: pointer;
-                    color: $color-subtitle;
-                }
+                // &:hover {
+                //     cursor: pointer;
+                //     color: $color-subtitle;
+                // }
             }
         }
     }
@@ -32,7 +32,6 @@
 
 .profile-block-container {
     padding: 0 20px;
-
     .profile-block-form {
         padding: 40px;
         border-radius: 15px;
@@ -49,7 +48,6 @@
                 flex-direction: column;
                 width: 50%;
                 height: 100px;
-
                 label {
                     margin-bottom: 15px;
                     font-size: 14px;
@@ -59,14 +57,25 @@
                 input {
                     height: 35px;
                     width: 80%;
-                    border: none;
+                    border: 2px solid #59D0C0;
                     border-radius: 15px;
                     padding: 0 20px;
-
-                    &::placeholder {
-                        color: $color-subtitle;
-
+                    &:focus{
+                        outline: none;
                     }
+
+                    // &::placeholder {
+                    //     color: $color-subtitle;
+
+                    // }
+                    // &:valid{
+                    //     border:2px solid green;
+                    // }
+                    // &:invalid{
+                    //     border:2px solid red;
+                    // }
+
+
                 }
 
                 .date {
@@ -83,10 +92,10 @@
             border-radius: 5px;
             background: $color-additional;
 
-            &:hover {
-                cursor: pointer;
-                background: $color-subtitle;
-            }
+            // &:hover {
+            //     cursor: pointer;
+            //     background: $color-subtitle;
+            // }
         }
     }
 
@@ -95,3 +104,4 @@
         margin: auto;
     }
 }
+

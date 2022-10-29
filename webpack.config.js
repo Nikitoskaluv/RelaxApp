@@ -1,26 +1,133 @@
-const { resolve } = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+
+const isDev = process.env.NODE_ENV === 'development';
+
+const pages = [
+    {
+        "name": "login",
+        "js": ["login", "validation", "main"],
+        "html": "login"
+    },
+    {
+        "name": "registration",
+        "js": ["registration", "validation", "main"],
+        "html": "registration"
+    },
+    {
+        "name": "index",
+        "js": ["advice", "player", "timer", "main"],
+        "html": "index"
+    },
+    {
+        "name": "user_profile",
+        "js": ["main", "user_profile"],
+        "html": "user_profile"
+    },
+    {
+        "name": "warm_up",
+        "js": ["main"],
+        "html": "warm_up"
+    },
+    {
+        "name": "eyes",
+        "js": ["main"],
+        "html": "eyes"
+    },
+    {
+        "name": "meditation",
+        "js": ["main"],
+        "html": "meditation"
+    }];
+// const pagesWithoutJs = [
+
+// ];
 
 module.exports = {
     mode: 'development',
-    entry: resolve(__dirname, 'js', 'main.js'),
+    entry: pages.reduce((config, page) => {
+        config[page.name] = page.js.map(p => `./js/${p}.js`);
+        return config;
+    }, {}),
+
     output: {
-        filename: 'main.[contenthash].js',
-        path: resolve(__dirname, 'build')
+        filename: 'js/[name].js',
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
+    devtool: 'source-map',
+    optimization: {
+        splitChunks: {
+            chunks: "all",
+        },
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
+        }),
+        new CopyWebpackPlugin(
+            {
+                patterns: [
+                    {
+                        from: path.resolve(__dirname, 'assets/img'),
+                        to: path.resolve(__dirname, 'dist/assets/img')
+                    },
+                    {
+                        from: path.resolve(__dirname, 'assets/icons'),
+                        to: path.resolve(__dirname, 'dist/assets/icons')
+                    },
+                    {
+                        from: path.resolve(__dirname, 'assets/sounds'),
+                        to: path.resolve(__dirname, 'dist/assets/sounds')
+                    },
+                    {
+                        from: path.resolve(__dirname, 'assets/videos'),
+                        to: path.resolve(__dirname, 'dist/assets/videos')
+                    },
+
+                ]
+            }
+        ),
+        new CleanWebpackPlugin(),
+    ].concat(pages.map(
+        (page) =>
+            new HtmlWebpackPlugin({
+                inject: true,
+                template: `./pages/${page.html}.html`,
+                filename: `${page.html}.html`,
+                chunks: [page.name],
+                minify: {
+                    collapseWhitespace: !isDev
+                }
+            }))),
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+
+                }, 'css-loader']
             },
             {
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
-            }
+                test: /\.(png|jpg|svg|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]',
+                },
+            }, {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    (isDev) ? { loader: 'style-loader' } : {
+                        loader: MiniCssExtractPlugin.loader,
+
+                    }, 'css-loader', 'sass-loader']
+            },
         ]
-    },
-    plugins: [
-        new HTMLWebpackPlugin({ template: resolve(__dirname, './pages/index.html') })
-    ]
+    }
 }
+
