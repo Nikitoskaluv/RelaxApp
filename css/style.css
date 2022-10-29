@@ -1489,7 +1489,9 @@ svg {
     height: 100%;
 }
 
+
 .profile-block-container .profile-block-form .save-changes-button {
+    cursor: pointer;
     border: none;
     color: #fff;
     height: 40px;
@@ -1498,14 +1500,9 @@ svg {
     background: #0d606f;
 }
 
-.profile-block-container .profile-block-form .changes-button {
-    border: none;
-    color: #fff;
-    height: 40px;
-    width: 200px;
-    border-radius: 5px;
-    background: #0d606f;
-    margin-left: 140px;
+.profile-block-container .profile-block-form .save-changes-button:disabled {
+    color: #bcbebe;
+    background-color: #6d958e;
 }
 
 /* .profile-block-container .profile-block-form .save-changes-button:hover {
@@ -1521,7 +1518,7 @@ svg {
 .profile-block-container .profile-block-form .profile-buttons {
     display: flex;
     flex-direction: row;
-    margin-left: 25%;
+    justify-content: center;
 }
 
 .invalid {
