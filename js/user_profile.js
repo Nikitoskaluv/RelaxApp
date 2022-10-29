@@ -112,7 +112,7 @@ function handleFormSubmit(event) {
 
 }
 
-document.onload(() => getUserData());
+
 
 function getUserData() {
     fetch(`${ADDRESS}/user`, {
