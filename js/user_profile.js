@@ -104,6 +104,7 @@ function handlePasswordFormSubmit(event) {
 
 }
 
+
 function handleProfileFormSubmit(event) {
     event.preventDefault();
     user_info.name = name.value;
@@ -123,6 +124,7 @@ function handleProfileFormSubmit(event) {
         })
 
 }
+
 
 function getUserData() {
     fetch(`${ADDRESS}/user`, {
