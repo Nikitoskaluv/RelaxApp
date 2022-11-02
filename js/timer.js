@@ -124,7 +124,7 @@ function handleTimerSubmit(status) {
 // }
 
 function playButton(){
-    if (!localStorage.getItem('userTokern')){
+    if (!localStorage.getItem('userToken')){
         timerWarning.style.display = 'flex'
     }
     else
