@@ -7,12 +7,22 @@ import '../css/stylesRegistrationAndLogIn.css'
 const logoutButton = document.querySelector('.logout');
 const loginButton = document.querySelector('.login');
 const profileButton = document.querySelector('.profile_link');
+const logoutWarningCofBtn = document.querySelector('.logout-warning-continue');
+const logoutWarning = document.querySelector('.logout-warning')
+const logoutWarningCancelBtn = document.querySelector('.logout-warning-cancel')
 
+logoutWarningCofBtn.addEventListener("click",()=>{
+    localStorage.removeItem('userToken')
+    document.location.href = "/";
+})
+logoutWarningCancelBtn.addEventListener("click", ()=>{
+    logoutWarning.style.display = 'none'
+})
 
 
 logoutButton && logoutButton.addEventListener("click", (e) => {
-    localStorage.removeItem('userToken')
-    document.location.href = "/";
+    logoutWarning.style.display = 'flex'
+
 });
 
 
