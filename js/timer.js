@@ -14,9 +14,11 @@ const timerDiv = document.querySelector(".timer"),
     launchButton = document.querySelector("#launch"),
     stopButton = document.querySelector("#stop"),
     clearButton = document.querySelector("#clear"),
-    controllPlay = document.getElementById("launch");
+    minutes = document.querySelector("#minutes");
+controllPlay = document.getElementById("launch");
 controllPause = document.getElementById("stop");
 controllStop = document.getElementById("clear");
+
 
 let radioBtns = document.querySelectorAll("input[name='r1']")
 // let selectedRadio = document.getElementById("selectedRadio")
@@ -124,7 +126,7 @@ let timer, fullW = settings.work * 60, remains = fullW, fullR = settings.rest * 
 // clear();
 // show all initial numbers
 // debugger
-workTimeDiv.innerHTML = settings.work;
+// workTimeDiv.innerHTML = settings.work;
 findSelected()
 
 
@@ -200,7 +202,7 @@ function timerFunc() {
     timer = setInterval(() => {
         remains--;
         timerDiv.innerHTML = formatTime(remains);
-        var minutes = document.getElementById("minutes").value;
+        var minutes = document.getElementById("workTime").value;
         setBg(bgarg, colors);
         // sound
         if (remains === 0) {
@@ -217,34 +219,47 @@ function timerFunc() {
     lockControls(controllStop, false)
 }
 
+workTimeDiv.addEventListener('change', function () {
+    parseFloat(workTimeDiv.value, 10);
+    timerDiv.value = this.value;
+    remains = this.value * 60;
+    timerDiv.innerHTML = formatTime(remains);
+});
+
 function assignSessionButtons(button) {
     // figure out which button it is and where to show the number
 
     let operation = (button.id[1] === 'm') ? 'plus' : 'minus',
         session = (button.id[0] === 'w') ? 'work' : 'rest',
-        div = (session === 'work') ? workTimeDiv : restTimeDiv;
+        input = (session === 'work') ? workTimeDiv : restTimeDiv,
+        workTimeValue = parseFloat(workTimeDiv.value, 10);
 
     button.addEventListener('click', () => {
         // set timer
         if (operation === 'plus') {
-            settings[session]++;
+            workTimeValue++;
+            remains = workTimeValue;
+            console.log(workTimeValue);
+            console.log(remains);
         } else {
-            settings[session]--;
+            workTimeValue--;
+            remains = workTimeValue;
+            console.log(workTimeValue)
         }
 
-        div.innerHTML = settings[session] = // don't set timers more than max or less than or equal to zero
-            (settings[session] <= 0) ?
+        input.value = workTimeValue = // don't set timers more than max or less than or equal to zero
+            (workTimeValue <= 0) ?
                 1 :
-                (settings[session] > settings.maxTime) ?
+                (workTimeValue > settings.maxTime) ?
                     settings.maxTime :
-                    settings[session];
+                    workTimeValue;
 
         if (session === 'work') {
             // timer starts with work session, so these have to change
-            remains = fullW = settings[session] * 60;
+            remains = fullW = workTimeValue * 60;
             timerDiv.innerHTML = formatTime(remains);
         } else {
-            fullR = settings[session] * 60;
+            fullR = workTimeValue * 60;
         }
     });
 }
@@ -327,3 +342,51 @@ window.onbeforeunload = function () {
     }
 }
 
+// let secondsRemaining;
+// let intervalHandle;
+
+// function tick() {
+//     var timeDisplay = document.querySelector(".timer");
+
+//     var min = Math.floor(secondsRemaining / 60);
+//     var sec = secondsRemaining - (min * 60);
+
+//     if (min < 10) {
+//         min = "0" + min;
+//     }
+
+//     if (sec < 10) {
+//         sec = "0" + sec;
+//     }
+
+//     var message = min + ":" + sec;
+//     timeDisplay.innerHTML = message;
+//     secondsRemaining--;
+// }
+
+// function startCountdown() {
+//     var minutes = document.getElementById("minutes").value;
+//     clearInterval(timer);
+//     secondsRemaining = minutes * 60;
+//     intervalHandle = setInterval(tick, 1000);
+//     document.getElementById("inputArea").style.display = "none";
+// }
+
+// function stopCountdown() {
+//     clearInterval(timer);
+//     var minutes = document.getElementById("minutes").value;
+//     document.getElementById("inputArea").style.display = "block";
+// }
+
+// window.onload = function () {
+//     var startButton = document.getElementById("breakBtn");
+//     startButton.onclick = function () {
+//         startCountdown();
+//     };
+//     var stopButton = document.getElementById("clear");
+//     stopButton.onclick = function () {
+//         stopCountdown();
+//     };
+
+//     document.getElementById("inputArea").appendChild(startButton);
+// };

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link href="../assets/icons/man.svg" rel="shortcut icon" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <title>Relax</title>
@@ -73,9 +72,9 @@
                 <span class="timer"></span>
             </div>
             <div class="controls">
-                <button id="launch"><img src="../assets/icons/play.svg" alt="play" width="22px" height="22px"></button>
-                <button id="stop"><img src="../assets/icons/pause.svg" alt="stop" width="22px" height="22px"></button>
-                <button id="clear"><img src="../assets/icons/stop.svg" alt="clear" width="22px" height="22px"></button>
+                <button id="launch"><img src="../assets/icons/play.svg" alt="play" width="12px" height="12px"></button>
+                <button id="stop"><img src="../assets/icons/pause.svg" alt="stop" width="15px" height="15px"></button>
+                <button id="clear"><img src="../assets/icons/stop.svg" alt="clear" width="12px" height="12px"></button>
             </div>
         </section>
         <div class="timerline"></div>
@@ -90,9 +89,23 @@
         <section class="customize">
             <div class="buttonset">
                 <h3 class="wr-heading" id="cust-w-head">Введите время в минутах</h3>
-                <button id="wless">-</button>
-                <div id="workTime"></div>
-                <button id="wmore">+</button>
+                <td>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group mb-0">
+                            <div class="input-group mx-auto mb-0">
+                                <div class="number-input">
+                                    <button id="wless"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                    <input class="quantity bg-light" id="workTime" min="1" name="quantity" value="30"
+                                        type="number">
+                                    <button id="wmore"
+                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                                        class="plus"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
             </div>
         </section>
         <div class="greeting-container">

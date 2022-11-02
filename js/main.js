@@ -1,13 +1,9 @@
 
 import '../css/style.css'
-import '../css/stylesRegistrationAndLogIn.css'
-
-
 
 const logoutButton = document.querySelector('.logout');
 const loginButton = document.querySelector('.login');
 const profileButton = document.querySelector('.profile_link');
-
 
 
 logoutButton && logoutButton.addEventListener("click", (e) => {

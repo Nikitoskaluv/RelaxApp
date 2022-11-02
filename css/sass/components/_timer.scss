@@ -40,9 +40,10 @@ button:active {
 
 .main-timer {
     margin-top: -35px;
+    width: 300px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -86,14 +87,15 @@ button:active {
 }
 
 .controls {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
 }
 
 .controls>button {
     position: relative;
-    height: 22px;
-    width: 26px;
+    height: 30px;
+    width: 30px;
     font-size: 1.2em;
     color: $color-title;
 }
@@ -124,28 +126,28 @@ button:active {
     box-shadow: 0px 2px 1px 0px rgba(186, 186, 186, 1);
 }
 
-.controls>button::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -0.4em;
-    left: -0.4em;
-    border-radius: 50%;
-    height: 2.8em;
-    width: 2.8em;
-    z-index: -1;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dddddd+0,ffffff+100 */
-    background: #dddddd;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #dddddd 0%, #ffffff 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #dddddd 0%, #ffffff 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ffffff', GradientType=0);
-    /* IE6-9 */
-}
+// .controls>button::before {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     top: -0.4em;
+//     left: -0.4em;
+//     border-radius: 50%;
+//     height: 2.8em;
+//     width: 2.8em;
+//     z-index: -1;
+//     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dddddd+0,ffffff+100 */
+//     background: #dddddd;
+//     /* Old browsers */
+//     background: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+//     /* FF3.6-15 */
+//     background: -webkit-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+//     /* Chrome10-25,Safari5.1-6 */
+//     background: linear-gradient(to bottom, #dddddd 0%, #ffffff 100%);
+//     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+//     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ffffff', GradientType=0);
+//     /* IE6-9 */
+// }
 
 .customize,
 #hidden {
@@ -184,7 +186,7 @@ button:active {
 #launch,
 #stop,
 #clear {
-    background: none;
+    background: #dddddd;
 }
 
 #stop {
@@ -200,6 +202,11 @@ button:active {
 #workTime {
     font-family: "Heebo";
     color: #1A7F72;
+    width: 40px;
+    border:none;
+    border-radius: 15px;
+    padding: 5px;
+    align-items: center;
 }
 
 .customize>button {
@@ -237,4 +244,66 @@ button:active {
     min-height: 28px;
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.number-input {
+    border: 2px solid #ddd;
+    display: inline-flex;
+}
+
+.number-input,
+.number-input * {
+    box-sizing: border-box;
+}
+
+.number-input button {
+    outline:none;
+    -webkit-appearance: none;
+    background-color: #eeeeee;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+    padding:0;
+}
+
+.number-input button:before,
+.number-input button:after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    width: 0.5rem;
+    height: 2px;
+    background-color: #212121;
+    transform: translate(-50%, -50%);
+}
+.number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type=number] {
+    font-family: sans-serif;
+    max-width: 4.5rem;
+    padding: .5rem;
+    border:0;
+    text-align: center;
+    outline:none;
+}
+.number-input{
+    border: solid #c2c4c6;
+    border-width:2px;
 }
