@@ -1,178 +1,279 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic');
+html {background: #E6F5F3;}
 .wrapperPage {
-    max-width: 1140px;
     margin: 0 auto;
-
-    .buttons_navigation {
+    font-family: lobster;
+}
+.about_medit_wrapper {
+    background: rgb(59,209,187, 1);
+}
+.about_medit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    // ===волна верхней части===
+    // background-image: url(../../../assets/img/medit_bg_1.png);
+    // min-height: 1200px;
+    // background-size: auto 100%;
+   
+    &__box {
+        width:45%;
+        margin: 60px 30px;
         display: flex;
-        justify-content: space-around;
-    }
-
-    .link_navi {
-        text-decoration: none;
-        font-family: 'Heebo';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 47px;
-        text-align: center;
-        color: #000000;
-    }
-
-    .text_page {
-        font-family: 'Heebo';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 130%;
-        text-align: justify;
-        color: rgba(0, 0, 0, 0.5);
-        margin-top: 22px;
-        margin-bottom: 22px;
-    }
-
-    .soderganie {
-        display: flex;
+        flex-direction: column;
         justify-content: center;
-        font-family: 'Heebo';
-    }
-
-    .contents {
-        font-style: normal;
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 130%;
-        /* text-align: justify; */
-        color: rgba(0, 0, 0, 0.5);
-    }
-
-    .span_soderganie {
-        font-family: 'Heebo';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 30px;
-        line-height: 47px;
-        color: rgba(0, 0, 0, 0.8);
-    }
-
-    .rovno {
-        width: 810px;
-        height: 270px;
-    }
-
-    .text_decoration {
-        text-decoration: none;
-    }
-
-    .h3_text {
-        font-family: 'Merienda One';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 54px;
-        line-height: 130%;
-        text-align: center;
-        color: #000000;
-        margin-top: 50px;
-        margin-bottom: 22px;
-    }
-
-    .h4_text {
-        font-family: 'Heebo';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 47px;
-        color: rgba(0, 0, 0, 0.8);
-    }
-
-    .ul_text {
-        margin-left: 100px;
-        margin-right: 100px;
-    }
-
-    .p_img {
-        text-align: center;
-    }
-
-    .ast-oembed-container {
-        text-align: center;
-    }
-
-    .text_center {
-        text-align: center;
-    }
-
-    .btn {
-        width: 420px;
-        height: 455px;
-        /* display: flex;
-        flex-direction: column; */
-        text-align: center;
-    }
-
-    .pic1 {
-        background-image: url(../assets/img/Meditation.png);
-        background-position: center;
-    }
-
-    .pic2 {
-        background-image: url(../assets/img/Glaza_img.png);
-        background-position: center;
-    }
-
-    .asd {
-        margin-top: 51px;
-        padding: 12px 54px;
-        background: linear-gradient(180deg, #259385 0%, #159685 100%);
-        box-shadow: 0px 13px 28px rgba(26, 127, 114, 0.2);
-        border-radius: 30px;
-        text-decoration: none;
-        display: inline-block;
-        font-family: 'Heebo';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 130%;
-        text-align: center;
-        color: #FFFFFF;
-    }
-
-    .asd:hover {
-        background: linear-gradient(180deg, #2db8a6 0%, #078a78 100%);
-        box-shadow: 0px 13px 28px rgba(19, 88, 79, 0.2);
-    }
-
-    .asd:active {
-        background: linear-gradient(180deg, #45f2db 0%, #0adbbf 100%);
-        box-shadow: 0px 13px 28px rgba(24, 47, 44, 0.2);
-    }
-
-    .btn_img {
-        margin-top: 50px;
-    }
-
-    .p_btn {
-        margin-top: 20px;
-        font-family: 'Heebo';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 32px;
-        line-height: 47px;
-        /* identical to box height */
-
-        text-align: center;
-
-        color: #000000;
-    }
-
-    .video_item {
-        width: 720px;
-    }
-
-    .wrap_video {
-        text-align: center;
+        align-items: center;
+        img {
+            width:500px;
+            
+        }
+        
+        .right{
+            &__text{
+                &__title{
+                    font-size: 60px;
+                    color: black;
+                    margin-top: 60px;
+                    font-family: lobster;
+                }
+                &__p{
+                    font-size: 48px;
+                    color:black;
+                    margin-left: 54px;
+                }
+            }
+        }
     }
 }
+.medit_wrapper{
+    background: #E6F5F3;
 
-.change-body-color {
-    background: #e0fffa;
 }
+.medit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.points_medit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  
+    &__item{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &__point {
+            width: 547px;
+            height: 181px;
+            background: linear-gradient(180deg, rgba(206, 255, 249, 0.72) 0%, rgba(91, 203, 189, 0.85) 94.12%);
+            box-shadow: 0px 20px 40px rgba(21, 113, 101, 0.2);
+            border-radius: 50px; 
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 90px;
+            padding: 23px;
+            &__number{
+                font-size: 56px;
+                color: #3EB29D;
+            }
+            &__text {
+                font-size: 28px;
+                color: black;
+            }
+            img {
+                margin:0 30px;
+            }
+        }
+        &__centerimg {
+           
+        }
+    }
+
+}
+.player_wrapper{
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+//     .buttons_navigation {
+//         display: flex;
+//         justify-content: space-around;
+//     }
+
+//     .link_navi {
+//         text-decoration: none;
+//         font-family: 'Heebo';
+//         font-style: normal;
+//         font-weight: 700;
+//         font-size: 32px;
+//         line-height: 47px;
+//         text-align: center;
+//         color: #000000;
+//     }
+
+//     .text_page {
+//         font-family: 'Heebo';
+//         font-style: normal;
+//         font-weight: 500;
+//         font-size: 24px;
+//         line-height: 130%;
+//         text-align: justify;
+//         color: rgba(0, 0, 0, 0.5);
+//         margin-top: 22px;
+//         margin-bottom: 22px;
+//     }
+
+//     .soderganie {
+//         display: flex;
+//         justify-content: center;
+//         font-family: 'Heebo';
+//     }
+
+//     .contents {
+//         font-style: normal;
+//         font-weight: 500;
+//         font-size: 24px;
+//         line-height: 130%;
+//         /* text-align: justify; */
+//         color: rgba(0, 0, 0, 0.5);
+//     }
+
+//     .span_soderganie {
+//         font-family: 'Heebo';
+//         font-style: normal;
+//         font-weight: 500;
+//         font-size: 30px;
+//         line-height: 47px;
+//         color: rgba(0, 0, 0, 0.8);
+//     }
+
+//     .rovno {
+//         width: 810px;
+//         height: 270px;
+//     }
+
+//     .text_decoration {
+//         text-decoration: none;
+//     }
+
+//     .h3_text {
+//         font-family: 'Merienda One';
+//         font-style: normal;
+//         font-weight: 400;
+//         font-size: 54px;
+//         text-align: center;
+//         color: #000000;
+//         margin-top: 50px;
+//         margin-bottom: 22px;
+//     }
+
+//     .h4_text {
+//         font-family: 'Heebo';
+//         font-style: normal;
+//         font-weight: 500;
+//         font-size: 32px;
+//         line-height: 47px;
+//         color: rgba(0, 0, 0, 0.8);
+//     }
+
+//     .ul_text {
+//         margin-left: 100px;
+//         margin-right: 100px;
+//     }
+
+//     .p_img {
+//         text-align: center;
+//     }
+
+//     .ast-oembed-container {
+//         text-align: center;
+//     }
+
+//     .text_center {
+//         text-align: center;
+//     }
+
+//     .btn {
+//         width: 420px;
+//         height: 455px;
+//         /* display: flex;
+//         flex-direction: column; */
+//         text-align: center;
+//     }
+
+//     .pic1 {
+//         background-image: url(../assets/img/Meditation.png);
+//         background-position: center;
+//     }
+
+//     .pic2 {
+//         background-image: url(../assets/img/Glaza_img.png);
+//         background-position: center;
+//     }
+
+//     .asd {
+//         margin-top: 51px;
+//         padding: 12px 54px;
+//         background: linear-gradient(180deg, #259385 0%, #159685 100%);
+//         box-shadow: 0px 13px 28px rgba(26, 127, 114, 0.2);
+//         border-radius: 30px;
+//         text-decoration: none;
+//         display: inline-block;
+//         font-family: 'Heebo';
+//         font-style: normal;
+//         font-weight: 400;
+//         font-size: 24px;
+//         line-height: 130%;
+//         text-align: center;
+//         color: #FFFFFF;
+//     }
+
+//     .asd:hover {
+//         background: linear-gradient(180deg, #2db8a6 0%, #078a78 100%);
+//         box-shadow: 0px 13px 28px rgba(19, 88, 79, 0.2);
+//     }
+
+//     .asd:active {
+//         background: linear-gradient(180deg, #45f2db 0%, #0adbbf 100%);
+//         box-shadow: 0px 13px 28px rgba(24, 47, 44, 0.2);
+//     }
+
+//     .btn_img {
+//         margin-top: 50px;
+//     }
+
+//     .p_btn {
+//         margin-top: 20px;
+//         font-family: 'Heebo';
+//         font-style: normal;
+//         font-weight: 700;
+//         font-size: 32px;
+//         line-height: 47px;
+//         /* identical to box height */
+
+//         text-align: center;
+
+//         color: #000000;
+//     }
+
+//     .video_item {
+//         width: 720px;
+//     }
+
+//     .wrap_video {
+//         text-align: center;
+//     }
+// }
+
+// .change-body-color {
+//     background: #e0fffa;
+// }
