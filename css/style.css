@@ -795,14 +795,17 @@ button:active {
     /* background-image: url("../assets/icons/no-sound.svg"); */
 }
 
+.range {
+    -webkit-appearance: none;
+    opacity: 0.8;
+    padding-bottom: 7px;
+    background: transparent;
+}
+
 .volume-controls {
     position: relative;
     display: flex;
     margin-bottom: 10px;
-}
-
-.range {
-    opacity: 0.8;
 }
 
 .range::-webkit-slider-runnable-track {
