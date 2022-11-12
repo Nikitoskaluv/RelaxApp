@@ -30,32 +30,39 @@ const playListMain = [
 const playListMeditation = [
     {
         title: 'meditation1',
-        src: '../assets/sounds/Aqua_Caelestis.mp3',
+        src: '../assets/sounds/1.mp3',
         duration: '00:58',
         id: 1
     },
     {
         title: 'meditation2',
-        src: '../assets/sounds/River_Flows_In_You.mp3',
+        src: '../assets/sounds/2.mp3',
         duration: '03:50',
         id: 2
     },
     {
         title: 'meditation3',
-        src: '../assets/sounds/Summer_Wind.mp3',
+        src: '../assets/sounds/3.mp3',
         duration: '05:05',
         id: 3
     },
     {
         title: 'meditation4',
-        src: '../assets/sounds/Ennio_Morricone.mp3',
+        src: '../assets/sounds/4.mp3',
         duration: '05:03',
         id: 4
+
+    },
+    {
+        title: 'meditation5',
+        src: '../assets/sounds/5.mp3',
+        duration: '05:03',
+        id: 5
 
     }
 ]
 
-if (location.pathname === '/meditation.html'){
+if (location.pathname === '/meditation.html') {
     playList = playListMeditation
 }
 else {
