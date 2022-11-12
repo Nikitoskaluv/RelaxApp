@@ -1,10 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic');
+
 .footer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  height: 30vh;
-  min-height: 160px;
-  padding: 20px;
+  font-family: lobster;
+  background: linear-gradient(180deg, #259385 0%, #159685 100%);
+  color: white;
+  font-size: 20px;
+  padding: 40px;
+  & a{
+      color: white;
+      text-decoration: none;
+  }
+  & a:hover {
+    color: black;
+  }
 }
