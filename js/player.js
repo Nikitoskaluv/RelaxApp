@@ -92,17 +92,23 @@ audio.volume = 0;
 const playMusicListen = playBtn.addEventListener('click', () => audio.play());
 
 playList.forEach((sound) => {
-    audioList.innerHTML += `<li onclick="onSongClick(event)" id="${sound.id}">${sound.title}</li>`;
+    audioList.innerHTML += `<li id="${sound.id}">${sound.title}</li>`;
+    // audioList.innerHTML += `<li onclick="onSongClick(event)" id="${sound.id}">${sound.title}</li>`;
 });
 
-function onSongClick(e) {
-    let song = playList.find((el) => el.id == Number.parseInt(e.target.id));
+let items = audioList.querySelectorAll('li')
+items.forEach(i => i.addEventListener("click", ()=> onSongClick(i.id)))
+
+
+
+function onSongClick(id){
+    let song = playList.find((el)=> el.id == id)
     Array.from(audioList.children).forEach((li) => li.classList.remove('active-song'));
     audio.pause();
-    e.target.classList.add('active-song');
+    audioList.children[id-1].classList.add('active-song')
     audio = new Audio(song.src);
     audio.play();
-};
+}
 
 function pauseMusic() {
 
