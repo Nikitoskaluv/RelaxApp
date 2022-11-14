@@ -107,6 +107,8 @@ function onSongClick(id){
     audio.pause();
     audioList.children[id-1].classList.add('active-song')
     audio = new Audio(song.src);
+    audio.volume = volumeSlider.value
+    volumizer()
     audio.play();
 }
 
