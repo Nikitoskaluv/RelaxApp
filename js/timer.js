@@ -295,7 +295,7 @@ async function postTimerEventToServer(timer) {
             },
             body: JSON.stringify(timer)
         }).then((res) => {
-            if (res.ststus === 200) {
+            if (res.status === 200) {
                 resolve()
             } else {
                 reject();
