@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <!-- <link rel="stylesheet" href="../css/style.css" /> -->
     <link href="../assets/icons/man.svg" rel="shortcut icon" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <title>Relax</title>
@@ -17,6 +17,11 @@
                 <span class="header__left__title">Relax</span></a>
         </div>
         <div class="header__right">
+            <div class="logout-warning">
+                <div class="logout-warning-text">Статистика не будет сохраняться если выйти!</div>
+                <button class="logout-warning logout-warning-continue" type="button" id="logoutContinue">Выйти</button>
+                <button class="logout-warning logout-warning-cancel" type="button" >Остаться</button>
+            </div>
             <button class="logout "><img src="../assets/icons/logout-svgrepo-com.svg"></button>
             <a class="login " href="./login.html"><svg width="55" height="64" viewBox="0 0 55 64"
                     xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +72,11 @@
         </div>
 
         <section class="main-timer">
-
+            <div class="timer-warning">
+                <div class="timer-warning timer-warning-text">Статистика не будет сохраняться без входа!</div>
+                    <button class="timer-warning timer-warning-continue" type="button" id="timerContinue">Продолжить</button>
+                    <button class="timer-warning timer-warning-login" type="button" onclick="window.location.href='./login.html';">Войти</button>
+            </div>
             <h1 id="timerH"></h1>
             <div class="timer-bg">
                 <span class="timer"></span>

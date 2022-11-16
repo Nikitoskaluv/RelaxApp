@@ -3,6 +3,8 @@ const { ADDRESS } = require("./constants");
 
 const timerDiv = document.querySelector(".timer"),
     timerHead = document.querySelector("#timerH"),
+    timerWarning = document.querySelector('.timer-warning'),
+    timerWarningContinue = document.getElementById("timerContinue"),
     timerline = document.querySelector(".timerline"),
     wlessButton = document.querySelector("#wless"),
     wmoreButton = document.querySelector("#wmore"),
@@ -17,9 +19,10 @@ const timerDiv = document.querySelector(".timer"),
     controllPlay = document.getElementById("launch");
 controllPause = document.getElementById("stop");
 controllStop = document.getElementById("clear");
-
 let radioBtns = document.querySelectorAll("input[name='r1']")
-// let selectedRadio = document.getElementById("selectedRadio")
+
+
+
 let findSelected = () => {
     let selected = document.querySelector("input[name='r1']:checked").value
     // selectedRadio.textContent = `${selected}`
@@ -62,6 +65,10 @@ function lockControls(btn, disabled) {
     btn.disabled = disabled
 }
 
+function hideWarning() {
+    timerWarning.style.display = 'none'
+}
+
 
 
 document.addEventListener("DOMContentUnloaded", () => { })
@@ -98,6 +105,34 @@ function handleTimerSubmit(status) {
         })
 }
 
+// function waitListener(Element, ListenerName) {
+//     return new Promise(function (resolve, reject) {
+//         const listener = event => {
+//             Element.removeEventListener(ListenerName, listener);
+//             resolve(event);
+//         };
+//         Element.addEventListener(ListenerName, listener);
+//     });
+// }
+//
+// async function awaitClick(){
+//     await waitListener(timerWarningContinue, "click")
+//         .then(e=>{
+//             console.log('pressed')
+//             timerWarning.style.display = 'none'
+//         })
+// }
+
+function playButton(){
+    if (!localStorage.getItem('userToken')){
+        timerWarning.style.display = 'flex'
+    }
+    else
+    timerFunc()
+}
+
+// timerWarningContinue.addEventListener('click')
+
 
 const settings = {
     work: 30,
@@ -121,17 +156,16 @@ const settings = {
 };
 
 let timer, fullW = settings.work * 60, remains = fullW, fullR = settings.rest * 60;
-// clear();
-// show all initial numbers
-// debugger
 workTimeDiv.innerHTML = settings.work;
 findSelected()
 
 
 // assign onclick functions to all buttons
-launchButton.addEventListener('click', timerFunc);
+launchButton.addEventListener('click', playButton);
 stopButton.addEventListener('click', stop);
 clearButton.addEventListener('click', clear);
+timerWarningContinue.addEventListener('click', timerFunc);
+timerWarningContinue.addEventListener('click', hideWarning);
 
 [wlessButton, wmoreButton].forEach((button) => {
     assignSessionButtons(button);
@@ -148,6 +182,10 @@ function unPause() {
 }
 
 function timerFunc() {
+    // запуск таймера
+
+
+
     clearInterval(timer);
     let bgarg
 
@@ -200,7 +238,7 @@ function timerFunc() {
     timer = setInterval(() => {
         remains--;
         timerDiv.innerHTML = formatTime(remains);
-        var minutes = document.getElementById("minutes").value;
+        // var minutes = document.getElementById("minutes").value;
         setBg(bgarg, colors);
         // sound
         if (remains === 0) {
@@ -219,7 +257,6 @@ function timerFunc() {
 
 function assignSessionButtons(button) {
     // figure out which button it is and where to show the number
-
     let operation = (button.id[1] === 'm') ? 'plus' : 'minus',
         session = (button.id[0] === 'w') ? 'work' : 'rest',
         div = (session === 'work') ? workTimeDiv : restTimeDiv;
