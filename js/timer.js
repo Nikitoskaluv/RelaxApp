@@ -1,6 +1,8 @@
 const { v4: uuidv4 } = require('uuid');
 const { ADDRESS } = require("./constants");
 
+
+
 const settings = {
     work: 30,       // in minutes
     rest: 10,       // in minutes
@@ -19,13 +21,13 @@ const settings = {
     }
 };
 
-
 const timerValueAdjusterElement = document.querySelector("#workTime"),
     meditationCheckbox = document.getElementById('radioMeditation');
 
 timerValueAdjusterElement.innerHTML = settings.work;
 meditationCheckbox.checked = false;
 meditationCheckbox.parentElement.style.visibility = 'hidden';
+
 
 let session = {
     name: 'work',
@@ -35,6 +37,7 @@ let session = {
     timer: 0,
     state: undefined
 }
+
 
 updateProgressBar(session.fullTime, session.fullTime, settings.mainColors);
 updateTimerLabel(session.fullTime);
@@ -146,12 +149,14 @@ startTimerBtn.addEventListener('click', () => {
 
     updateTimerLabel(session.remains);
 
+
     session.timer = setInterval(() => {
         session.remains--;
         updateTimerLabel(session.remains);
         updateProgressBar(session.fullTime, session.remains, colors);
 
         if (session.remains <= 0) {
+
             if (settings.soundOn) {
                 settings.sound.play();
             }
@@ -161,8 +166,10 @@ startTimerBtn.addEventListener('click', () => {
     }, 1000);
 
 
+
     session.state = 'IN_PROGRESS';
     updateStorage();
+
 
     startTimerBtn.disabled = true;
     stopTimerBtn.disabled = false;
