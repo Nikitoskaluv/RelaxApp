@@ -1,47 +1,11 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 490.3 490.3" style="enable-background:new 0 0 490.3 490.3;" xml:space="preserve" fill="#3EB29D">
-
-<g>
-	<g>
-		<path d="M0,121.05v248.2c0,34.2,27.9,62.1,62.1,62.1h200.6c34.2,0,62.1-27.9,62.1-62.1v-40.2c0-6.8-5.5-12.3-12.3-12.3
-			s-12.3,5.5-12.3,12.3v40.2c0,20.7-16.9,37.6-37.6,37.6H62.1c-20.7,0-37.6-16.9-37.6-37.6v-248.2c0-20.7,16.9-37.6,37.6-37.6h200.6
-			c20.7,0,37.6,16.9,37.6,37.6v40.2c0,6.8,5.5,12.3,12.3,12.3s12.3-5.5,12.3-12.3v-40.2c0-34.2-27.9-62.1-62.1-62.1H62.1
-			C27.9,58.95,0,86.75,0,121.05z"/>
-		<path d="M385.4,337.65c2.4,2.4,5.5,3.6,8.7,3.6s6.3-1.2,8.7-3.6l83.9-83.9c4.8-4.8,4.8-12.5,0-17.3l-83.9-83.9
-			c-4.8-4.8-12.5-4.8-17.3,0s-4.8,12.5,0,17.3l63,63H218.6c-6.8,0-12.3,5.5-12.3,12.3c0,6.8,5.5,12.3,12.3,12.3h229.8l-63,63
-			C380.6,325.15,380.6,332.95,385.4,337.65z"/>
-	</g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 64" width="55" height="64">
+	<title>Vector-svg</title>
+	<defs>
+		<image  width="53" height="64" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAABACAMAAACN188wAAAAAXNSR0IB2cksfwAAAEhQTFRFPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdaaKeMgAAABh0Uk5TACCf3/+/bxB/MO9Q8IBAYKDgz9CQwD9wjHanxQAAALdJREFUeJzt18EOgjAMBuAOKjg2YAOm7/+mrh3Rk7H1pEn/A7v0S9odSAdQ47oeZbkMI5y5Cgmn9w11GoQ4MQs6VBk1SSPFOSySrInYDLDWIzuQhsonANKLGLX6ABvirkDguMX6SRpF4IA2nSIFsZgy9Z+KY8qUKVOK/P6fzZSpd2GwI24a1LZK7QY7cz2tv9v4ufoMlcd6Ztqah5ss/GI44ItXQOTOkhL514DiZP+8zZSFpty5vQfA0Bikqlh8vAAAAABJRU5ErkJggg=="/>
+		<image  width="35" height="40" id="img2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAoCAMAAABDwLOoAAAAAXNSR0IB2cksfwAAAFFQTFRFPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdPrKdstH0AwAAABt0Uk5TACBAoP/wgDAQ0O9wUM/AYJCvsOB/P0+fv99fdoypEgAAANpJREFUeJyNlOEOgyAMhEWLIk6Zbm5u7/+gQwllwVzxfpovcNfDVlUuVZ8+5WqIdIFqyUt3IqPpgIyAdBTUX2CoESAboaHg+dANMmaMjBDO8G09DtcxNGFLji0J4e4MOQzNDAm+UzgVXda5kqUQzmmStHikFongeykxj/hgJJlUtMBMJcRe8Nz6YE8ZGY8RqvWkF7u08IGwSQsLa/gmWHxqq0VISjojRPHkR+TX9OxXAeSvY7g9hnKk9AzeEOGdsEGEc3+kBVSqYFeoAe+MXWbzpwi/Z9D6zWf3A3EGDQU18323AAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<use id="Layer" href="#img1" x="0" y="0"/>
+	<use id="Слой 1" href="#img2" x="17" y="12"/>
 </svg>
