@@ -1,100 +1,115 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic');
-html {background: #E6F5F3;}
+
+html {
+    background: #E6F5F3;
+}
+
 .wrapperPage {
     margin: 0 auto;
     font-family: lobster;
 }
+
 .about_medit_wrapper {
     // background: rgb(59,209,187, 1);
-    background-image: url(../../../assets/img/wave.png);
-    background-size:100% 100%;
+    background-image: url(./../assets/img/wave.png);
+    background-size: 100% 100%;
 }
-.about_medit{
+
+.about_medit {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-   
+
     &__box {
-        width:45%;
+        width: 45%;
         min-height: 800px;
         margin: 0px 30px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+
         img {
-            width:500px;
+            width: 500px;
         }
-        
-        .right{
-            &__text{
-                &__title{
+
+        .right {
+            &__text {
+                &__title {
                     font-size: 50px;
                     color: black;
                     margin-top: 50px;
                     font-family: lobster;
                 }
-                &__p{
+
+                &__p {
                     font-size: 40px;
-                    color:black;
+                    color: black;
                     margin-left: 54px;
                 }
             }
         }
     }
 }
-.medit_wrapper{
+
+.medit_wrapper {
     background: #E6F5F3;
 
 }
+
 .medit {
     display: flex;
     flex-direction: column;
     align-items: center;
 
 }
+
 .points_medit {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-  
-    &__item{
+
+    &__item {
         width: 30%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
         &__point {
             width: 547px;
             height: 181px;
             background: linear-gradient(180deg, rgba(206, 255, 249, 0.72) 0%, rgba(91, 203, 189, 0.85) 94.12%);
             box-shadow: 0px 20px 40px rgba(21, 113, 101, 0.2);
-            border-radius: 50px; 
+            border-radius: 50px;
             display: flex;
             flex-direction: row;
             align-items: center;
             margin-top: 90px;
             padding: 23px;
-            &__number{
+
+            &__number {
                 font-size: 56px;
                 color: #3EB29D;
             }
+
             &__text {
                 font-size: 28px;
                 color: black;
             }
+
             img {
-                margin:0 30px;
+                margin: 0 30px;
             }
         }
-        &__centerimg {
-           
-        }
+
+        &__centerimg {}
     }
 
 }
-.player_wrapper{
+
+.player_wrapper {
     margin-top: 90px;
     display: flex;
     flex-direction: row;
