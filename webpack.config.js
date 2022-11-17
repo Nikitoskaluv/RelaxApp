@@ -40,7 +40,7 @@ const pages = [
     },
     {
         "name": "meditation",
-        "js": ["main", "logoutWarning"],
+        "js": ["main", "logoutWarning", "player"],
         "html": "meditation"
     }];
 // const pagesWithoutJs = [

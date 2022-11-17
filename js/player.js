@@ -1,4 +1,4 @@
-const playList = [
+const playListMain = [
     {
         title: 'Aqua Caelestis',
         src: '../assets/sounds/Aqua_Caelestis.mp3',
@@ -26,6 +26,51 @@ const playList = [
     }
 ]
 
+
+const playListMeditation = [
+    {
+        title: 'meditation1',
+        src: '../assets/sounds/1.mp3',
+        duration: '00:58',
+        id: 1
+    },
+    {
+        title: 'meditation2',
+        src: '../assets/sounds/2.mp3',
+        duration: '03:50',
+        id: 2
+    },
+    {
+        title: 'meditation3',
+        src: '../assets/sounds/3.mp3',
+        duration: '05:05',
+        id: 3
+    },
+    {
+        title: 'meditation4',
+        src: '../assets/sounds/4.mp3',
+        duration: '05:03',
+        id: 4
+
+    },
+    {
+        title: 'meditation5',
+        src: '../assets/sounds/5.mp3',
+        duration: '05:03',
+        id: 5
+
+    }
+]
+
+if (location.pathname === '/meditation.html') {
+    playList = playListMeditation
+}
+else {
+    playList = playListMain
+}
+
+let playlist = []
+
 const prevBtn = document.querySelector('.play-prev'),
     playBtn = document.querySelector('.play'),
     nextBtn = document.querySelector('.play-next'),
@@ -47,17 +92,25 @@ audio.volume = 0;
 const playMusicListen = playBtn.addEventListener('click', () => audio.play());
 
 playList.forEach((sound) => {
-    audioList.innerHTML += `<li onclick="onSongClick(event)" id="${sound.id}">${sound.title}</li>`;
+    audioList.innerHTML += `<li id="${sound.id}">${sound.title}</li>`;
+    // audioList.innerHTML += `<li onclick="onSongClick(event)" id="${sound.id}">${sound.title}</li>`;
 });
 
-function onSongClick(e) {
-    let song = playList.find((el) => el.id == Number.parseInt(e.target.id));
+let items = audioList.querySelectorAll('li')
+items.forEach(i => i.addEventListener("click", ()=> onSongClick(i.id)))
+
+
+
+function onSongClick(id){
+    let song = playList.find((el)=> el.id == id)
     Array.from(audioList.children).forEach((li) => li.classList.remove('active-song'));
     audio.pause();
-    e.target.classList.add('active-song');
+    audioList.children[id-1].classList.add('active-song')
     audio = new Audio(song.src);
+    audio.volume = volumeSlider.value
+    volumizer()
     audio.play();
-};
+}
 
 function pauseMusic() {
 
