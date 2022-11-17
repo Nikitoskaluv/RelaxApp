@@ -1147,12 +1147,16 @@ button:active {
   padding: 15px;
 }
 
+html {
+  background: #E6F5F3;
+}
+
 .wrapperPage {
   margin: 0 auto;
 }
 
 .about_medit_wrapper {
-  background-image: url(../../../assets/img/wave.png);
+  background-image: url(../../assets/img/wave.png);
   background-size: 100% 100%;
 }
 
@@ -1183,10 +1187,6 @@ button:active {
   font-size: 40px;
   color: black;
   margin-left: 54px;
-}
-
-.medit_wrapper {
-  background: #E6F5F3;
 }
 
 .medit {

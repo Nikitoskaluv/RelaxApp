@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic');
-// html {background: #E6F5F3;}
+html {background: #E6F5F3;}
 .wrapperPage {
     margin: 0 auto;
     // font-family: lobster;
 }
 .about_medit_wrapper {
     // background: rgb(59,209,187, 1);
-    background-image: url(../../../assets/img/wave.png);
+    background-image: url(../../assets/img/wave.png);
     background-size:100% 100%;
 }
 .about_medit{
@@ -45,7 +45,7 @@
     }
 }
 .medit_wrapper{
-    background: #E6F5F3;
+    // background: #E6F5F3;
 
 }
 .medit {
