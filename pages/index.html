@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- <link rel="stylesheet" href="../css/style.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/style.css" /> -->
     <link href="../assets/icons/man.svg" rel="shortcut icon" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="../css/style.css" /> -->
     <title>Relax</title>
 </head>
 
@@ -20,7 +21,7 @@
             <div class="logout-warning">
                 <div class="logout-warning-text">Статистика не будет сохраняться если выйти!</div>
                 <button class="logout-warning logout-warning-continue" type="button" id="logoutContinue">Выйти</button>
-                <button class="logout-warning logout-warning-cancel" type="button" >Остаться</button>
+                <button class="logout-warning logout-warning-cancel" type="button">Остаться</button>
             </div>
             <button class="logout "><img src="../assets/icons/logout-svgrepo-com.svg"></button>
             <a class="login " href="./login.html"><svg width="55" height="64" viewBox="0 0 55 64"
@@ -44,15 +45,15 @@
                 </label>
                 <nav class="burger__nav">
                     <p class="burger__nav__item">
-                        <a href="./meditation.html"><span class="burger__nav__item__title">Relax</span>
+                        <a href="./meditation.html" target="_blank"><span class="burger__nav__item__title">Relax</span>
                             <span class="burger__nav__item__text"> Медитация </span> </a>
                     </p>
                     <p class="burger__nav__item">
-                        <a href="./eyes.html"><span class="burger__nav__item__title">Relax</span>
+                        <a href="./eyes.html" target="_blank"><span class="burger__nav__item__title">Relax</span>
                             <span class="burger__nav__item__text"> Глаза </span> </a>
                     </p>
                     <p class="burger__nav__item">
-                        <a href="./warm_up.html"><span class="burger__nav__item__title">Relax</span>
+                        <a href="./warm_up.html" target="_blank"><span class="burger__nav__item__title">Relax</span>
                             <span class="burger__nav__item__text"> Разминка </span> </a>
                     </p>
                     <img src="../assets/img/burger_lotos.png" class="burger__nav__img">
@@ -62,9 +63,10 @@
     </header>
     <main class="main">
         <span class="radioButtons">
-            <div class="timer-modes"><label><input type="radio" name="r1" id="radioWork" value="work"
+            <div class="timer-modes"><label><input type="radio" name="session-group" id="radioWork" value="work"
                         checked>Работа<br></label></div>
-            <div class="timer-modes"><label><input type="radio" name="r1" id="radioRest" value="rest">Отдых<br></label>
+            <div class="timer-modes"><label><input type="radio" name="session-group" id="radioRest"
+                        value="rest">Отдых<br></label>
             </div>
         </span>
         <div class="main-bg">
@@ -74,8 +76,10 @@
         <section class="main-timer">
             <div class="timer-warning">
                 <div class="timer-warning timer-warning-text">Статистика не будет сохраняться без входа!</div>
-                    <button class="timer-warning timer-warning-continue" type="button" id="timerContinue">Продолжить</button>
-                    <button class="timer-warning timer-warning-login" type="button" onclick="window.location.href='./login.html';">Войти</button>
+                <button class="timer-warning timer-warning-continue" type="button"
+                    id="timerContinue">Продолжить</button>
+                <button class="timer-warning timer-warning-login" type="button"
+                    onclick="window.location.href='./login.html'">Войти</button>
             </div>
             <h1 id="timerH"></h1>
             <div class="timer-bg">
@@ -83,14 +87,14 @@
             </div>
             <div class="controls">
                 <button id="launch"><img src="../assets/icons/play.svg" alt="play" width="22px" height="22px"></button>
-                <button id="stop"><img src="../assets/icons/pause.svg" alt="stop" width="22px" height="22px"></button>
-                <button id="clear"><img src="../assets/icons/stop.svg" alt="clear" width="22px" height="22px"></button>
+                <button id="pause"><img src="../assets/icons/pause.svg" alt="stop" width="22px" height="22px"></button>
+                <button id="stop"><img src="../assets/icons/stop.svg" alt="clear" width="22px" height="22px"></button>
             </div>
         </section>
         <div class="timerline"></div>
         <label for="radioMeditation">
             <div class="timer-meditation">
-                <input type="checkbox" name="r1" id="radioMeditation" value="meditation">
+                <input type="checkbox" id="radioMeditation" value="meditation">
                 <label for="radioMeditation">Медитация</label>
             </div>
         </label>
@@ -100,7 +104,9 @@
             <div class="buttonset">
                 <h3 class="wr-heading" id="cust-w-head">Введите время в минутах</h3>
                 <button id="wless">-</button>
-                <div id="workTime"></div>
+                <input type="number" id="workTime" />
+                <!-- <div id=" workTime">
+            </div> -->
                 <button id="wmore">+</button>
             </div>
         </section>
@@ -131,17 +137,17 @@
             <div class="btn pic2">
                 <p class="btn_img"><img src="../assets/img/ic_meditation.png" alt="Для глаз"></p>
                 <p class="p_btn">Медитации</p>
-                <a href="meditation.html" class="asd">Релакс</a>
+                <a href="meditation.html" class="asd" target="_blank">Релакс</a>
             </div>
             <div class="btn pic1">
                 <p class="btn_img"><img src="../assets/img/ic_yoga.png" alt="Разминка"></p>
                 <p class="p_btn">Разминка</p>
-                <a href="warm_up.html" class="asd">Заниматься</a>
+                <a href="warm_up.html" class="asd" target="_blank">Заниматься</a>
             </div>
             <div class="btn pic2">
                 <p class="btn_img"><img src="../assets/img/twemoji_eye.png" alt="Для глаз"></p>
                 <p class="p_btn">Глаза</p>
-                <a href="eyes.html" class="asd">Расслабить</a>
+                <a href="eyes.html" class="asd" target="_blank">Расслабить</a>
             </div>
         </div>
     </main>

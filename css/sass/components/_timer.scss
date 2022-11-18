@@ -97,7 +97,7 @@ button:active {
     align-items: center;
 }
 
-.timer-warning{
+.timer-warning {
     display: none;
     background-color: #696969;
     color: #f0ffff;
@@ -112,14 +112,14 @@ button:active {
     border: solid;
 }
 
-.timer-warning .timer-warning-text{
+.timer-warning .timer-warning-text {
     display: flex;
     padding: 20px;
     font-size: 19px;
     text-align: center;
 }
 
-.timer-warning .timer-warning-continue{
+.timer-warning .timer-warning-continue {
     display: flex;
     width: 92px;
     height: 24px;
@@ -130,7 +130,8 @@ button:active {
     background-color: #36454f;
     border: solid 2px;
 }
-.timer-warning .timer-warning-login{
+
+.timer-warning .timer-warning-login {
     display: flex;
     width: 92px;
     height: 24px;
@@ -279,7 +280,7 @@ button:active {
 
 #launch,
 #stop,
-#clear {
+#pause {
     background: none;
 }
 
