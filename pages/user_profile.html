@@ -19,7 +19,7 @@
             <div class="logout-warning">
                 <div class="logout-warning-text">Статистика не будет сохраняться если выйти!</div>
                 <button class="logout-warning logout-warning-continue" type="button" id="logoutContinue">Выйти</button>
-                <button class="logout-warning logout-warning-cancel" type="button" >Остаться</button>
+                <button class="logout-warning logout-warning-cancel" type="button">Остаться</button>
             </div>
             <button class="logout "><img src="../assets/icons/logout-svgrepo-com.svg"></button>
             <a href="./user_profile.html"><svg width="61" height="64" viewBox="0 0 61 64"
@@ -91,13 +91,6 @@
                 </div>
             </form>
 
-
-
-
-
-
-
-
             <form class="profile-block-form" id="passwordForm">
                 <div class="profile-block-form-inputs">
 
@@ -120,10 +113,14 @@
                 <div class="message"></div>
             </form>
 
-            <div class="profile-block-container profile-block-container_contain statistics">stats here</div>
+            <div class="profile-block-container profile-block-container_contain statistics">
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 </body>
-<script type="module" src="../js/user_profile.js"></script>
+<!-- <script type="module" src="../js/user_profile.js"></script> -->
 
 </html>
