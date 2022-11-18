@@ -1,7 +1,8 @@
 const { v4: uuidv4 } = require('uuid');
 const { ADDRESS } = require("./constants");
 
-
+const timerWarning = document.querySelector('.timer-warning'),
+    timerWarningContinue = document.getElementById("timerContinue")
 
 const settings = {
     work: 30,       // in minutes
@@ -121,7 +122,8 @@ document.querySelector("#wless").addEventListener('click', () => {
 
 // start timer handler
 const startTimerBtn = document.querySelector("#launch");
-startTimerBtn.addEventListener('click', () => {
+
+function startTimer() {
 
     let colors;
 
@@ -174,7 +176,9 @@ startTimerBtn.addEventListener('click', () => {
     startTimerBtn.disabled = true;
     stopTimerBtn.disabled = false;
     pauseTimerBtn.disabled = false;
-})
+}
+
+startTimerBtn.addEventListener('click', () => playButton());
 
 // pause timer handler
 const pauseTimerBtn = document.querySelector("#pause")
@@ -315,3 +319,19 @@ async function postTimerEventToServer(timer) {
             })
     });
 }
+
+function hideWarning() {
+    timerWarning.style.display = 'none'
+}
+
+
+function playButton() {
+    if (!localStorage.getItem('userTokern')) {
+        timerWarning.style.display = 'flex';
+    }
+    else
+        startTimer();
+}
+
+timerWarningContinue.addEventListener('click', startTimer);
+timerWarningContinue.addEventListener('click', hideWarning);
