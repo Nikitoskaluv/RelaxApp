@@ -158,13 +158,25 @@
 
         <div class="stereo_pictures_eyes__slider_block">
             <div class="stereo_pictures_eyes__button">
-                <img src="../assets/img/stereo_left_arrow.png" alt="">
+                <img src="../assets/img/stereo_left_arrow.png" alt="" id="prev">
             </div>
             <div class="stereo_pictures_eyes__picture">
-                <img src="../assets/img/stereo_picture_1.png" alt="">
+                <!-- <img src="../assets/img/stereo_picture_1.png" alt=""> -->
+                <div class="slider">
+                    <div class="slide"><img src="../assets/img/stereo_picture_1.png" alt=""></div>
+                    <div class="slide"><img src="../assets/img/stereo_picture_2.png" alt=""></div>
+                    <div class="slide"><img src="../assets/img/stereo_picture_3.png" alt=""></div>
+                </div>
             </div>
+           
             <div class="stereo_pictures_eyes__button">
-                <img src="../assets/img/stereo_right_arrow.png" alt="">
+                <img src="../assets/img/stereo_right_arrow.png" alt=""  id="next">
+            </div>
+            <div id="modalSlider">
+              <div class="modalSlider_content">
+                <span class="modalSlider_close">&times;</span>
+                <div class="modalSlider_content_img"></div>
+              </div>
             </div>
         </div>
 
@@ -200,6 +212,12 @@
             </div>
         </div>
     </div>
+    <footer class="footer">
+        <p>Команда "Relax", 2022</p>
+        <p>Курс "Командная разработка по методологии Agile: SCRUM", <a href="https://gb.ru/">GeekBrains</a></p>
+    </footer>
+    <script type="module" src="../js/slider.js">
+    </script>
 </body>
 
 </html>
