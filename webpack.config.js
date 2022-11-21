@@ -20,12 +20,12 @@ const pages = [
     },
     {
         "name": "index",
-        "js": ["advice", "player", "timer", "main", "logoutWarning"],
+        "js": ["player", "timer", "main", "logoutWarning"],
         "html": "index"
     },
     {
         "name": "user_profile",
-        "js": ["main", "user_profile", "logoutWarning"],
+        "js": ["main", "user_profile", "statistics"],
         "html": "user_profile"
     },
     {
@@ -64,6 +64,9 @@ module.exports = {
         splitChunks: {
             chunks: "all",
         },
+    },
+    experiments: {
+        topLevelAwait: true
     },
     plugins: [
         new MiniCssExtractPlugin({

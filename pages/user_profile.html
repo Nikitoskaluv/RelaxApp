@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../assets/icons/man.svg" rel="shortcut icon" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+
+
     <title>Profile</title>
 </head>
 
@@ -114,8 +118,11 @@
             </form>
 
             <div class="profile-block-container profile-block-container_contain statistics">
-                <div>
-                    <canvas id="myChart"></canvas>
+                <div class="dayStatsContainer">
+                    <canvas id="dayStatistics"></canvas>
+                </div>
+                <div class="weekStatsContainer">
+                    <canvas id="weekStatistics"></canvas>
                 </div>
             </div>
         </div>
