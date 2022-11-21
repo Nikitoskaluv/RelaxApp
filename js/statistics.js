@@ -3,7 +3,7 @@ import { ADDRESS } from "./constants.js";
 
 
 let dailyStats = {};
-
+let weeklyStats = [];
 function getDailyStats() {
     fetch(`${ADDRESS}/user/stats/daily`, {
         method: 'GET',
@@ -14,7 +14,7 @@ function getDailyStats() {
     }).then((res) => {
         return res.json();
     }).then((data) => {
-        console.log(data, 'data');
+        console.log(data, 'daily data');
         dailyStats = data;
         showDailyStats(dailyStats);
     }).catch((error) => {
@@ -22,9 +22,29 @@ function getDailyStats() {
     })
 }
 
+function getWeeklyStats() {
+    fetch(`${ADDRESS}/user/stats/weekly`, {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'authorization': localStorage.getItem('userToken'),
+        },
+    }).then((res) => {
+        return res.json();
+    }).then((data) => {
+        console.log(data, 'weekly data');
+        weeklyStats = data;
+        console.log(weeklyStats, 'ws')
+        showWeeklyStats(weeklyStats);
+    }).catch((error) => {
+        console.log(`ошибка ${error}`)
+    })
+}
+
 window.onload = () => {
     getDailyStats();
-    showWeeklyStats();
+    // showWeeklyStats();
+    getWeeklyStats();
 }
 console.log(dailyStats, 'types')
 let dayChart = document.querySelector('#dayStatistics').getContext('2d');
@@ -88,27 +108,30 @@ function checkWord(number, titles) {
 }
 
 let weekChart = document.querySelector('#weekStatistics').getContext('2d');
-function showWeeklyStats() {
+
+function showWeeklyStats(arr) {
     new Chart(weekChart, {
         type: 'bar',
         data: {
-            labels: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+            labels: arr.map(obj => {
+                return formatDate(obj.date);
+            }),
             datasets:
                 [
                     {
-                        label: 'Медитация',
+                        label: `${Object.keys((arr[0].data))[0] == 'meditation' ? 'Медитация' : 0}`,
                         fillColor: 'blue',
-                        data: [3000, 4000, 5000, 3000, 4000, 5000, 4000]
+                        data: returnTime(arr, 'meditation')
                     },
                     {
-                        label: 'Работа',
+                        label: `${Object.keys((arr[0].data))[1] == 'rest' ? 'Отдых' : 0}`,
                         fillColor: 'green',
-                        data: [5000, 8000, 9000, 7000, 5000, 8000, 9000]
+                        data: returnTime(arr, 'rest')
                     },
                     {
-                        label: 'Отдых',
+                        label: `${Object.keys((arr[0].data))[2] == 'work' ? 'Работа' : 0}`,
                         fillColor: 'red',
-                        data: [7000, 2000, 3000, 3000, 7000, 2000, 3000]
+                        data: returnTime(arr, 'work')
                     }
                 ]
         },
@@ -116,6 +139,33 @@ function showWeeklyStats() {
         }
     });
 }
+
+function formatDate(string) {
+    let date = new Date(string);
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1;
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    const dateLine = `${dd}.${mm}`;
+    return dateLine
+}
+
+function returnTime(arr, string) {
+    let arr2 = [];
+    arr.map(obj => {
+        arr2.push(obj.data[string])
+    })
+    console.log(arr2);
+    return arr2;
+}
+
+//   {
+//     date: 2022-11-20T19:00:00.000Z,
+//     data: { meditation: 10, rest: 23, work: 53 }
+//   }
+
+
+
 
 
 
