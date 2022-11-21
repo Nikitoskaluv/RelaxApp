@@ -35,7 +35,7 @@ const pages = [
     },
     {
         "name": "eyes",
-        "js": ["main", "logoutWarning"],
+        "js": ["main", "logoutWarning", "slider"],
         "html": "eyes"
     },
     {
