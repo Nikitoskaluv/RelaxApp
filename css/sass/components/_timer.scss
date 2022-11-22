@@ -61,9 +61,9 @@ button:active {
 
 .timerline {
     width: 260px;
-    height: 20px;
+    height: 16px;
     margin-top: 10px;
-    padding: 20px 0;
+    //padding: 20px 0;
     border-radius: 15px;
     -webkit-box-shadow: 0px 0px 2px 0px #3eb29d;
     -moz-box-shadow: 0px 0px 2px 0px #3eb29d;
@@ -98,12 +98,14 @@ button:active {
 }
 
 .timer-warning {
-    display: none;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
     background-color: #696969;
     color: #f0ffff;
     position: absolute;
     width: 320px;
-    z-index: 3;
+    z-index: -3;
     height: 128px;
     border-radius: 32px;
     font-family: "Forum", sans-serif;
@@ -114,6 +116,8 @@ button:active {
 
 .timer-warning .timer-warning-text {
     display: flex;
+    visibility: visible;
+    opacity: 1;
     padding: 20px;
     font-size: 19px;
     text-align: center;
@@ -121,6 +125,8 @@ button:active {
 
 .timer-warning .timer-warning-continue {
     display: flex;
+    visibility: visible;
+    opacity: 1;
     width: 92px;
     height: 24px;
     top: 80px;
@@ -133,6 +139,8 @@ button:active {
 
 .timer-warning .timer-warning-login {
     display: flex;
+    visibility: visible;
+    opacity: 1;
     width: 92px;
     height: 24px;
     top: 80px;
@@ -141,6 +149,14 @@ button:active {
     border-radius: 8px;
     background-color: #36454f;
     border: solid 2px;
+}
+
+.timer-warning-show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 3;
+    transition: opacity 0.5s;
+
 }
 
 
@@ -297,6 +313,10 @@ button:active {
 #workTime {
     font-family: "Heebo";
     color: #1A7F72;
+    text-align: center;
+    height: 32px;
+    border: solid;
+    border-radius: 50px;
 }
 
 .customize>button {

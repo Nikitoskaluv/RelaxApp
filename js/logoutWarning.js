@@ -10,12 +10,12 @@ logoutWarningCofBtn.addEventListener("click",()=>{
     document.location.href = "/";
 })
 logoutWarningCancelBtn.addEventListener("click", ()=>{
-    logoutWarning.style.display = 'none'
+    logoutWarning.classList.remove('logout-warning-show')
 })
 
 
 logoutButton && logoutButton.addEventListener("click", (e) => {
-    logoutWarning.style.display = 'flex'
+    logoutWarning.classList.add('logout-warning-show')
 
 });
 

@@ -20,27 +20,27 @@ const pages = [
     },
     {
         "name": "index",
-        "js": ["player", "timer", "main", "logoutWarning"],
+        "js": ["advice", "player", "timer", "main", "logoutWarning", "menu"],
         "html": "index"
     },
     {
         "name": "user_profile",
-        "js": ["main", "user_profile", "statistics"],
+        "js": ["main", "user_profile", "logoutWarning", "menu","statistics"],
         "html": "user_profile"
     },
     {
         "name": "warm_up",
-        "js": ["main", "logoutWarning"],
+        "js": ["main", "logoutWarning", "menu"],
         "html": "warm_up"
     },
     {
         "name": "eyes",
-        "js": ["main", "logoutWarning"],
+        "js": ["main", "logoutWarning", "slider", "menu"],
         "html": "eyes"
     },
     {
         "name": "meditation",
-        "js": ["main", "logoutWarning", "player"],
+        "js": ["main", "logoutWarning", "player", "menu"],
         "html": "meditation"
     }];
 // const pagesWithoutJs = [
