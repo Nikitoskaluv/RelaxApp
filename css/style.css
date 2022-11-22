@@ -48,6 +48,7 @@ main {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   /* 1 */
   height: 0;
@@ -233,6 +234,7 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   color: inherit;
@@ -267,6 +269,7 @@ textarea {
  */
 [type=checkbox],
 [type=radio] {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -440,10 +443,11 @@ button:active {
 
 .timerline {
   width: 260px;
-  height: 20px;
+  height: 16px;
   margin-top: 10px;
-  padding: 20px 0;
   border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 2px 0px #3eb29d;
+  -moz-box-shadow: 0px 0px 2px 0px #3eb29d;
   box-shadow: 0px 0px 2px 0px #3eb29d;
   border: 2px solid #59d0c0;
 }
@@ -471,12 +475,14 @@ button:active {
 }
 
 .timer-warning {
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
   background-color: #696969;
   color: #f0ffff;
   position: absolute;
   width: 320px;
-  z-index: 3;
+  z-index: -3;
   height: 128px;
   border-radius: 32px;
   font-family: "Forum", sans-serif;
@@ -487,6 +493,8 @@ button:active {
 
 .timer-warning .timer-warning-text {
   display: flex;
+  visibility: visible;
+  opacity: 1;
   padding: 20px;
   font-size: 19px;
   text-align: center;
@@ -494,6 +502,8 @@ button:active {
 
 .timer-warning .timer-warning-continue {
   display: flex;
+  visibility: visible;
+  opacity: 1;
   width: 92px;
   height: 24px;
   top: 80px;
@@ -506,6 +516,8 @@ button:active {
 
 .timer-warning .timer-warning-login {
   display: flex;
+  visibility: visible;
+  opacity: 1;
   width: 92px;
   height: 24px;
   top: 80px;
@@ -514,6 +526,13 @@ button:active {
   border-radius: 8px;
   background-color: #36454f;
   border: solid 2px;
+}
+
+.timer-warning-show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 3;
+  transition: opacity 0.5s;
 }
 
 .timer-modes {
@@ -537,10 +556,7 @@ button:active {
   padding: 0px 15px;
   background: linear-gradient(180deg, #259385 0%, #159685 100%);
   border-radius: 50px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   font-weight: 700;
   font-size: 30px;
   line-height: 130%;
@@ -578,10 +594,7 @@ button:active {
   padding: 0px 15px;
   background: none;
   border-radius: 50px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   font-weight: 700;
   font-size: 30px;
   line-height: 130%;
@@ -669,6 +682,10 @@ button:active {
 #workTime {
   font-family: "Heebo";
   color: #1A7F72;
+  text-align: center;
+  height: 32px;
+  border: solid;
+  border-radius: 50px;
 }
 
 .customize > button {
@@ -804,6 +821,7 @@ button:active {
 }
 
 .range {
+
   height: 8px;
   -webkit-appearance: none;
   margin: 10px 0;
@@ -866,16 +884,6 @@ button:active {
   background-color: transparent;
   border: 0;
   outline: 0;
-}
-
-.name::-moz-placeholder {
-  color: #ffffff;
-  opacity: 0.6;
-}
-
-.name:-ms-input-placeholder {
-  color: #ffffff;
-  opacity: 0.6;
 }
 
 .name::placeholder {
@@ -1033,12 +1041,14 @@ button:active {
 }
 
 .logout-warning {
-  display: none;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
   background-color: #696969;
   color: #f0ffff;
   position: absolute;
   width: 464px;
-  z-index: 3;
   height: 72px;
   border-radius: 32px;
   font-family: "Forum", sans-serif;
@@ -1050,6 +1060,9 @@ button:active {
 }
 
 .logout-warning .logout-warning-text {
+  visibility: visible;
+  z-index: 3;
+  opacity: 1;
   display: flex;
   padding: 20px;
   font-size: 19px;
@@ -1059,6 +1072,9 @@ button:active {
 }
 
 .logout-warning .logout-warning-continue {
+  visibility: visible;
+  z-index: 3;
+  opacity: 1;
   display: flex;
   width: 92px;
   height: 24px;
@@ -1071,6 +1087,9 @@ button:active {
 }
 
 .logout-warning .logout-warning-cancel {
+  visibility: visible;
+  z-index: 3;
+  opacity: 1;
   display: flex;
   width: 92px;
   height: 24px;
@@ -1080,6 +1099,13 @@ button:active {
   border-radius: 8px;
   background-color: #36454f;
   border: solid 2px;
+}
+
+.logout-warning-show {
+  visibility: visible;
+  opacity: 1;
+  z-index: 3;
+  transition: opacity 0.5s;
 }
 
 .home_link {
@@ -1501,10 +1527,8 @@ form > * {
 
 .slide img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: 0;
-     object-position: 0;
+  object-fit: cover;
+  object-position: 0;
 }
 
 #modalSlider {
@@ -1560,8 +1584,7 @@ form > * {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  -moz-column-gap: 12px;
-       column-gap: 12px;
+  column-gap: 12px;
 }
 
 .main {
@@ -1675,6 +1698,8 @@ svg {
   color: white;
   font-size: 20px;
   padding: 40px;
+  position: sticky;
+  top: 100%;
 }
 .footer a {
   color: white;
@@ -1915,6 +1940,7 @@ form > * {
   color: #3EB29D;
 }
 
+
 .active-menu {
   display: block;
   position: fixed;
@@ -1936,4 +1962,4 @@ form > * {
   opacity: 0;
   transition: all 350ms ease 0.1s;
   right: 5px;
-}/*# sourceMappingURL=style.css.map */
+}

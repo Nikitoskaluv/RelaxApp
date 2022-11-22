@@ -94,31 +94,60 @@ document.getElementsByName('session-group').forEach(el => el.addEventListener('c
 }));
 
 
-// 'plus' button handler
-document.querySelector("#wmore").addEventListener('click', () => {
-    // adjustments should only work only when the timer is stopped
-    if (session.timerId) {
+//timer input handler
+timerValueAdjusterElement.addEventListener('change', ()=>{
+    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
         return;
     }
-    if (session.fullTime < settings.maxTime * 60) {
-        session.fullTime += 60;
-    }
-    timerValueAdjusterElement.innerHTML = session.fullTime / 60;
+    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
+    //     return;
+    // }
+    session.fullTime = timerValueAdjusterElement.value * 60
     updateTimerLabel(session.fullTime)
-});
 
-// 'minus' button handler
-document.querySelector("#wless").addEventListener('click', () => {
-    // adjustments should only work only when the timer is stopped
-    if (session.timerId) {
+})
+
+timerValueAdjusterElement.addEventListener('input', ()=>{
+    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
         return;
     }
-    if (session.fullTime > 0) {
-        session.fullTime -= 60;
-    }
-    timerValueAdjusterElement.innerHTML = session.fullTime / 60;
+    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
+    //     return;
+    // }
+    session.fullTime = timerValueAdjusterElement.value * 60
     updateTimerLabel(session.fullTime)
-});
+
+})
+
+// 'plus' button handler
+// document.querySelector("#wmore").addEventListener('click', () => {
+//     // adjustments should only work only when the timer is stopped
+//     if (session.timerId) {
+//         return;
+//     }
+//     // if (session.fullTime < settings.maxTime * 60) {
+//     //     session.fullTime += 60;
+//     // }
+//     // timerValueAdjusterElement.innerHTML = session.fullTime / 60;
+//     timerValueAdjusterElement.stepUp()
+//     session.fullTime = timerValueAdjusterElement.value * 60
+//     updateTimerLabel(session.fullTime)
+// });
+
+// // 'minus' button handler
+// document.querySelector("#wless").addEventListener('click', () => {
+//     // adjustments should only work only when the timer is stopped
+//     if (session.timerId) {
+//         return;
+//     }
+//     // if (session.fullTime > 0) {
+//     //     session.fullTime -= 60;
+//     // }
+//     // timerValueAdjusterElement.innerHTML = session.fullTime / 60;
+//     timerValueAdjusterElement.stepDown()
+//     session.fullTime = timerValueAdjusterElement.value * 60
+//     updateTimerLabel(session.fullTime)
+// });
 
 // start timer handler
 const startTimerBtn = document.querySelector("#launch");
@@ -321,13 +350,15 @@ async function postTimerEventToServer(timer) {
 }
 
 function hideWarning() {
-    timerWarning.style.display = 'none'
+    // timerWarning.style.display = 'none'
+    timerWarning.classList.remove('timer-warning-show')
 }
 
 
 function playButton() {
     if (!localStorage.getItem('userToken')) {
-        timerWarning.style.display = 'flex';
+        // timerWarning.style.display = 'flex';
+        timerWarning.classList.add('timer-warning-show')
     }
     else
         startTimer();
