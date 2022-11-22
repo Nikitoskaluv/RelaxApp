@@ -116,9 +116,20 @@ document.querySelector("#wless").addEventListener('click', () => {
     if (session.fullTime > 0) {
         session.fullTime -= 60;
     }
-    timerValueAdjusterElement.innerHTML = session.fullTime / 60;
-    updateTimerLabel(session.fullTime)
+    // timerValueAdjusterElement.innerHTML = session.fullTime / 60;
+    // updateTimerLabel(session.fullTime)
 });
+timerValueAdjusterElement.addEventListener('input', () => {
+    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
+        return;
+    }
+    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
+    //     return;
+    // }
+    session.fullTime = timerValueAdjusterElement.value * 60
+    updateTimerLabel(session.fullTime)
+    console.log(timerValueAdjusterElement.value)
+})
 
 // start timer handler
 const startTimerBtn = document.querySelector("#launch");
