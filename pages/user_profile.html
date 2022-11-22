@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../assets/icons/man.svg" rel="shortcut icon" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+
+
     <title>Profile</title>
 </head>
 
@@ -92,13 +96,6 @@
                 </div>
             </form>
 
-
-
-
-
-
-
-
             <form class="profile-block-form" id="passwordForm">
                 <div class="profile-block-form-inputs">
 
@@ -121,7 +118,14 @@
                 <div class="message"></div>
             </form>
 
-            <div class="profile-block-container profile-block-container_contain statistics">stats here</div>
+            <div class="profile-block-container profile-block-container_contain statistics">
+                <div class="dayStatsContainer">
+                    <canvas id="dayStatistics"></canvas>
+                </div>
+                <div class="weekStatsContainer">
+                    <canvas id="weekStatistics"></canvas>
+                </div>
+            </div>
         </div>
     </div>
     <footer class="footer">
@@ -129,6 +133,5 @@
         <p>Курс "Командная разработка по методологии Agile: SCRUM", <a href="https://gb.ru/">GeekBrains</a></p>
     </footer>
 </body>
-<script type="module" src="../js/user_profile.js"></script>
 
 </html>
