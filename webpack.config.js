@@ -25,7 +25,7 @@ const pages = [
     },
     {
         "name": "user_profile",
-        "js": ["main", "user_profile", "logoutWarning", "menu"],
+        "js": ["main", "user_profile", "logoutWarning", "menu","statistics"],
         "html": "user_profile"
     },
     {
@@ -64,6 +64,9 @@ module.exports = {
         splitChunks: {
             chunks: "all",
         },
+    },
+    experiments: {
+        topLevelAwait: true
     },
     plugins: [
         new MiniCssExtractPlugin({

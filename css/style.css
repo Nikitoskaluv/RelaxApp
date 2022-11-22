@@ -1896,6 +1896,12 @@ form > * {
   flex-direction: column;
   align-items: center;
   margin-bottom: 15px;
+
+}
+
+#burger {
+  display: none;
+
 }
 
 #burger:checked ~ .burger__nav {
