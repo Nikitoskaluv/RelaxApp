@@ -1447,6 +1447,7 @@ form > * {
   font-size: 24px;
   padding: 65px;
   margin: auto;
+  margin-bottom: 30px;
   width: 1190px;
   height: 1116px;
   background: linear-gradient(180deg, rgba(206, 255, 249, 0.72) 0%, rgba(91, 203, 189, 0.85) 94.12%);
@@ -1459,6 +1460,10 @@ form > * {
   align-items: center;
   height: 547px;
   margin-bottom: 46px;
+}
+.stereo_pictures_eyes__picture {
+  width: 80%;
+  overflow: hidden;
 }
 .stereo_pictures_eyes__description_top {
   margin-bottom: 30px;
@@ -1481,6 +1486,73 @@ form > * {
 }
 .stereo_pictures_eyes__description_list_text li span {
   color: #000000;
+}
+
+.slider {
+  position: relative;
+  transition: 500ms;
+  width: 300%;
+  display: flex;
+}
+
+.slide {
+  width: 80%;
+}
+
+.slide img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0;
+     object-position: 0;
+}
+
+#modalSlider {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-content__picture {
+  position: relative;
+  width: 100%;
+}
+
+.modalSlider_close {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  color: white;
+  background: #3EB29D;
+  font-weight: bold;
+  font-size: 36px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalSlider_close:hover,
+.modalSlider_close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .description-container {
@@ -1685,10 +1757,6 @@ svg {
   margin: auto;
 }
 
-#burger {
-  display: none;
-}
-
 #burger:checked ~ .burger__nav {
   display: block;
 }
@@ -1703,7 +1771,7 @@ svg {
   position: absolute;
   right: 0;
   top: 130px;
-  z-index: 1;
+  z-index: 1000;
   background: #fff;
   padding: 51px 0 0 51px;
   border-bottom-left-radius: 10px;
@@ -1729,4 +1797,27 @@ svg {
 
 .active {
   color: #3EB29D;
+}
+
+.active-menu {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: 0;
+}
+
+.drop {
+  transition: all 550ms ease 0.1s;
+  opacity: 1;
+  right: 5px;
+}
+
+.burger__hidden {
+  opacity: 0;
+  transition: all 350ms ease 0.1s;
+  right: 5px;
 }/*# sourceMappingURL=style.css.map */
