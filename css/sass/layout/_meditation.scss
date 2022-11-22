@@ -62,7 +62,7 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    margin-bottom: 132px;
 }
 
 .points_medit {
@@ -103,17 +103,14 @@ html {
                 margin: 0 30px;
             }
         }
-
-        &__centerimg {}
     }
 
 }
 
-.player_wrapper {
-    margin-top: 90px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.meditation_player {
+    width: 650px;
+    margin: auto;
+    margin-bottom: 75px;
 }
 
 
