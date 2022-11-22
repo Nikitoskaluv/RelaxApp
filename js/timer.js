@@ -116,7 +116,7 @@ timerValueAdjusterElement.addEventListener('input', ()=>{
     // }
     session.fullTime = timerValueAdjusterElement.value * 60
     updateTimerLabel(session.fullTime)
-    console.log(timerValueAdjusterElement.value)
+
 })
 
 // 'plus' button handler
