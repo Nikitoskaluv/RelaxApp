@@ -127,6 +127,7 @@
 // }
 
 .range {
+
   height: 8px;
   -webkit-appearance: none;
   margin: 10px 0;
@@ -135,6 +136,7 @@
 
 .range:focus {
   outline: none;
+
 }
 
 .range::-webkit-slider-runnable-track {
