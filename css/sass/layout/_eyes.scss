@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic');
 
-.change_body_color_eyes {
-    background: #E6F5F3;
-}
+//.change_body_color_eyes {
+//    background: #E6F5F3;
+//}
 
+.wrapper_eyes_bg {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    max-height: 1350px;
+}
 .warm_up_eyes {
     // background-image: url(../assets/img/wave.png);
     // background-size: 100% 100%;
@@ -13,7 +19,7 @@
     &__container {
         max-width: 1325px;
         margin: auto;
-        margin-top: 48px;
+        padding-top: 48px;
         margin-bottom: 192px;
     }
 
