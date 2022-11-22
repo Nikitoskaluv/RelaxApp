@@ -114,7 +114,7 @@ timerValueAdjusterElement.addEventListener('input', () => {
     // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
     //     return;
     // }
-    session.fullTime = // timerValueAdjusterElement.value * 60
+    // session.fullTime = // timerValueAdjusterElement.value * 60
     // updateTimerLabel(session.fullTime)
 });
 timerValueAdjusterElement.addEventListener('input', () => {
