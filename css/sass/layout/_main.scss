@@ -24,8 +24,15 @@ svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg, rgba(26, 127, 114, 0) 0%, #1a7f72 100%);
+  //background: linear-gradient(180deg, rgba(26, 127, 114, 0) 0%, #1a7f72 100%);
   width: 100%;
+}
+
+.wrapper_bg {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  max-height: 750px;
 }
 
 .btn {
@@ -53,6 +60,11 @@ svg {
 .buttons_navigation {
   display: flex;
   justify-content: space-around;
+}
+
+.radioButtons {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .asd {
