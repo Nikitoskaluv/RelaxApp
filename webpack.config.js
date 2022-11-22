@@ -20,12 +20,12 @@ const pages = [
     },
     {
         "name": "index",
-        "js": ["advice", "player", "timer", "main", "logoutWarning", "menu"],
+        "js": ["player", "timer", "main", "logoutWarning", "menu"],
         "html": "index"
     },
     {
         "name": "user_profile",
-        "js": ["main", "user_profile", "logoutWarning", "menu","statistics"],
+        "js": ["main", "user_profile", "logoutWarning", "menu", "statistics"],
         "html": "user_profile"
     },
     {

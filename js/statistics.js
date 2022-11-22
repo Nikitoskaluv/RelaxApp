@@ -70,7 +70,7 @@ function showDailyStats(obj) {
             plugins: {
                 title: {
                     display: true,
-                    text: 'TEST'
+                    text: 'СТАТИСТИКА ЗА ДЕНЬ'
                 }
             }
         }
@@ -136,6 +136,12 @@ function showWeeklyStats(arr) {
                 ]
         },
         options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'СТАТИСТИКА ЗА НЕДЕЛЮ'
+                }
+            }
         }
     });
 }
