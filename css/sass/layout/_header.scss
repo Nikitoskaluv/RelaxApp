@@ -67,12 +67,14 @@
 }
 
 .logout-warning {
-    display: none;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
     background-color: #696969;
     color: #f0ffff;
     position: absolute;
     width: 464px;
-    z-index: 3;
     height: 72px;
     border-radius: 32px;
     font-family: "Forum", sans-serif;
@@ -83,7 +85,12 @@
     top: 5%;
 }
 
+
+
 .logout-warning .logout-warning-text {
+    visibility: visible;
+    z-index: 3;
+    opacity: 1;
     display: flex;
     padding: 20px;
     font-size: 19px;
@@ -92,7 +99,11 @@
     padding-top: 8px;
 }
 
+
 .logout-warning .logout-warning-continue {
+    visibility: visible;
+    z-index: 3;
+    opacity: 1;
     display: flex;
     width: 92px;
     height: 24px;
@@ -105,6 +116,9 @@
 }
 
 .logout-warning .logout-warning-cancel {
+    visibility: visible;
+    z-index: 3;
+    opacity: 1;
     display: flex;
     width: 92px;
     height: 24px;
@@ -114,6 +128,13 @@
     border-radius: 8px;
     background-color: #36454f;
     border: solid 2px;
+}
+
+.logout-warning-show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 3;
+    transition: opacity 0.5s;
 }
 
 .home_link {

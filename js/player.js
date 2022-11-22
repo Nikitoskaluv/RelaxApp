@@ -29,32 +29,32 @@ const playListMain = [
 
 const playListMeditation = [
     {
-        title: 'meditation1',
+        title: 'Meditation-1',
         src: '../assets/sounds/1.mp3',
         duration: '00:58',
         id: 1
     },
     {
-        title: 'meditation2',
+        title: 'Meditation-2',
         src: '../assets/sounds/2.mp3',
         duration: '03:50',
         id: 2
     },
     {
-        title: 'meditation3',
+        title: 'Meditation-3',
         src: '../assets/sounds/3.mp3',
         duration: '05:05',
         id: 3
     },
     {
-        title: 'meditation4',
+        title: 'Meditation-4',
         src: '../assets/sounds/4.mp3',
         duration: '05:03',
         id: 4
 
     },
     {
-        title: 'meditation5',
+        title: 'Meditation-5',
         src: '../assets/sounds/5.mp3',
         duration: '05:03',
         id: 5
@@ -92,20 +92,24 @@ audio.volume = 0;
 const playMusicListen = playBtn.addEventListener('click', () => audio.play());
 
 playList.forEach((sound) => {
-    audioList.innerHTML += `<li id="${sound.id}">${sound.title}</li>`;
+    audioList
+        .innerHTML += `<li id="${sound.id}">
+    <div class='sheet-image'>${sound.title}</div>
+    <div>${sound.duration}</div>
+    </li>`;
     // audioList.innerHTML += `<li onclick="onSongClick(event)" id="${sound.id}">${sound.title}</li>`;
 });
 
 let items = audioList.querySelectorAll('li')
-items.forEach(i => i.addEventListener("click", ()=> onSongClick(i.id)))
+items.forEach(i => i.addEventListener("click", () => onSongClick(i.id)))
 
 
 
-function onSongClick(id){
-    let song = playList.find((el)=> el.id == id)
+function onSongClick(id) {
+    let song = playList.find((el) => el.id == id)
     Array.from(audioList.children).forEach((li) => li.classList.remove('active-song'));
     audio.pause();
-    audioList.children[id-1].classList.add('active-song')
+    audioList.children[id - 1].classList.add('active-song')
     audio = new Audio(song.src);
     audio.volume = volumeSlider.value
     volumizer()
