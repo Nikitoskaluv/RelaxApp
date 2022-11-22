@@ -1,6 +1,4 @@
-#burger {
-    display: none;
-}
+
 
 #burger:checked~.burger__nav {
     display: block;
@@ -16,7 +14,7 @@
     position: absolute;
     right: 0;
     top: 130px;
-    z-index: 1;
+    z-index: 1000;
     background: #fff;
     padding: 51px 0 0 51px;
     // border-radius: 4px;
@@ -51,3 +49,26 @@
 .active {
     color: $color-title;
 }
+
+.active-menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: 0;
+  }
+  
+  .drop {
+    transition: all 550ms ease 0.1s;
+    opacity: 1;
+    right: 5px;
+  }
+
+  .burger__hidden {
+    opacity: 0;
+    transition: all 350ms ease 0.1s;
+    right: 5px;
+  }
