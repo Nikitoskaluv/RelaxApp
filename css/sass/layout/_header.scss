@@ -67,12 +67,14 @@
 }
 
 .logout-warning {
-    display: none;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
     background-color: #696969;
     color: #f0ffff;
     position: absolute;
     width: 464px;
-    z-index: 3;
     height: 72px;
     border-radius: 32px;
     font-family: "Forum", sans-serif;
@@ -83,7 +85,16 @@
     top: 5%;
 }
 
+.logout-warning-show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 3;
+    transition: opacity 0.5s;
+}
+
 .logout-warning .logout-warning-text {
+    visibility: visible;
+    opacity: 1;
     display: flex;
     padding: 20px;
     font-size: 19px;
@@ -93,6 +104,8 @@
 }
 
 .logout-warning .logout-warning-continue {
+    visibility: visible;
+    opacity: 1;
     display: flex;
     width: 92px;
     height: 24px;
@@ -105,6 +118,8 @@
 }
 
 .logout-warning .logout-warning-cancel {
+    visibility: visible;
+    opacity: 1;
     display: flex;
     width: 92px;
     height: 24px;

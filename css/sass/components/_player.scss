@@ -106,6 +106,8 @@
 
 .range {
   opacity: 0.8;
+  appearance: none;
+  background: transparent;
 }
 
 .range::-webkit-slider-runnable-track {
