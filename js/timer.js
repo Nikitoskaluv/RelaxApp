@@ -107,6 +107,18 @@ timerValueAdjusterElement.addEventListener('change', ()=>{
 
 })
 
+timerValueAdjusterElement.addEventListener('input', ()=>{
+    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
+        return;
+    }
+    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
+    //     return;
+    // }
+    session.fullTime = timerValueAdjusterElement.value * 60
+    updateTimerLabel(session.fullTime)
+    console.log(timerValueAdjusterElement.value)
+})
+
 // 'plus' button handler
 // document.querySelector("#wmore").addEventListener('click', () => {
 //     // adjustments should only work only when the timer is stopped

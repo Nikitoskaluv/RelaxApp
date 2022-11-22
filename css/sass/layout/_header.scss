@@ -85,15 +85,11 @@
     top: 5%;
 }
 
-.logout-warning-show {
-    visibility: visible;
-    opacity: 1;
-    z-index: 3;
-    transition: opacity 0.5s;
-}
+
 
 .logout-warning .logout-warning-text {
     visibility: visible;
+    z-index: 3;
     opacity: 1;
     display: flex;
     padding: 20px;
@@ -103,8 +99,10 @@
     padding-top: 8px;
 }
 
+
 .logout-warning .logout-warning-continue {
     visibility: visible;
+    z-index: 3;
     opacity: 1;
     display: flex;
     width: 92px;
@@ -119,6 +117,7 @@
 
 .logout-warning .logout-warning-cancel {
     visibility: visible;
+    z-index: 3;
     opacity: 1;
     display: flex;
     width: 92px;
@@ -129,6 +128,13 @@
     border-radius: 8px;
     background-color: #36454f;
     border: solid 2px;
+}
+
+.logout-warning-show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 3;
+    transition: opacity 0.5s;
 }
 
 .home_link {
