@@ -24,7 +24,6 @@ svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //background: linear-gradient(180deg, rgba(26, 127, 114, 0) 0%, #1a7f72 100%);
   width: 100%;
 }
 
@@ -37,31 +36,30 @@ svg {
 
 .btn {
   width: 220px;
-  height: 410px;
-  /* display: flex;
-  flex-direction: column; */
+  padding-bottom: 20px;
   text-align: center;
 }
 
 .pic1 {
-  background-image: url(../assets/img/Meditation.png);
-  background-position: center;
+  background: linear-gradient(0deg, #c3e2de 27.22%, #cff1ed 48.89%, #edfbf9 96.77%);
+  border-radius: 25px;
 }
 
 .pic2 {
-  background-image: url(../assets/img/Glaza_img.png);
-  background-position: center;
-  margin: 0 60px;
+  background: linear-gradient(0deg, #c3e2de 27.22%, #cff1ed 48.89%, #edfbf9 96.77%);
+  border-radius: 25px;
 }
 
 .pic3 {
-  background-image: url(../assets/img/Meditation.png);
-  background-position: center;
+  width: 32%;
+  background: linear-gradient(0deg, #c3e2de 27.22%, #cff1ed 48.89%, #edfbf9 96.77%);
+  border-radius: 25px;
 }
 
 .buttons_navigation {
   display: flex;
   justify-content: space-around;
+  gap: 2%;
 }
 
 .radioButtons {
