@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic");
 @import url("https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic");
 @import url("https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic");
+
 h3, h2, body {
   font-family: "Heebo", Verdana, serif;
 }
@@ -49,6 +50,9 @@ main {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
+
+  -webkit-box-sizing: content-box;
+
   box-sizing: content-box;
   /* 1 */
   height: 0;
@@ -234,6 +238,9 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
+
+  -webkit-box-sizing: border-box;
+
   box-sizing: border-box;
   /* 1 */
   color: inherit;
@@ -268,6 +275,9 @@ textarea {
  */
 [type=checkbox],
 [type=radio] {
+
+  -webkit-box-sizing: border-box;
+
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -444,6 +454,10 @@ button:active {
   height: 16px;
   margin-top: 10px;
   border-radius: 15px;
+
+  -webkit-box-shadow: 0px 0px 2px 0px #3eb29d;
+  -moz-box-shadow: 0px 0px 2px 0px #3eb29d;
+
   box-shadow: 0px 0px 2px 0px #3eb29d;
   border: 2px solid #59d0c0;
 }
@@ -552,10 +566,12 @@ button:active {
   padding: 0px 15px;
   background: linear-gradient(180deg, #259385 0%, #159685 100%);
   border-radius: 50px;
+
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+
   font-weight: 700;
   font-size: 30px;
   line-height: 130%;
@@ -593,10 +609,12 @@ button:active {
   padding: 0px 15px;
   background: none;
   border-radius: 50px;
+
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+
   font-weight: 700;
   font-size: 30px;
   line-height: 130%;
@@ -885,6 +903,7 @@ button:active {
   background-color: transparent;
   border: 0;
   outline: 0;
+
 }
 
 .name::-moz-placeholder {
@@ -895,6 +914,7 @@ button:active {
 .name:-ms-input-placeholder {
   color: #ffffff;
   opacity: 0.6;
+
 }
 
 .name::placeholder {
@@ -1541,10 +1561,12 @@ form > * {
 
 .slide img {
   width: 100%;
+
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: 0;
      object-position: 0;
+
 }
 
 #modalSlider {
@@ -1600,8 +1622,10 @@ form > * {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+
   -moz-column-gap: 12px;
        column-gap: 12px;
+
 }
 
 .main {
@@ -1637,6 +1661,7 @@ svg {
   height: 410px;
   /* display: flex;
   flex-direction: column; */
+  padding-bottom: 20px;
   text-align: center;
 }
 
@@ -1654,11 +1679,15 @@ svg {
 .pic3 {
   background-image: url(../assets/img/Meditation.png);
   background-position: center;
+
 }
 
 .buttons_navigation {
   display: flex;
   justify-content: space-around;
+
+  gap: 2%;
+
 }
 
 .radioButtons {
@@ -1714,6 +1743,7 @@ svg {
   margin-bottom: 75px;
   margin-top: 40px;
 }
+
 
 html {
   background: #E6F5F3;
@@ -1917,6 +1947,7 @@ html {
   color: white;
   text-decoration: none;
 }
+
 .footer a:hover {
   color: black;
 }
@@ -2179,4 +2210,8 @@ form > * {
   opacity: 0;
   transition: all 350ms ease 0.1s;
   right: 5px;
-}/*# sourceMappingURL=style.css.map */
+
+}
+
+/*# sourceMappingURL=style.css.map */
+
