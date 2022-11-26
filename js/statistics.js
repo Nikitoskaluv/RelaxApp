@@ -51,38 +51,65 @@ let dayChart = document.querySelector('#dayStatistics').getContext('2d');
 
 function showDailyStats(obj) {
     new Chart(dayChart, {
-        type: 'pie',
+        type: 'doughnut',
+
         data: {
             labels: Object.keys(obj).map(value => {
                 if (value === 'meditation') {
-                    return `медитация ${secToHumanTime(Object.values(obj)[0])}`
+                    return `МЕДИТАЦИЯ ${secToHumanTime(Object.values(obj)[0])}`
                 } if (value == 'rest') {
-                    return `отдых ${secToHumanTime(Object.values(obj)[1])}`
+                    return `ОТДЫХ ${secToHumanTime(Object.values(obj)[1])}`
                 } if (value == 'work') {
-                    return `работа ${secToHumanTime(Object.values(obj)[2])}`
+                    return `РАБОТА ${secToHumanTime(Object.values(obj)[2])}`
                 }
             }),
             datasets: [{
                 data: Object.values(obj),
-            }]
+                backgroundColor: ['#96BEF3',
+                    '#D8C0CD',
+                    '#7ADBBE']
+            }],
+
         },
         options: {
             plugins: {
-                title: {
-                    display: true,
-                    text: 'СТАТИСТИКА ЗА ДЕНЬ'
+                legend: {
+
+                    labels: {
+                        usePointStyle: true,
+                        size: 6,
+                        padding: 50,
+
+                    },
+
+                    position: 'right',
+                },
+                tooltips: {
+                    mode: 'index'
                 }
-            }
+            },
+            aspectRatio: 3,
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+
+                }
+            },
+            responsive: true,
+            cutoutPercentage: 65,
+
+
         }
     });
 }
 
 
 
-const secondsArr = ['секунда', 'секунды', 'секунд'],
-    minutesArr = ['минута', 'минуты', 'минут'],
-    hoursArr = ['час', 'часа', 'часов'],
-    daysArr = ['день', 'дня', 'дней'];
+const secondsArr = [' секунда', ' секунды', ' секунд'],
+    minutesArr = [' минута', ' минуты', ' минут'],
+    hoursArr = [' час', ' часа', ' часов'],
+    daysArr = [' день', ' дня', ' дней'];
 
 function secToHumanTime(totalSeconds) {
     const seconds = Math.floor(totalSeconds % 60);
@@ -119,30 +146,37 @@ function showWeeklyStats(arr) {
             datasets:
                 [
                     {
-                        label: 'Медитация',
-                        fillColor: 'blue',
-                        data: returnTime(arr, 'meditation')
+                        label: `МЕДИТАЦИЯ`,
+                        backgroundColor: '#96BEF3',
+                        data: returnTime(arr, 'meditation'),
+
                     },
                     {
-                        label: 'Отдых',
-                        fillColor: 'green',
+                        label: 'ОТДЫХ',
+                        backgroundColor: '#D8C0CD',
                         data: returnTime(arr, 'rest')
                     },
                     {
-                        label: 'Работа',
-                        fillColor: 'red',
+                        label: 'РАБОТА',
+                        backgroundColor: '#7ADBBE',
                         data: returnTime(arr, 'work')
                     }
                 ]
         },
         options: {
             plugins: {
-                title: {
-                    display: true,
-                    text: 'СТАТИСТИКА ЗА НЕДЕЛЮ'
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItems) {
+                            console.log('sec', tooltipItems)
+
+                            return `${tooltipItems.dataset.label}: ${secToHumanTime(tooltipItems.parsed.y)}`;
+                        }
+                    }
                 }
             }
-        }
+        },
+
     });
 }
 
@@ -161,9 +195,10 @@ function returnTime(arr, string) {
     arr.map(obj => {
         arr2.push(obj.data[string])
     })
-    console.log(arr2);
+    console.log(arr2, 'arr2');
     return arr2;
 }
+
 
 function showMeditationStats(arr) {
     arr.forEach(obj => {
