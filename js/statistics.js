@@ -32,9 +32,9 @@ function getWeeklyStats() {
     }).then((res) => {
         return res.json();
     }).then((data) => {
-        console.log(data, 'weekly data');
         weeklyStats = data;
-        console.log(weeklyStats, 'ws')
+        console.log(weeklyStats, 'ws');
+        showMeditationStats(weeklyStats);
         showWeeklyStats(weeklyStats);
     }).catch((error) => {
         console.log(`ошибка ${error}`)
@@ -119,17 +119,17 @@ function showWeeklyStats(arr) {
             datasets:
                 [
                     {
-                        label: `${Object.keys((arr[0].data))[0] == 'meditation' ? 'Медитация' : 0}`,
+                        label: 'Медитация',
                         fillColor: 'blue',
                         data: returnTime(arr, 'meditation')
                     },
                     {
-                        label: `${Object.keys((arr[0].data))[1] == 'rest' ? 'Отдых' : 0}`,
+                        label: 'Отдых',
                         fillColor: 'green',
                         data: returnTime(arr, 'rest')
                     },
                     {
-                        label: `${Object.keys((arr[0].data))[2] == 'work' ? 'Работа' : 0}`,
+                        label: 'Работа',
                         fillColor: 'red',
                         data: returnTime(arr, 'work')
                     }
@@ -165,10 +165,40 @@ function returnTime(arr, string) {
     return arr2;
 }
 
-//   {
-//     date: 2022-11-20T19:00:00.000Z,
-//     data: { meditation: 10, rest: 23, work: 53 }
-//   }
+function showMeditationStats(arr) {
+    arr.forEach(obj => {
+        const box = document.createElement('div');
+        box.classList.add('box');
+
+        const icon = document.createElement('div');
+        box.appendChild(icon);
+        icon.classList.add('icon');
+        const dateBox = document.createElement('div');
+        box.appendChild(dateBox);
+        dateBox.classList.add('dateBox');
+
+        dateBox.innerHTML = `<p>${formatDate(obj.date)}</p>`
+        const container = document.querySelector('.checkContainer');
+        container.appendChild(box);
+
+
+
+        if (obj.data.meditation <= 0) {
+            icon.style.backgroundImage = 'url(../assets/icons/spare_icon.svg)';
+            icon.style.width = '100px'
+            icon.style.height = '100px'
+        } else {
+            icon.style.backgroundImage = 'url(../assets/icons/checked_icon.svg)'
+            icon.style.width = '100px'
+            icon.style.height = '100px'
+        }
+
+    })
+
+}
+
+
+
 
 
 
