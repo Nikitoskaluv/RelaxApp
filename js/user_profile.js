@@ -136,7 +136,11 @@ function getUserData() {
     }).then((res) => {
         return res.json();
     }).then((data) => {
-        console.log(data);
+        // console.log(data);
+            if (data.login === undefined){
+                // no response?
+                document.location.href = "/404.html"
+            }
         emailInput.value = data.login;
         name.value = data.name;
         user_info = data;
