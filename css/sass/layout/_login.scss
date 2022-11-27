@@ -1,21 +1,20 @@
 .login_form {
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
   margin: 50px auto;
   width: 400px;
   height: 440px;
   border: 4px solid black;
   border-radius: 15px;
   border: double 4px transparent;
-  background-image: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%),
-  linear-gradient(90deg, #1A7F72 0%, rgba(26, 127, 114, 0) 96.77%);
+  background-image: linear-gradient(
+      270deg,
+      #c3eee8 26.37%,
+      rgba(195, 226, 222, 0.75) 63.87%,
+      rgba(231, 243, 242, 0.4) 103.6%
+    ),
+    linear-gradient(90deg, #1a7f72 0%, rgba(26, 127, 114, 0) 96.77%);
   background-origin: border-box;
-  background-clip: content-box,
-  border-box;
+  background-clip: content-box, border-box;
+  font-family: "heebo", sans-serif;
 
   .title-form {
     text-align: center;
@@ -27,7 +26,7 @@
   .input {
     width: 360px;
     height: 60px;
-    border: 2px solid #59D0C0;
+    border: 2px solid #59d0c0;
     border-radius: 15px;
     text-align: center;
     font-size: 24px;
@@ -47,7 +46,7 @@
     font-weight: bold;
   }
 
-  form>* {
+  form > * {
     display: flex;
     align-content: center;
     flex-direction: column;
@@ -60,18 +59,10 @@
   }
 }
 
-.login_form>* {
+.login_form > * {
   display: flex;
   align-content: center;
   flex-direction: column;
   align-items: center;
   padding: 15px;
 }
-
-// .login_form>* {
-//   padding: 15px;
-// }
-
-// form>* {
-//   margin-bottom: 15px;
-// }
