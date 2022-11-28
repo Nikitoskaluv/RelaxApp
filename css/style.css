@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Forum");
+@import url("https://fonts.googleapis.com/css?family=Merienda One");
 @import url("https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic");
 @import url("https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic");
 @import url("https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic");
@@ -50,6 +50,7 @@ main {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   /* 1 */
   height: 0;
@@ -235,6 +236,7 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   color: inherit;
@@ -269,6 +271,7 @@ textarea {
  */
 [type=checkbox],
 [type=radio] {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -396,7 +399,7 @@ html {
   /* Chrome10-25,Safari5.1-6 */
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   /* IE6-9 fallback on horizontal gradient */
-  font-family: "Forum", sans-serif;
+  font-family: "Merienda One", Verdana, sans-serif;
 }
 
 button {
@@ -445,6 +448,8 @@ button:active {
   height: 16px;
   margin-top: 10px;
   border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 2px 0px #3eb29d;
+  -moz-box-shadow: 0px 0px 2px 0px #3eb29d;
   box-shadow: 0px 0px 2px 0px #3eb29d;
   border: 2px solid #59d0c0;
 }
@@ -548,10 +553,7 @@ button:active {
   padding: 0px 15px;
   background: linear-gradient(180deg, #259385 0%, #159685 100%);
   border-radius: 50px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   font-weight: 700;
   font-size: 30px;
   line-height: 130%;
@@ -589,10 +591,7 @@ button:active {
   padding: 0px 15px;
   background: none;
   border-radius: 50px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   font-weight: 700;
   font-size: 30px;
   line-height: 130%;
@@ -696,7 +695,8 @@ button:active {
   width: 100%;
   color: #1A7F72;
   margin-bottom: 10px;
-  font-family: "Heebo";
+  font-size: 28px;
+  line-height: 1.2;
 }
 
 .buttonset > button {
@@ -887,16 +887,6 @@ button:active {
   background-color: transparent;
   border: 0;
   outline: 0;
-}
-
-.name::-moz-placeholder {
-  color: #ffffff;
-  opacity: 0.6;
-}
-
-.name:-ms-input-placeholder {
-  color: #ffffff;
-  opacity: 0.6;
 }
 
 .name::placeholder {
@@ -1548,10 +1538,8 @@ form > * {
 
 .slide img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: 0;
-     object-position: 0;
+  object-fit: cover;
+  object-position: 0;
 }
 
 #modalSlider {
@@ -1607,8 +1595,7 @@ form > * {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  -moz-column-gap: 12px;
-       column-gap: 12px;
+  column-gap: 12px;
 }
 
 .main {
@@ -1679,10 +1666,9 @@ svg {
   border-radius: 30px;
   text-decoration: none;
   display: inline-block;
-  font-family: "Heebo";
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 130%;
   color: #ffffff;
 }
@@ -1703,10 +1689,9 @@ svg {
 
 .p_btn {
   margin-top: 20px;
-  font-family: "Heebo";
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  font-size: 32px;
   line-height: 47px;
   text-align: center;
   color: #000000;
@@ -1769,7 +1754,7 @@ html {
 }
 .block_cards__exercises__text {
   margin: 35px;
-  font-family: "Heebo";
+  font-family: "Merienda One", Verdana, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -1919,7 +1904,6 @@ html {
   color: white;
   font-size: 20px;
   padding: 40px;
-  position: -webkit-sticky;
   position: sticky;
   top: 100%;
 }
@@ -2238,6 +2222,7 @@ h2 {
   transition: all 350ms ease 0.1s;
   right: 5px;
 }
+
 
 .error_wrapper {
   background-image: url(./../assets/img/wave.png);
