@@ -2,7 +2,9 @@ const { v4: uuidv4 } = require('uuid');
 const { ADDRESS } = require("./constants");
 
 const timerWarning = document.querySelector('.timer-warning'),
-    timerWarningContinue = document.getElementById("timerContinue")
+      timerWarningContinue = document.getElementById("timerContinue"),
+      timerModeWork = document.getElementById("timerWork"),
+      timerModeRest = document.getElementById("timerRest")
 
 const settings = {
     work: 30,       // in minutes
@@ -94,6 +96,8 @@ document.getElementsByName('session-group').forEach(el => el.addEventListener('c
         updateTimerLabel(session.fullTime);
     }
 }));
+
+
 
 
 //timer input handler
@@ -344,6 +348,17 @@ function playButton() {
     else
         startTimer();
 }
+
+timerModeWork.addEventListener('click', ()=>{
+    timerModeWork.classList.add('timer-modes__selected')
+    timerModeRest.classList.remove('timer-modes__selected')
+
+})
+timerModeRest.addEventListener('click', ()=>{
+    timerModeWork.classList.remove('timer-modes__selected')
+    timerModeRest.classList.add('timer-modes__selected')
+
+})
 
 timerWarningContinue.addEventListener('click', startTimer);
 timerWarningContinue.addEventListener('click', hideWarning);

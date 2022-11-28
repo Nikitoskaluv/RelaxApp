@@ -105,6 +105,7 @@ items.forEach(i => i.addEventListener("click", () => onSongClick(i.id)))
 
 
 
+
 function onSongClick(id) {
     let song = playList.find((el) => el.id == id)
     Array.from(audioList.children).forEach((li) => li.classList.remove('active-song'));
@@ -146,6 +147,7 @@ function nextSong() {
         childrenArray[songIndex].classList.add('active-song');
     }
     audio.play();
+    volumizer()
 }
 
 function prevSong() {
@@ -181,10 +183,10 @@ muteButton.addEventListener("click", muter);
 function muter() {
     if (audio.volume == 0) {
         audio.volume = volumeSlider.value;
-        muteButton.style.backgroundImage = 'url(../assets/icons/volume.svg)'
+        muteButton.style.backgroundImage = 'url(../assets/icons/player-unmute.svg)'
     } else {
         audio.volume = 0;
-        muteButton.style.backgroundImage = 'url(../assets/icons/no-sound.svg)'
+        muteButton.style.backgroundImage = 'url(../assets/icons/player-mute.svg)'
     }
 }
 
@@ -200,11 +202,10 @@ volumeSlider.addEventListener("input", function () { audio.volume = volumeSlider
 audio.addEventListener('volumechange', volumizer);
 function volumizer() {
     if (audio.volume == 0) {
-        muteButton.style.backgroundImage = 'url(../assets/icons/no-sound.svg)'
+        muteButton.style.backgroundImage = 'url(../assets/icons/player-mute.svg)'
     }
-    else { muteButton.style.backgroundImage = 'url(../assets/icons/volume.svg)' }
+    else { muteButton.style.backgroundImage = 'url(../assets/icons/player-unmute.svg)' }
 }
-
 
 
 

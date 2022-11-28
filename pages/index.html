@@ -70,9 +70,9 @@
     <main class="main">
         <div id="active"></div>
         <span class="radioButtons">
-            <div class="timer-modes"><label><input type="radio" name="session-group" id="radioWork" value="work"
+            <div class="timer-modes" id="timerWork"><label><input type="radio" name="session-group" id="radioWork" value="work"
                         checked>Работа<br></label></div>
-            <div class="timer-modes"><label><input type="radio" name="session-group" id="radioRest"
+            <div class="timer-modes" id="timerRest"><label><input type="radio" name="session-group" id="radioRest"
                         value="rest">Отдых<br></label>
             </div>
         </span>
@@ -127,18 +127,19 @@
             <div class="player">
                 <div class="all-controls">
                     <div class="volume-controls">
-                        <button class="play player-icon"><img src="../assets/icons/white-play.svg" alt="play"
-                                width="90px" height="90px"></button>
+                        <button class="play player-icon"><img src="../assets/icons/player-play.svg" alt="play"
+                                width="90px" height="90px" fill="green"></button>
+                        <button class="pause player-icon"><img src="../assets/icons/player-pause.svg" alt="pause" width="80px"
+                                                               height="80px"></button>
                         <input class="range">
                         <button class="mute player-icon"></button>
                     </div>
                     <div class="player-controls">
-                        <button class="play-prev player-icon"><img src="../assets/icons/rewind.svg" alt="play"
-                                width="22px" height="22px"></button>
-                        <button class="pause player-icon"><img src="../assets/icons/pause.svg" alt="play" width="22px"
-                                height="22px"></button>
-                        <button class="play-next player-icon"><img src="../assets/icons/remote.svg" alt="play"
-                                width="22px" height="22px"></button>
+                        <button class="play-prev player-icon"><img src="../assets/icons/player-rewind.svg" alt="prev"
+                                width="80px" height="80px"></button>
+
+                        <button class="play-next player-icon"><img src="../assets/icons/player-forward.svg" alt="next"
+                                width="80px" height="80px"></button>
                     </div>
                 </div>
                 <ul class="play-list"></ul>
