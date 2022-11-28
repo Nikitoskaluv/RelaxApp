@@ -42,7 +42,13 @@ const pages = [
         "name": "meditation",
         "js": ["main", "logoutWarning", "player", "menu"],
         "html": "meditation"
-    }];
+    },
+    {
+        "name": "404",
+        "js": ["main"],
+        "html": "404"
+    },
+];
 // const pagesWithoutJs = [
 
 // ];

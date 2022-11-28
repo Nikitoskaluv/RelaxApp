@@ -8,8 +8,6 @@
     <link href="../assets/icons/man.svg" rel="shortcut icon" />
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
-
-
     <title>Profile</title>
 </head>
 
@@ -22,8 +20,10 @@
         <div class="header__right">
             <div class="logout-warning">
                 <div class="logout-warning-text">Статистика не будет сохраняться если выйти!</div>
-                <button class="logout-warning logout-warning-continue" type="button" id="logoutContinue">Выйти</button>
-                <button class="logout-warning logout-warning-cancel" type="button">Остаться</button>
+                <div class="logout-warning-buttons">
+                    <button class="logout-warning-continue" type="button" id="logoutContinue">Выйти</button>
+                    <button class="logout-warning-cancel" type="button">Остаться</button>
+                </div>
             </div>
             <button class="logout "><img src="../assets/icons/logout-svgrepo-com.svg"></button>
             <a href="./user_profile.html"><svg width="61" height="64" viewBox="0 0 61 64"
@@ -119,11 +119,22 @@
             </form>
 
             <div class="profile-block-container profile-block-container_contain statistics">
-                <div class="dayStatsContainer">
-                    <canvas id="dayStatistics"></canvas>
+                <div>
+                    <h2>СТАТИСТИКА ЗА ДЕНЬ</h2>
+                    <div class="dayStatsContainer">
+                        <canvas id="dayStatistics" width="500px"></canvas>
+                    </div>
                 </div>
-                <div class="weekStatsContainer">
-                    <canvas id="weekStatistics"></canvas>
+                <div>
+                    <h2>СТАТИСТИКА ЗА НЕДЕЛЮ</h2>
+                    <div class="weekStatsContainer">
+                        <canvas id="weekStatistics"></canvas>
+                    </div>
+                </div>
+                <div class="meditationTrekker">
+                    <h2>МЕДИТАЦИИ НА ЭТОЙ НЕДЕЛЕ</h2>
+                    <div class="checkContainer">
+                    </div>
                 </div>
             </div>
         </div>

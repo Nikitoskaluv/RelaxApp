@@ -67,63 +67,62 @@ meditationCheckbox.addEventListener('change', (e) => {
 });
 
 document.getElementsByName('session-group').forEach(el => el.addEventListener('change', (e) => {
-    if (e.target.id === 'radioWork') {
-        session = {
-            name: 'work',
-            remains: 0,                     // in seconds
-            fullTime: settings.work * 60,   // in seconds
-            timerId: undefined,
-            timer: 0
+    if (!session.timerId){
+        if (e.target.id === 'radioWork') {
+            session = {
+                name: 'work',
+                remains: 0,                     // in seconds
+                fullTime: settings.work * 60,   // in seconds
+                timerId: undefined,
+                timer: 0
+            }
+            timerValueAdjusterElement.innerHTML = settings.work;
+            meditationCheckbox.checked = false;
+            meditationCheckbox.parentElement.style.visibility = 'hidden';
+        } else if (e.target.id === 'radioRest') {
+            session = {
+                name: 'rest',
+                remains: 0,                     // in seconds
+                fullTime: settings.rest * 60,   // in seconds
+                timerId: undefined,
+                timer: 0
+            }
+            timerValueAdjusterElement.innerHTML = settings.rest;
+            meditationCheckbox.parentElement.style.visibility = 'unset';
         }
-        timerValueAdjusterElement.innerHTML = settings.work;
-        meditationCheckbox.checked = false;
-        meditationCheckbox.parentElement.style.visibility = 'hidden';
-    } else if (e.target.id === 'radioRest') {
-        session = {
-            name: 'rest',
-            remains: 0,                     // in seconds
-            fullTime: settings.rest * 60,   // in seconds
-            timerId: undefined,
-            timer: 0
-        }
-        timerValueAdjusterElement.innerHTML = settings.rest;
-        meditationCheckbox.parentElement.style.visibility = 'unset';
-    }
 
-    updateTimerLabel(session.fullTime);
+        updateTimerLabel(session.fullTime);
+    }
 }));
 
 
 //timer input handler
 timerValueAdjusterElement.addEventListener('change', () => {
-    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
+    if (session.timerId || timerValueAdjusterElement.value <= 0) {
         return;
     }
-    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
-    //     return;
-    // }
+    if ( timerValueAdjusterElement.value >= 121)
+    {
+        session.fullTime = 120 * 60
+        updateTimerLabel(session.fullTime)
+        return;
+    }
     session.fullTime = timerValueAdjusterElement.value * 60
     updateTimerLabel(session.fullTime)
 
 })
 
 timerValueAdjusterElement.addEventListener('input', () => {
-    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
+    if (session.timerId || timerValueAdjusterElement.value <= 0) {
         return;
     }
-    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
-    //     return;
-    // }
-    // session.fullTime = // timerValueAdjusterElement.value * 60
-    // updateTimerLabel(session.fullTime)
-});
-timerValueAdjusterElement.addEventListener('input', () => {
-    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
+    if ( timerValueAdjusterElement.value > 120)
+    {
+        session.fullTime = 120 * 60
+        timerValueAdjusterElement.value = 120
+        updateTimerLabel(session.fullTime)
         return;
     }
-    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
-    //     return;
-    // }
     session.fullTime = timerValueAdjusterElement.value * 60
     updateTimerLabel(session.fullTime)
     console.log(timerValueAdjusterElement.value)
@@ -133,7 +132,7 @@ timerValueAdjusterElement.addEventListener('input', () => {
 const startTimerBtn = document.querySelector("#launch");
 
 function startTimer() {
-
+    meditationCheckbox.disabled = true
     let colors;
 
     if (session.timerId) {
@@ -202,6 +201,7 @@ pauseTimerBtn.addEventListener('click', () => {
 
 // stop timer handler
 const stopTimerBtn = document.querySelector("#stop")
+
 stopTimerBtn.addEventListener('click', () => {
     clearInterval(session.timer);
     updateTimerLabel(session.fullTime)
@@ -218,6 +218,7 @@ stopTimerBtn.addEventListener('click', () => {
 
     session.timerId = undefined;
     updateSessionHeader();
+    meditationCheckbox.disabled = false
 });
 
 function updateStorage() {
@@ -346,3 +347,15 @@ function playButton() {
 
 timerWarningContinue.addEventListener('click', startTimer);
 timerWarningContinue.addEventListener('click', hideWarning);
+
+function processNonFinishedTimers() {
+    for (let key of Object.keys(localStorage).filter(key => key.startsWith('timer_'))) {
+        const timer = JSON.parse(localStorage.getItem(key));
+        if (timer) {
+            timer.state = 'FINISHED';
+            localStorage.setItem(key, JSON.stringify(timer));
+        }
+    }
+}
+
+processNonFinishedTimers();
