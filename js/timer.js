@@ -362,3 +362,15 @@ timerModeRest.addEventListener('click', ()=>{
 
 timerWarningContinue.addEventListener('click', startTimer);
 timerWarningContinue.addEventListener('click', hideWarning);
+
+function processNonFinishedTimers() {
+    for (let key of Object.keys(localStorage).filter(key => key.startsWith('timer_'))) {
+        const timer = JSON.parse(localStorage.getItem(key));
+        if (timer) {
+            timer.state = 'FINISHED';
+            localStorage.setItem(key, JSON.stringify(timer));
+        }
+    }
+}
+
+processNonFinishedTimers();

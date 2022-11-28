@@ -31,12 +31,26 @@
 }
 
 .dayStatsContainer {
-    width: 540px;
+
     border: #fff 1px solid;
+    border-radius: 15px;
     margin: 0 auto;
     margin-bottom: 150px;
-    padding: 20px
+    padding: 20px;
+    width: 1050px
 }
+
+.weekStatsContainer,
+.checkContainer {
+
+    border: #fff 1px solid;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-bottom: 150px;
+    padding: 20px;
+    width: 1050px
+}
+
 
 .weekStatsContainer {
     margin-bottom: 150px;
@@ -46,7 +60,9 @@
 .profile-block-container {
     padding: 0 20px;
 
+
     .profile-block-form {
+
         padding: 40px;
         border-radius: 15px;
         // background-image: linear-gradient(270deg, #C3EEE8 26.37%, rgba(195, 226, 222, 0.75) 63.87%, rgba(231, 243, 242, 0.4) 103.6%), linear-gradient(90deg, #1A7F72 0%, rgba(26, 127, 114, 0) 96.77%);
@@ -232,4 +248,52 @@ form>* {
     flex-direction: column;
     align-items: center;
     margin-bottom: 15px;
+}
+
+
+
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+.checkContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+
+    .checkedIcon {
+        background-image: url('./../assets/icons/checked_icon.svg');
+        width: 100px;
+        height: 100px;
+
+
+    }
+
+    .spareIcon {
+        background-image: url('./../assets/icons/spare_icon.svg');
+        width: 100px;
+        height: 100px;
+
+    }
+
+    .dateBox {
+        width: 100px;
+        height: 50px;
+        text-align: center;
+    }
+}
+
+.statistics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
 }
