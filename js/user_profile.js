@@ -137,14 +137,15 @@ function getUserData() {
         return res.json();
     }).then((data) => {
         // console.log(data);
-            if (data.login === undefined){
-                // no response?
-                document.location.href = "/404.html"
-            }
+        if (data.login === undefined) {
+            // no response?
+            document.location.href = "/404.html"
+        }
         emailInput.value = data.login;
         name.value = data.name;
         user_info = data;
     }).catch((error) => {
-        console.log(`ошибка ${error}`)
+        console.log(`ошибка ${error}`);
+        document.location.href = "/404.html"
     })
 }

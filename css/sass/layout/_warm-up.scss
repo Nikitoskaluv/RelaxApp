@@ -23,7 +23,7 @@ html {
 
 .block_cards {
     margin: 0 auto;
-    width: 1630px;
+    max-width: 1630px;
     height: 1897px;
     position: relative;
 
@@ -53,7 +53,7 @@ html {
 
         &__text {
             margin: 35px;
-            font-family: 'Heebo';
+            font-family: "Merienda One", Verdana, sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 24px;
@@ -128,37 +128,44 @@ html {
     position: absolute;
     top: 174px;
     left: 149px;
+    z-index: -1;
 }
 
 .position9 {
     position: absolute;
     top: 90px;
     right: 160px;
+    z-index: -1;
 }
 
 .position10 {
     position: absolute;
     top: 652px;
     right: 155px;
+    z-index: -1;
 }
 
 .position11 {
     position: absolute;
     top: 1205px;
     right: 444px;
+    z-index: -1;
 }
 
 .position12 {
     position: absolute;
     top: 1425px;
     right: 147px;
+    z-index: -1;
 }
 
 .position13 {
     position: absolute;
     top: 1556px;
     left: 147px;
+    z-index: -1;
 }
+
 .videorolicks {
     margin: 0 auto;
     margin-bottom: 150px;
@@ -178,6 +185,7 @@ html {
         }
     }
 }
+
 .head_text {
     padding-top: 40px;
     font-family: 'Lobster';
