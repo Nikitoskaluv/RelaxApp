@@ -246,6 +246,7 @@ button:active {
     width: 26px;
     font-size: 1.2em;
     color: #3EB29D;
+    cursor: pointer;
 }
 
 .controls>button,
@@ -348,4 +349,8 @@ button:active {
     min-height: 28px;
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+.timer-settings {
+    cursor: pointer;
 }
