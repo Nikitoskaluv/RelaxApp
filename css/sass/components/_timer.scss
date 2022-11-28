@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Forum");
+@import url("https://fonts.googleapis.com/css?family=Merienda One");
 
 html {
     // height: 100%;
@@ -13,7 +13,7 @@ html {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#27c4c4', endColorstr='#3896d1', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
-    font-family: "Forum", sans-serif;
+    font-family: "Merienda One", Verdana, sans-serif;
 }
 
 button {
@@ -329,7 +329,9 @@ button:active {
     width: 100%;
     color: #1A7F72;
     margin-bottom: 10px;
-    font-family: "Heebo";
+    font-size: 28px;
+    line-height: 1.2;
+    //font-family: "Heebo";
 }
 
 .buttonset>button {
