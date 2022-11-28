@@ -815,6 +815,14 @@ button:active {
   margin-right: 10px;
 }
 
+.player-button-hidden {
+  display: none;
+}
+
+.pause {
+  width: 80px;
+}
+
 .volume-controls {
   margin-top: 5px;
   height: 80px;
