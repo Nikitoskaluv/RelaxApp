@@ -98,57 +98,52 @@ button:active {
 }
 
 .timer-warning {
-    display: flex;
-    visibility: hidden;
     opacity: 0;
-    background-color: #696969;
-    color: #f0ffff;
     position: absolute;
-    width: 320px;
-    z-index: -3;
-    height: 128px;
-    border-radius: 32px;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #219485;
+    color: #ffffff;
+    width: 420px;
+    height: 120px;
+    border-radius: 30px;
     font-family: "Forum", sans-serif;
     font-weight: 700;
+    padding: 8px;
+    margin-top: 70px;
+}
+
+.timer-warning-text {
+    display: flex;
     justify-content: center;
-    border: solid;
+    font-size: 20px;
 }
 
-.timer-warning .timer-warning-text {
+.timer-warning-buttons {
     display: flex;
-    visibility: visible;
-    opacity: 1;
-    padding: 20px;
-    font-size: 19px;
-    text-align: center;
+    justify-content: space-around;
 }
 
-.timer-warning .timer-warning-continue {
-    display: flex;
-    visibility: visible;
-    opacity: 1;
+.timer-warning-continue {
     width: 92px;
     height: 24px;
-    top: 80px;
-    left: 10%;
-    align-items: center;
     border-radius: 8px;
-    background-color: #36454f;
-    border: solid 2px;
+    background-color: #0c6459;
+    border: solid 2px #c0f2ec;
+    color: #ffffff;
+    cursor: pointer;
 }
 
-.timer-warning .timer-warning-login {
-    display: flex;
-    visibility: visible;
-    opacity: 1;
+.timer-warning-login {
     width: 92px;
     height: 24px;
-    top: 80px;
-    left: 60%;
-    align-items: center;
     border-radius: 8px;
-    background-color: #36454f;
-    border: solid 2px;
+    background-color: #0c6459;
+    border: solid 2px #c0f2ec;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .timer-warning-show {
@@ -158,7 +153,6 @@ button:active {
     transition: opacity 0.5s;
 
 }
-
 
 .timer-modes {
     display: inline-block;
@@ -252,6 +246,7 @@ button:active {
     width: 26px;
     font-size: 1.2em;
     color: #3EB29D;
+    cursor: pointer;
 }
 
 .controls>button,
@@ -354,4 +349,8 @@ button:active {
     min-height: 28px;
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+.timer-settings {
+    cursor: pointer;
 }

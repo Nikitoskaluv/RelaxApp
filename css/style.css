@@ -477,57 +477,52 @@ button:active {
 }
 
 .timer-warning {
-  display: flex;
-  visibility: hidden;
   opacity: 0;
-  background-color: #696969;
-  color: #f0ffff;
   position: absolute;
-  width: 320px;
-  z-index: -3;
-  height: 128px;
-  border-radius: 32px;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #219485;
+  color: #ffffff;
+  width: 420px;
+  height: 120px;
+  border-radius: 30px;
   font-family: "Forum", sans-serif;
   font-weight: 700;
+  padding: 8px;
+  margin-top: 70px;
+}
+
+.timer-warning-text {
+  display: flex;
   justify-content: center;
-  border: solid;
+  font-size: 20px;
 }
 
-.timer-warning .timer-warning-text {
+.timer-warning-buttons {
   display: flex;
-  visibility: visible;
-  opacity: 1;
-  padding: 20px;
-  font-size: 19px;
-  text-align: center;
+  justify-content: space-around;
 }
 
-.timer-warning .timer-warning-continue {
-  display: flex;
-  visibility: visible;
-  opacity: 1;
+.timer-warning-continue {
   width: 92px;
   height: 24px;
-  top: 80px;
-  left: 10%;
-  align-items: center;
   border-radius: 8px;
-  background-color: #36454f;
-  border: solid 2px;
+  background-color: #0c6459;
+  border: solid 2px #c0f2ec;
+  color: #ffffff;
+  cursor: pointer;
 }
 
-.timer-warning .timer-warning-login {
-  display: flex;
-  visibility: visible;
-  opacity: 1;
+.timer-warning-login {
   width: 92px;
   height: 24px;
-  top: 80px;
-  left: 60%;
-  align-items: center;
   border-radius: 8px;
-  background-color: #36454f;
-  border: solid 2px;
+  background-color: #0c6459;
+  border: solid 2px #c0f2ec;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .timer-warning-show {
@@ -624,6 +619,7 @@ button:active {
   width: 26px;
   font-size: 1.2em;
   color: #3EB29D;
+  cursor: pointer;
 }
 
 .controls > button,
@@ -726,6 +722,10 @@ button:active {
   margin-bottom: 20px;
 }
 
+.timer-settings {
+  cursor: pointer;
+}
+
 .play-list {
   text-align: left;
   padding: 0 15px;
@@ -767,6 +767,7 @@ button:active {
   outline: 0;
   opacity: 0.7;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .player-icon:hover,
@@ -995,44 +996,6 @@ button:active {
   margin-top: 20px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 130px;
-  padding: 50px 100px;
-  background: white;
-}
-.header__left {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
-.header__left__title {
-  color: #3EB29D;
-  font-size: 85px;
-  margin-left: 40px;
-}
-.header__right {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header__right svg {
-  fill: #3EB29D;
-}
-.header__right a {
-  margin-right: 40px;
-}
-.header__right svg:hover {
-  fill: #0d606f;
-}
-.header_margin-bottom {
-  margin-bottom: 40px;
-}
-
 .logout {
   width: 83px;
   height: 99px;
@@ -1040,66 +1003,68 @@ button:active {
   background: transparent;
   margin-right: 30px;
 }
+.logout img {
+  cursor: pointer;
+}
 
 .logout-warning {
   z-index: -1;
   opacity: 0;
   visibility: hidden;
   display: flex;
-  background-color: #696969;
-  color: #f0ffff;
-  position: absolute;
-  width: 464px;
-  height: 72px;
-  border-radius: 32px;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #219485;
+  color: #ffffff;
+  width: 420px;
+  height: 80px;
+  border-radius: 30px;
   font-family: "Forum", sans-serif;
   font-weight: 700;
+  padding: 8px;
+  margin-right: -100px;
+}
+@media (max-width: 1200px) {
+  .logout-warning {
+    width: 250px;
+  }
+}
+
+.logout-warning-text {
+  display: flex;
   justify-content: center;
-  border: solid;
-  left: 50%;
-  top: 5%;
+  font-size: 20px;
+}
+@media (max-width: 1200px) {
+  .logout-warning-text {
+    padding-left: 20px;
+    font-size: 18px;
+  }
 }
 
-.logout-warning .logout-warning-text {
-  visibility: visible;
-  z-index: 3;
-  opacity: 1;
+.logout-warning-buttons {
   display: flex;
-  padding: 20px;
-  font-size: 19px;
-  text-align: center;
-  align-items: start;
-  padding-top: 8px;
+  justify-content: space-around;
 }
 
-.logout-warning .logout-warning-continue {
-  visibility: visible;
-  z-index: 3;
-  opacity: 1;
-  display: flex;
+.logout-warning-continue {
   width: 92px;
   height: 24px;
-  top: 40px;
-  left: 10%;
-  align-items: center;
   border-radius: 8px;
-  background-color: #36454f;
-  border: solid 2px;
+  background-color: #0c6459;
+  border: solid 2px #c0f2ec;
+  color: #ffffff;
+  cursor: pointer;
 }
 
-.logout-warning .logout-warning-cancel {
-  visibility: visible;
-  z-index: 3;
-  opacity: 1;
-  display: flex;
+.logout-warning-cancel {
   width: 92px;
   height: 24px;
-  top: 40px;
-  left: 70%;
-  align-items: center;
   border-radius: 8px;
-  background-color: #36454f;
-  border: solid 2px;
+  background-color: #0c6459;
+  border: solid 2px #c0f2ec;
+  color: #ffffff;
+  cursor: pointer;
 }
 
 .logout-warning-show {
@@ -1164,6 +1129,10 @@ button:active {
 }
 .header_margin-bottom {
   margin-bottom: 40px;
+}
+
+#menu svg {
+  cursor: pointer;
 }
 
 .login_form {
@@ -1281,6 +1250,12 @@ html {
   align-items: center;
   margin-bottom: 132px;
 }
+@media (max-width: 1650px) {
+  .medit {
+    align-items: normal;
+    padding: 0 5px;
+  }
+}
 
 .points_medit {
   display: flex;
@@ -1288,14 +1263,19 @@ html {
   justify-content: space-around;
 }
 .points_medit__item {
-  width: 30%;
+  width: 547px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 1650px) {
+  .points_medit__item_bottom {
+    margin: auto;
+  }
+}
 .points_medit__item__point {
-  width: 547px;
+  width: 100%;
   height: 181px;
   background: linear-gradient(180deg, rgba(206, 255, 249, 0.72) 0%, rgba(91, 203, 189, 0.85) 94.12%);
   box-shadow: 0px 20px 40px rgba(21, 113, 101, 0.2);
@@ -1316,6 +1296,19 @@ html {
 }
 .points_medit__item__point img {
   margin: 0 30px;
+}
+.points_medit__item__centerimg img {
+  width: 503px;
+}
+@media (max-width: 1400px) {
+  .points_medit__item__centerimg img {
+    width: 400px;
+  }
+}
+@media (max-width: 1290px) {
+  .points_medit__item__centerimg img {
+    width: 300px;
+  }
 }
 
 .meditation_player {
@@ -1467,9 +1460,19 @@ form > * {
 }
 .yoga_eyes__video_block {
   display: grid;
-  grid-template-columns: repeat(2, 560px);
+  grid-template-columns: repeat(2, 1fr);
   gap: 70px;
-  justify-content: center;
+  justify-items: center;
+}
+.yoga_eyes__video_block .eyes-yt-videos {
+  width: 600px;
+  height: 378px;
+}
+@media (max-width: 1300px) {
+  .yoga_eyes__video_block .eyes-yt-videos {
+    width: 400px;
+    height: 300px;
+  }
 }
 
 .stereo_pictures_eyes {
@@ -1478,8 +1481,8 @@ form > * {
   padding: 65px;
   margin: auto;
   margin-bottom: 30px;
-  width: 1190px;
-  height: 1116px;
+  max-width: 1190px;
+  min-height: 1116px;
   background: linear-gradient(180deg, rgba(206, 255, 249, 0.72) 0%, rgba(91, 203, 189, 0.85) 94.12%);
   box-shadow: 0px 20px 40px rgba(21, 113, 101, 0.2);
   border-radius: 50px;
@@ -1494,6 +1497,9 @@ form > * {
 .stereo_pictures_eyes__picture {
   width: 80%;
   overflow: hidden;
+}
+.stereo_pictures_eyes__button img {
+  cursor: pointer;
 }
 .stereo_pictures_eyes__description_top {
   margin-bottom: 30px;
@@ -1595,9 +1601,7 @@ form > * {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 200vh;
-  min-height: 260px;
+  margin-bottom: 100px;
 }
 
 svg {
@@ -1723,7 +1727,7 @@ html {
 
 .block_cards {
   margin: 0 auto;
-  width: 1630px;
+  max-width: 1630px;
   height: 1897px;
   position: relative;
 }
@@ -1823,36 +1827,42 @@ html {
   position: absolute;
   top: 174px;
   left: 149px;
+  z-index: -1;
 }
 
 .position9 {
   position: absolute;
   top: 90px;
   right: 160px;
+  z-index: -1;
 }
 
 .position10 {
   position: absolute;
   top: 652px;
   right: 155px;
+  z-index: -1;
 }
 
 .position11 {
   position: absolute;
   top: 1205px;
   right: 444px;
+  z-index: -1;
 }
 
 .position12 {
   position: absolute;
   top: 1425px;
   right: 147px;
+  z-index: -1;
 }
 
 .position13 {
   position: absolute;
   top: 1556px;
   left: 147px;
+  z-index: -1;
 }
 
 .videorolicks {
@@ -2205,12 +2215,11 @@ h2 {
 
 .drop {
   transition: all 550ms ease 0.1s;
-  opacity: 1;
   right: 5px;
 }
 
 .burger__hidden {
-  opacity: 0;
+  display: none;
   transition: all 350ms ease 0.1s;
   right: 5px;
 }
