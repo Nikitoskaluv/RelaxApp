@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster&subset=cyrillic');
-
 .error_wrapper {
   // background: rgb(59,209,187, 1);
   background-image: url(./../assets/img/wave.png);
@@ -25,57 +23,39 @@
       width: auto;
       height: 779px;
     }
-
-    //.right {
-    //  &__text {
-    //    &__title {
-    //      font-size: 50px;
-    //      color: black;
-    //      margin-top: 50px;
-    //      font-family: lobster;
-    //    }
-    //
-    //    &__p {
-    //      font-size: 40px;
-    //      color: black;
-    //      margin-left: 54px;
-    //    }
-    //  }
-    //}
   }
 }
 
-.error_text{
+.error_text {
   display: flex;
   flex-direction: column;
   font-size: 49px;
-  &__top{
-    font-family: 'Heebo';
+  &__top {
+    font-family: "Heebo";
     font-style: normal;
     font-weight: 1000;
     font-size: 250px;
     line-height: 130%;
-    color: #CEFFF9;
+    color: #cefff9;
     text-align: center;
   }
-  &__bot{
-    font-family: 'Lobster';
+  &__bot {
+    font-family: "Lobster";
     font-style: normal;
     font-weight: 400;
     font-size: 60px;
     line-height: 130%;
-    color: #1A7F72;
+    color: #1a7f72;
     text-align: center;
   }
-  &__link{
+  &__link {
     font-size: 40px;
     text-align: center;
     padding-top: 146px;
-    color: #1A7F72;
+    color: #1a7f72;
   }
 }
 
-.error__box{
+.error__box {
   display: flex;
 }
-

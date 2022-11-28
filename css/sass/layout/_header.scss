@@ -112,8 +112,6 @@
     padding: 50px 100px;
     background: white;
 
-
-
     &__left {
         // margin-left: 150px;
         display: flex;
@@ -134,9 +132,7 @@
         justify-content: space-between;
         align-items: center;
 
-        // &:last-of-type {
-        //   margin-right: 0;
-        // }
+
         svg {
             fill: $color-title;
         }
