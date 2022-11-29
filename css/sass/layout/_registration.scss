@@ -37,14 +37,15 @@
   }
 
   .regButton {
+    margin: 25px auto;
     width: 304px;
     height: 55px;
     background: linear-gradient(180deg, #259385 0%, #159685 100%);
     box-shadow: 0px 13px 28px rgba(26, 127, 114, 0.2);
     border-radius: 30px;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
-    padding-top: 8px;
+    padding: 10px;
     text-align: center;
   }
 

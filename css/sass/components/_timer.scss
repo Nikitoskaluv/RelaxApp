@@ -123,23 +123,25 @@ button:active {
 }
 
 .timer-warning-continue {
-    width: 92px;
-    height: 24px;
+    //width: 92px;
+    //height: 24px;
     border-radius: 8px;
     background-color: #0c6459;
     border: solid 2px #c0f2ec;
     color: #ffffff;
     cursor: pointer;
+    padding: 5px 10px;
 }
 
 .timer-warning-login {
-    width: 92px;
-    height: 24px;
+    //width: 92px;
+    //height: 24px;
     border-radius: 8px;
     background-color: #0c6459;
     border: solid 2px #c0f2ec;
     color: #ffffff;
     cursor: pointer;
+    padding: 5px 10px;
 }
 
 .timer-warning-show {
@@ -147,7 +149,7 @@ button:active {
     opacity: 1;
     z-index: 3;
     transition: opacity 0.5s;
-
+    padding: 15px;
 }
 
 .timer-modes {
