@@ -7,9 +7,9 @@ const timerWarning = document.querySelector('.timer-warning'),
       timerModeRest = document.getElementById("timerRest")
 
 const settings = {
-    work: 30,       // in minutes
-    rest: 10,       // in minutes
-    maxTime: 120,   // in minutes
+    work: 30,       // in minutes 30
+    rest: 10,       // in minutes 10
+    maxTime: 120,   // in minutes 120
     mainColors: ['#E3F2FD', '#3896d1'],
     lang: 'ru',
     langcontent: {
@@ -206,23 +206,22 @@ pauseTimerBtn.addEventListener('click', () => {
 // stop timer handler
 const stopTimerBtn = document.querySelector("#stop")
 
-stopTimerBtn.addEventListener('click', () => {
+function stopTimer(){
     clearInterval(session.timer);
     updateTimerLabel(session.fullTime)
     updateProgressBar(session.fullTime, session.fullTime, settings.mainColors);
-
-
-
     startTimerBtn.disabled = false;
     stopTimerBtn.disabled = false;
     pauseTimerBtn.disabled = false;
-
     session.state = 'FINISHED';
     updateStorage();
-
     session.timerId = undefined;
     updateSessionHeader();
     meditationCheckbox.disabled = false
+}
+
+stopTimerBtn.addEventListener('click', () => {
+    stopTimer()
 });
 
 function updateStorage() {
@@ -253,6 +252,9 @@ function updateTimerLabel(time) {
     const el = document.querySelector(".timer")
     if (el) {
         el.innerHTML = formatTime(time);
+        if (el.innerHTML === '00:00'){
+            stopTimer()
+        }
     }
 }
 
