@@ -2099,6 +2099,7 @@ input:focus {
 .message {
     height: 20px;
     text-align: center;
+    color: #f90404;
 }
 
 .h1 {
