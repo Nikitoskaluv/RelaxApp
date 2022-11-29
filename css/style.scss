@@ -11,12 +11,9 @@
 
 //components
 
-@import "sass/components/navigation";
 @import "sass/components/timer";
 @import "sass/components/player";
-@import "sass/components/advice";
-@import "sass/components/greeting";
-
+@import "sass/components/burger";
 //layout
 
 @import "sass/layout/wrapper";
@@ -30,4 +27,4 @@
 @import "sass/layout/warm-up";
 @import "sass/layout/footer";
 @import "sass/layout/user-profile";
-@import "sass/layout/burger";
+@import "sass/layout/error";

@@ -10,9 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 200vh;
-  min-height: 260px;
+  margin-bottom: 100px;
 }
 
 svg {
@@ -65,22 +63,23 @@ svg {
 .radioButtons {
   margin-top: 30px;
   margin-bottom: 30px;
+  align-items: center;
 }
 
 .asd {
+  width: 185px;
   margin-top: 51px;
-  padding: 12px 44px;
+  padding: 12px;
   background: linear-gradient(180deg, #259385 0%, #159685 100%);
-  box-shadow: 0px 13px 28px rgba(26, 127, 114, 0.2);
+  box-shadow: 0px 13px 28px rgb(26 127 114 / 20%);
   border-radius: 30px;
   text-decoration: none;
   display: inline-block;
-  font-family: "Heebo";
+  //font-family: "Heebo";
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 130%;
-  text-align: center;
   color: #ffffff;
 }
 
@@ -100,10 +99,11 @@ svg {
 
 .p_btn {
   margin-top: 20px;
-  font-family: "Heebo";
+  font-size: 24px;
+  //font-family: "Heebo";
   font-style: normal;
   font-weight: 700;
-  font-size: 32px;
+  //font-size: 32px;
   line-height: 47px;
   text-align: center;
   color: #000000;

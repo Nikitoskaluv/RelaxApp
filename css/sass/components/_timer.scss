@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Forum");
+@import url("https://fonts.googleapis.com/css?family=Merienda One");
 
 html {
     // height: 100%;
@@ -13,7 +13,7 @@ html {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#27c4c4', endColorstr='#3896d1', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
-    font-family: "Forum", sans-serif;
+    font-family: "Merienda One", Verdana, sans-serif;
 }
 
 button {
@@ -45,8 +45,6 @@ button:active {
     justify-content: center;
     align-items: center;
 }
-
-
 
 #timerH {
     width: 100%;
@@ -87,8 +85,6 @@ button:active {
     border-radius: 50px;
 }
 
-//===
-
 .main-timer {
     margin-top: 0px;
     display: flex;
@@ -98,57 +94,54 @@ button:active {
 }
 
 .timer-warning {
-    display: flex;
-    visibility: hidden;
     opacity: 0;
-    background-color: #696969;
-    color: #f0ffff;
     position: absolute;
-    width: 320px;
-    z-index: -3;
-    height: 128px;
-    border-radius: 32px;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #219485;
+    color: #ffffff;
+    width: 420px;
+    height: 120px;
+    border-radius: 30px;
     font-family: "Forum", sans-serif;
     font-weight: 700;
+    padding: 8px;
+    margin-top: 70px;
+}
+
+.timer-warning-text {
+    display: flex;
     justify-content: center;
-    border: solid;
+    font-size: 17px;
 }
 
-.timer-warning .timer-warning-text {
+.timer-warning-buttons {
     display: flex;
-    visibility: visible;
-    opacity: 1;
-    padding: 20px;
-    font-size: 19px;
-    text-align: center;
+    justify-content: space-around;
 }
 
-.timer-warning .timer-warning-continue {
-    display: flex;
-    visibility: visible;
-    opacity: 1;
-    width: 92px;
-    height: 24px;
-    top: 80px;
-    left: 10%;
-    align-items: center;
+.timer-warning-continue {
+    //width: 92px;
+    //height: 24px;
     border-radius: 8px;
-    background-color: #36454f;
-    border: solid 2px;
+    background-color: #0c6459;
+    border: solid 2px #c0f2ec;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 5px 10px;
 }
 
-.timer-warning .timer-warning-login {
-    display: flex;
-    visibility: visible;
-    opacity: 1;
-    width: 92px;
-    height: 24px;
-    top: 80px;
-    left: 60%;
-    align-items: center;
+.timer-warning-login {
+    //width: 92px;
+    //height: 24px;
     border-radius: 8px;
-    background-color: #36454f;
-    border: solid 2px;
+    background-color: #0c6459;
+    border: solid 2px #c0f2ec;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 5px 10px;
 }
 
 .timer-warning-show {
@@ -156,9 +149,8 @@ button:active {
     opacity: 1;
     z-index: 3;
     transition: opacity 0.5s;
-
+    padding: 15px;
 }
-
 
 .timer-modes {
     display: inline-block;
@@ -188,19 +180,24 @@ button:active {
     color: #ffffff;
 }
 
-
 .timer-modes input[type=radio]:checked+label {
     background: #ffe0a6;
+    color: red;
+}
+
+.timer-modes input[type=radio]:checked {
+    background: #ffe0a6;
+    color: red;
 }
 
 .timer-modes label:hover {
-    color: #666;
+
     background: linear-gradient(180deg, #2db8a6 0%, #078a78 100%);
     box-shadow: 0px 13px 28px rgba(19, 88, 79, 0.2);
 }
 
 .timer-modes label:active {
-    color: #666;
+    color: grey;
     background: linear-gradient(180deg, #45f2db 0%, #0adbbf 100%);
     box-shadow: 0px 13px 28px rgba(24, 47, 44, 0.2);
 }
@@ -209,6 +206,14 @@ button:active {
     background-color: darkkhaki;
 }
 
+.timer-modes__selected {
+    background-color: #cff1ed;
+    border-radius: 50px;
+    border: 5px #cff1ed solid;
+}
+
+
+
 .timer-meditation {
     display: flex;
     flex-direction: row;
@@ -216,6 +221,7 @@ button:active {
     justify-content: center;
     width: 284px;
     height: 47px;
+    margin: 15px 0 10px 0;
     cursor: pointer;
     padding: 0px 15px;
     background: none;
@@ -252,6 +258,7 @@ button:active {
     width: 26px;
     font-size: 1.2em;
     color: #3EB29D;
+    cursor: pointer;
 }
 
 .controls>button,
@@ -329,7 +336,9 @@ button:active {
     width: 100%;
     color: #1A7F72;
     margin-bottom: 10px;
-    font-family: "Heebo";
+    font-size: 28px;
+    line-height: 1.2;
+    //font-family: "Heebo";
 }
 
 .buttonset>button {
@@ -354,4 +363,8 @@ button:active {
     min-height: 28px;
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+.timer-settings {
+    cursor: pointer;
 }

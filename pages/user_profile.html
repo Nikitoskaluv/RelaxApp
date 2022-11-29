@@ -8,8 +8,6 @@
     <link href="../assets/icons/man.svg" rel="shortcut icon" />
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
-
-
     <title>Profile</title>
 </head>
 
@@ -22,8 +20,10 @@
         <div class="header__right">
             <div class="logout-warning">
                 <div class="logout-warning-text">Статистика не будет сохраняться если выйти!</div>
-                <button class="logout-warning logout-warning-continue" type="button" id="logoutContinue">Выйти</button>
-                <button class="logout-warning logout-warning-cancel" type="button">Остаться</button>
+                <div class="logout-warning-buttons">
+                    <button class="logout-warning-continue" type="button" id="logoutContinue">Выйти</button>
+                    <button class="logout-warning-cancel" type="button">Остаться</button>
+                </div>
             </div>
             <button class="logout "><img src="../assets/icons/logout-svgrepo-com.svg"></button>
             <a href="./user_profile.html"><svg width="61" height="64" viewBox="0 0 61 64"
@@ -76,54 +76,72 @@
             </ul>
         </nav> -->
         <div class="profile-block-container profile-block-container_contain">
-            <form class="profile-block-form" id="profileForm">
-                <div class="profile-block-form-inputs">
-                    <div class="input">
-                        <label for="username">Имя</label>
-                        <input id="username" type="text" class="input" placeholder="Имя"
-                            title="Введите не менее 3 символов" />
+            <div class="formContainerDisplay">
+                <form class="profile-block-form" id="profileForm">
+
+                    <div class="profile-block-form-inputs">
+                        <div class="input first_input">
+                            <label for="username">Имя</label>
+                            <input id="username" type="text" class="input" placeholder="Имя"
+                                title="Введите не менее 3 символов" />
+                        </div>
+
+                        <div class="input">
+                            <label for="email">E-Mail</label>
+                            <input id="email" type="text" class="input" placeholder="E-Mail"
+                                title="Введите корректный email" readonly />
+                        </div>
+                    </div>
+                    <div class="profile-buttons">
+                        <button type="submit" class="save-changes-button" id="save-profile-button"
+                            disabled>Сохранить</button>
+                    </div>
+                </form>
+
+                <form class="profile-block-form" id="passwordForm">
+
+                    <div class="profile-block-form-inputs">
+
+                        <div class="input first_input">
+                            <label for="password-new">Придумайте новый пароль</label>
+                            <input id="password-new" type="password" class="input" placeholder="Придумайте новый пароль"
+                                title="Пароль должен содержать не менее 4 символов разного регистра и цифр" />
+                        </div>
+
+                        <div class="input">
+                            <label for="password-new-repeat">Повторите пароль</label>
+                            <input id="password-new-repeat" type="password" class="input" placeholder="Повторите пароль"
+                                title="Пароли должны совпадать" />
+                        </div>
+                    </div>
+                    <div class="profile-buttons">
+                        <button type="submit" class="save-changes-button" id="save-password-button"
+                            disabled>Сохранить</button>
                     </div>
 
-                    <div class="input">
-                        <label for="email">E-Mail</label>
-                        <input id="email" type="text" class="input" placeholder="E-Mail"
-                            title="Введите корректный email" readonly />
-                    </div>
-                </div>
-                <div class="profile-buttons">
-                    <button type="submit" class="save-changes-button" id="save-profile-button"
-                        disabled>Сохранить</button>
-                </div>
-            </form>
 
-            <form class="profile-block-form" id="passwordForm">
-                <div class="profile-block-form-inputs">
+                </form>
 
-                    <div class="input">
-                        <label for="password-new">Придумайте новый пароль</label>
-                        <input id="password-new" type="password" class="input" placeholder="Придумайте новый пароль"
-                            title="Пароль должен содержать не менее 4 символов разного регистра и цифр" />
-                    </div>
-
-                    <div class="input">
-                        <label for="password-new-repeat">Повторите пароль</label>
-                        <input id="password-new-repeat" type="password" class="input" placeholder="Повторите пароль"
-                            title="Пароли должны совпадать" />
-                    </div>
-                </div>
-                <div class="profile-buttons">
-                    <button type="submit" class="save-changes-button" id="save-password-button"
-                        disabled>Сохранить</button>
-                </div>
-                <div class="message"></div>
-            </form>
-
+            </div>
+            <div class="message"></div>
             <div class="profile-block-container profile-block-container_contain statistics">
-                <div class="dayStatsContainer">
-                    <canvas id="dayStatistics"></canvas>
+
+                <div>
+                    <h2>СТАТИСТИКА ЗА ДЕНЬ</h2>
+                    <div class="dayStatsContainer">
+                        <canvas id="dayStatistics" width="500px"></canvas>
+                    </div>
                 </div>
-                <div class="weekStatsContainer">
-                    <canvas id="weekStatistics"></canvas>
+                <div>
+                    <h2>СТАТИСТИКА ЗА НЕДЕЛЮ</h2>
+                    <div class="weekStatsContainer">
+                        <canvas id="weekStatistics"></canvas>
+                    </div>
+                </div>
+                <div class="meditationTrekker">
+                    <h2>МЕДИТАЦИИ НА ЭТОЙ НЕДЕЛЕ</h2>
+                    <div class="checkContainer">
+                    </div>
                 </div>
             </div>
         </div>

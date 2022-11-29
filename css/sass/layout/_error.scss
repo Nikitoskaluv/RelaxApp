@@ -1,0 +1,61 @@
+.error_wrapper {
+  // background: rgb(59,209,187, 1);
+  background-image: url(./../assets/img/wave.png);
+  background-size: 100% 100%;
+}
+
+.error_main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+  &__box {
+    width: 100%;
+    min-height: 800px;
+    margin: 0px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: auto;
+      height: 779px;
+    }
+  }
+}
+
+.error_text {
+  display: flex;
+  flex-direction: column;
+  font-size: 49px;
+  &__top {
+    font-family: "Heebo";
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 250px;
+    line-height: 130%;
+    color: #cefff9;
+    text-align: center;
+  }
+  &__bot {
+    font-family: "Lobster";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 130%;
+    color: #1a7f72;
+    text-align: center;
+  }
+  &__link {
+    font-size: 40px;
+    text-align: center;
+    padding-top: 146px;
+    color: #1a7f72;
+  }
+}
+
+.error__box {
+  display: flex;
+}

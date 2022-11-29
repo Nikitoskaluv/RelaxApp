@@ -5,8 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../assets/icons/man.svg" rel="shortcut icon" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
-    <!-- <link rel="stylesheet" href="../css/style.css" /> -->
     <title>Relax</title>
 </head>
 
@@ -19,10 +17,14 @@
         <div class="header__right">
             <div class="logout-warning">
                 <div class="logout-warning-text">Статистика не будет сохраняться если выйти!</div>
-                <button class="logout-warning logout-warning-continue" type="button" id="logoutContinue">Выйти</button>
-                <button class="logout-warning logout-warning-cancel" type="button">Остаться</button>
+                <div class="logout-warning-buttons">
+                    <button class="logout-warning-continue" type="button" id="logoutContinue">Выйти</button>
+                    <button class="logout-warning-cancel" type="button">Остаться</button>
+                </div>
             </div>
-            <button class="logout "><img src="../assets/icons/logout-svgrepo-com.svg"></button>
+            <button class="logout">
+                <img src="../assets/icons/logout-svgrepo-com.svg">
+            </button>
             <a class="login " href="./login.html"><svg width="55" height="64" viewBox="0 0 55 64"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -66,9 +68,9 @@
     <main class="main">
         <div id="active"></div>
         <span class="radioButtons">
-            <div class="timer-modes"><label><input type="radio" name="session-group" id="radioWork" value="work"
+            <div class="timer-modes" id="timerWork"><label><input type="radio" name="session-group" id="radioWork" value="work"
                         checked>Работа<br></label></div>
-            <div class="timer-modes"><label><input type="radio" name="session-group" id="radioRest"
+            <div class="timer-modes" id="timerRest"><label><input type="radio" name="session-group" id="radioRest"
                         value="rest">Отдых<br></label>
             </div>
         </span>
@@ -79,11 +81,12 @@
 
         <section class="main-timer">
             <div class="timer-warning">
-                <div class="timer-warning timer-warning-text">Статистика не будет сохраняться без входа!</div>
-                <button class="timer-warning timer-warning-continue" type="button"
-                    id="timerContinue">Продолжить</button>
-                <button class="timer-warning timer-warning-login" type="button"
-                    onclick="window.location.href='./login.html'">Войти</button>
+                <div class="timer-warning-text">Статистика не будет сохраняться без входа!</div>
+                <div class="timer-warning-buttons">
+                    <button class="timer-warning-continue" type="button" id="timerContinue">Продолжить</button>
+                    <button class="timer-warning-login" type="button"
+                        onclick="window.location.href='./login.html'">Войти</button>
+                </div>
             </div>
             <h1 id="timerH"></h1>
             <div class="timer-bg">
@@ -99,41 +102,38 @@
         <label for="radioMeditation">
             <div class="timer-meditation">
                 <input type="checkbox" id="radioMeditation" value="meditation">
-                <label for="radioMeditation">Медитация</label>
+                <label class="meditation__radio" for="radioMeditation">Медитация</label>
             </div>
         </label>
-        <label id="hide-toggle" for="hidden">Настройки времени</label>
+        <label class="timer-settings" id="hide-toggle" for="hidden">Настройки времени</label>
         <input id="hidden" type="checkbox">
         <section class="customize">
             <div class="buttonset">
                 <h3 class="wr-heading" id="cust-w-head">Введите время в минутах</h3>
-<!--                <button id="wless">-</button>-->
-                <input type="number" id="workTime" min="1" max="120" value="30"/>
+                <!--                <button id="wless">-</button>-->
+                <input type="number" id="workTime" min="1" max="120" value="30" />
                 <!-- <div id=" workTime">
             </div> -->
-<!--                <button id="wmore">+</button>-->
+                <!--                <button id="wmore">+</button>-->
             </div>
         </section>
-        <div class="greeting-container">
-            <span class="greeting"></span>
-            <input type="text" class="name" />
-        </div>
         <div class="index_player">
             <div class="player">
                 <div class="all-controls">
                     <div class="volume-controls">
-                        <button class="play player-icon"><img src="../assets/icons/white-play.svg" alt="play"
-                                width="90px" height="90px"></button>
+                        <button class="play player-icon"><img src="../assets/icons/player-play.svg" alt="play"
+                                width="50px" height="50px" fill="green"></button>
+                        <button class="pause player-icon"><img src="../assets/icons/player-pause.svg" alt="pause" width="36px"
+                                                               height="36px"></button>
                         <input class="range">
                         <button class="mute player-icon"></button>
                     </div>
                     <div class="player-controls">
-                        <button class="play-prev player-icon"><img src="../assets/icons/rewind.svg" alt="play"
-                                width="22px" height="22px"></button>
-                        <button class="pause player-icon"><img src="../assets/icons/pause.svg" alt="play" width="22px"
-                                height="22px"></button>
-                        <button class="play-next player-icon"><img src="../assets/icons/remote.svg" alt="play"
-                                width="22px" height="22px"></button>
+                        <button class="play-prev player-icon"><img src="../assets/icons/player-rewind.svg" alt="prev"
+                                width="60px" height="60px"></button>
+
+                        <button class="play-next player-icon"><img src="../assets/icons/player-forward.svg" alt="next"
+                                width="60px" height="60px"></button>
                     </div>
                 </div>
                 <ul class="play-list"></ul>
@@ -161,14 +161,6 @@
         <p>Команда "Relax", 2022</p>
         <p>Курс "Командная разработка по методологии Agile: SCRUM", <a href="https://gb.ru/">GeekBrains</a></p>
     </footer>
-    <!-- <footer class="footer">
-    </footer> -->
-
-    <!-- <script src="../js/swiper.js"></script>
-    <script src="../js/greeting.js"></script>
-    <script src="../js/timer.js"></script>
-    <script src="../js/advice.js"></script>
-    <script src="../js/player.js"></script> -->
 </body>
 
 </html>

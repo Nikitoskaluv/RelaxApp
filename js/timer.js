@@ -2,12 +2,14 @@ const { v4: uuidv4 } = require('uuid');
 const { ADDRESS } = require("./constants");
 
 const timerWarning = document.querySelector('.timer-warning'),
-    timerWarningContinue = document.getElementById("timerContinue")
+      timerWarningContinue = document.getElementById("timerContinue"),
+      timerModeWork = document.getElementById("timerWork"),
+      timerModeRest = document.getElementById("timerRest")
 
 const settings = {
-    work: 30,       // in minutes
-    rest: 10,       // in minutes
-    maxTime: 120,   // in minutes
+    work: 30,       // in minutes 30
+    rest: 10,       // in minutes 10
+    maxTime: 120,   // in minutes 120
     mainColors: ['#E3F2FD', '#3896d1'],
     lang: 'ru',
     langcontent: {
@@ -67,63 +69,64 @@ meditationCheckbox.addEventListener('change', (e) => {
 });
 
 document.getElementsByName('session-group').forEach(el => el.addEventListener('change', (e) => {
-    if (e.target.id === 'radioWork') {
-        session = {
-            name: 'work',
-            remains: 0,                     // in seconds
-            fullTime: settings.work * 60,   // in seconds
-            timerId: undefined,
-            timer: 0
+    if (!session.timerId){
+        if (e.target.id === 'radioWork') {
+            session = {
+                name: 'work',
+                remains: 0,                     // in seconds
+                fullTime: settings.work * 60,   // in seconds
+                timerId: undefined,
+                timer: 0
+            }
+            timerValueAdjusterElement.innerHTML = settings.work;
+            meditationCheckbox.checked = false;
+            meditationCheckbox.parentElement.style.visibility = 'hidden';
+        } else if (e.target.id === 'radioRest') {
+            session = {
+                name: 'rest',
+                remains: 0,                     // in seconds
+                fullTime: settings.rest * 60,   // in seconds
+                timerId: undefined,
+                timer: 0
+            }
+            timerValueAdjusterElement.innerHTML = settings.rest;
+            meditationCheckbox.parentElement.style.visibility = 'unset';
         }
-        timerValueAdjusterElement.innerHTML = settings.work;
-        meditationCheckbox.checked = false;
-        meditationCheckbox.parentElement.style.visibility = 'hidden';
-    } else if (e.target.id === 'radioRest') {
-        session = {
-            name: 'rest',
-            remains: 0,                     // in seconds
-            fullTime: settings.rest * 60,   // in seconds
-            timerId: undefined,
-            timer: 0
-        }
-        timerValueAdjusterElement.innerHTML = settings.rest;
-        meditationCheckbox.parentElement.style.visibility = 'unset';
-    }
 
-    updateTimerLabel(session.fullTime);
+        updateTimerLabel(session.fullTime);
+    }
 }));
+
+
 
 
 //timer input handler
 timerValueAdjusterElement.addEventListener('change', () => {
-    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
+    if (session.timerId || timerValueAdjusterElement.value <= 0) {
         return;
     }
-    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
-    //     return;
-    // }
+    if ( timerValueAdjusterElement.value >= 121)
+    {
+        session.fullTime = 120 * 60
+        updateTimerLabel(session.fullTime)
+        return;
+    }
     session.fullTime = timerValueAdjusterElement.value * 60
     updateTimerLabel(session.fullTime)
 
 })
 
 timerValueAdjusterElement.addEventListener('input', () => {
-    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
+    if (session.timerId || timerValueAdjusterElement.value <= 0) {
         return;
     }
-    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
-    //     return;
-    // }
-    // session.fullTime = // timerValueAdjusterElement.value * 60
-    // updateTimerLabel(session.fullTime)
-});
-timerValueAdjusterElement.addEventListener('input', () => {
-    if (session.timerId || timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0) {
+    if ( timerValueAdjusterElement.value > 120)
+    {
+        session.fullTime = 120 * 60
+        timerValueAdjusterElement.value = 120
+        updateTimerLabel(session.fullTime)
         return;
     }
-    // if (timerValueAdjusterElement.value >= 121 || timerValueAdjusterElement.value <= 0){
-    //     return;
-    // }
     session.fullTime = timerValueAdjusterElement.value * 60
     updateTimerLabel(session.fullTime)
     console.log(timerValueAdjusterElement.value)
@@ -133,7 +136,7 @@ timerValueAdjusterElement.addEventListener('input', () => {
 const startTimerBtn = document.querySelector("#launch");
 
 function startTimer() {
-
+    meditationCheckbox.disabled = true
     let colors;
 
     if (session.timerId) {
@@ -202,22 +205,23 @@ pauseTimerBtn.addEventListener('click', () => {
 
 // stop timer handler
 const stopTimerBtn = document.querySelector("#stop")
-stopTimerBtn.addEventListener('click', () => {
+
+function stopTimer(){
     clearInterval(session.timer);
     updateTimerLabel(session.fullTime)
     updateProgressBar(session.fullTime, session.fullTime, settings.mainColors);
-
-
-
     startTimerBtn.disabled = false;
     stopTimerBtn.disabled = false;
     pauseTimerBtn.disabled = false;
-
     session.state = 'FINISHED';
     updateStorage();
-
     session.timerId = undefined;
     updateSessionHeader();
+    meditationCheckbox.disabled = false
+}
+
+stopTimerBtn.addEventListener('click', () => {
+    stopTimer()
 });
 
 function updateStorage() {
@@ -248,6 +252,9 @@ function updateTimerLabel(time) {
     const el = document.querySelector(".timer")
     if (el) {
         el.innerHTML = formatTime(time);
+        if (el.innerHTML === '00:00'){
+            stopTimer()
+        }
     }
 }
 
@@ -344,5 +351,28 @@ function playButton() {
         startTimer();
 }
 
+timerModeWork.addEventListener('click', ()=>{
+    timerModeWork.classList.add('timer-modes__selected')
+    timerModeRest.classList.remove('timer-modes__selected')
+
+})
+timerModeRest.addEventListener('click', ()=>{
+    timerModeWork.classList.remove('timer-modes__selected')
+    timerModeRest.classList.add('timer-modes__selected')
+
+})
+
 timerWarningContinue.addEventListener('click', startTimer);
 timerWarningContinue.addEventListener('click', hideWarning);
+
+function processNonFinishedTimers() {
+    for (let key of Object.keys(localStorage).filter(key => key.startsWith('timer_'))) {
+        const timer = JSON.parse(localStorage.getItem(key));
+        if (timer) {
+            timer.state = 'FINISHED';
+            localStorage.setItem(key, JSON.stringify(timer));
+        }
+    }
+}
+
+processNonFinishedTimers();
